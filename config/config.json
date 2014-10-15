@@ -1,0 +1,13 @@
+{
+    "port"                          :   1234,
+
+    "database.host"                 :   "localhost",
+    "database.name"                 :   "bbn_db",
+    "ref.database.name"             :   "bbn_db_ref",
+    "database.user"                 :   "root",
+    "database.pass"                 :   "ankit",
+
+    "upload.path"                   :   "/var/bbn/upload",
+
+    "email.cdn.base_uri"            :   ""
+}

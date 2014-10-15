@@ -1,0 +1,43 @@
+<!DOCTYPE html><html lang="en"></html><head><meta charset="utf-8"><title>BookBanyan</title><meta name="viewport" content="width=device-width, initial-scale = 1.0, user-scalable=no "><!--Loading Bootstrap--><link href="css/bootstrap.css" rel="stylesheet"><link href="css/flat-ui.css" rel="stylesheet"><link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"><!--Loading Flat UI--><link href="css/book-page.css" rel="stylesheet"><script src="js/respond.min.js"></script><script src="js/modernizr.js"></script><!--HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file.--><!--if lt IE 9script(src='js/html5shiv.js')
+script(src='js/respond.min.js')--><body><header class="header"><div id="myheader" class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><button data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="#" class="navbar-brand"><img src="img/logo.png"></a><ul class="nav navbar-right"><li><a href="" class="btn btn-small btn-info">Log-In</a></li></ul><div class="navbar-collapse collapse"><ul class="nav navbar-nav"><li><a href="#">How It Works</a></li><li><a href="#">Features</a></li><li><a href="#">Pricing</a></li></ul></div></div></div></div></header><section class="author-profile"><div class="container"><div class="row"><div class="col-md-8 col-md-offset-2 text-center"><div class="img-wrap"><img src="img/upic1.png" alt="1" class="img-circle"></div><h5>Ravi Kumar</h5><ul class="top-icons"><li><div class="top-one"><span class="icon-book-open"></span>5<p class="caption-top">Books</p></div></li><li><div class="top-one"><span class="icon-newspaper"></span>12<p class="caption-top">Articles</p></div></li><li><div><span class="icon-edit"></span>12<p class="caption-top">Reviews</p></div></li></ul><ul class="bottom-icons"><li><a href=""><span class="icon-facebook"></span></a></li><li><a href=""><span class="icon-twitter"></span></a></li><li><a href=""><span class="icon-googleplus"></span></a></li></ul></div></div></div></section><section class="about-author"><div class="container"><div class="row"><div class="col-md-10 col-md-offset-1 text-center"><h6>About</h6><p class="text-default">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore, pariatur, ipsum earum aperiam cupiditate recusandae quae debitis animi optio nulla dolores dolorem sit quidem culpa aliquam a molestiae tempora. Sint. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, dolore, facilis quae optio soluta eligendi nostrum eveniet doloremque asperiores tempora.</p><div class="row"><div class="col-md-12 favs"><p><span class="text-info">Fav Authors</span>Franz Kafka, Leo Tolstoy</p><p><span class="text-danger">Fav Books</span>Anna Karenina, The Brothers karamazov</p></div></div></div></div></div></section><section class="auth-books"><div class="container"><div class="row"><div class="col-md-12 text-center"><h6 class="text-default">Books</h6></div></div><div class="row"><div class="col-md-6 col-sm-6 bookdet"><div class="row"><div class="col-md-6 col-sm-6"><div class="bcover1"><img src="img/Suicide-at-IIT.png" alt="1" class="img-rounded"></div></div><div class="col-md-6 col-sm-6"><h6>Suicide at IIT<br><small>Drama | Fiction</small></h6><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, quae, maiores nihil modi temporibus numquam voluptatibus eaque officia dolore quidem rerum dolorem corporis minima. Laudantium alias odit assumenda eum sint.</p><a href="BookB-book-page.html" class="btn btn-md btn-info">Read More</a></div></div></div><div class="col-md-6 col-sm-6 bookdet"><div class="row"><div class="col-md-6 col-sm-6"><div class="bcover1"><img src="img/The_Little_Hearts.jpg" alt="1" class="img-rounded"></div></div><div class="col-md-6 col-sm-6"><h6>The Little Hearts<br><small>Drama | Fiction</small></h6><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, quae, maiores nihil modi temporibus numquam voluptatibus eaque officia dolore quidem rerum dolorem corporis minima. Laudantium alias odit assumenda eum sint.</p><a href="BookB-book-page.html" class="btn btn-md btn-info">Read More</a></div></div></div></div></div></section><section class="footer"><div class="container"><div class="row"><div class="col-md-8 col-sm-8 col-xs-12"><ul class="footer-nav pull-left"><li><a href="#">About BookBanyan</a></li><li><a href="#">Team</a></li><li><a href="#">Blog</a></li><li><a href="#" class="active">Pricing</a></li><li><a href="#">Terms & Conditions</a></li><li><a href="#">Contact Us</a></li></ul></div><div class="col-md-4 col-sm-4 col-xs-12 copyright"><ul class="footer-nav pull-right"><li>Copyright © 2014 BookBanyan</li></ul></div></div></div></section><!--Load JS here for greater good =============================--><script src="js/jquery-1.11.0.min.js"></script><script src="js/bootstrap.min.js"></script><!--<script>
+            $( document ).ready(function() {
+// $('#mypopover').popover();
+        $('.pop-dis').hover(
+            function(){
+                $(this).find('.caption').slideDown(250); //.fadeIn(250)
+            },
+            function(){
+                $(this).find('.caption').slideUp(250); //.fadeOut(205)
+            }
+        );
+        $(".pop-dis").popover({
+        container:'.pop-dis',
+        trigger:'hover',
+        html : true,
+        content: function() {
+          return $('.popoverExampleTwoHiddenContent').html();
+        },
+        title: function() {
+          return $('.popoverExampleTwoHiddenTitle').html();
+        }
+});
+    });
+    </script>--><script>$( document ).ready(function() {
+$('.pop-dis').hover(
+function(){
+$(this).find('.caption').slideDown(250); //.fadeIn(250)
+},
+function(){
+$(this).find('.caption').slideUp(250); //.fadeOut(205)
+}
+);
+});</script><script>$( document ).ready(function() {
+$('.pop-dis').hover(
+function(){
+$(this).find('.sidepop').fadeIn(250); //.fadeIn(250)
+},
+function(){
+$(this).find('.sidepop').fadeOut(205); //.fadeOut(205)
+}
+);
+});</script></body></head>

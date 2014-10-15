@@ -1,0 +1,37 @@
+///<reference path='../_references.d.ts'/>
+var url = require('url');
+var Coral = require('Coral');
+
+var Urls = (function () {
+    function Urls() {
+    }
+    Urls.submit = function (baseUrl) {
+        return Urls.get('/submit', baseUrl);
+    };
+    Urls.home = function (baseUrl) {
+        return Urls.get('/', baseUrl);
+    };
+    Urls.confirmation = function (baseUrl) {
+        return Urls.get('/confirmation', baseUrl);
+    };
+    Urls.uploadFile = function (baseUrl) {
+        return Urls.get('/upload', baseUrl);
+    };
+
+    Urls.get = function (urlPattern, values, baseUrl) {
+        if (values)
+            for (var key in values)
+                if (values[key] != null) {
+                    var urlParamRegex = new RegExp(':' + key);
+                    var urlParamTypeRegex = new RegExp('\\(([^\\(]*)\\)', 'i');
+                    urlPattern = urlPattern.replace(urlParamTypeRegex, '').replace(urlParamRegex, values[key]);
+                }
+        if (!Coral.Utils.isNullOrEmpty(baseUrl))
+            urlPattern = url.resolve(baseUrl, urlPattern);
+
+        return urlPattern;
+    };
+    return Urls;
+})();
+module.exports = Urls;
+//# sourceMappingURL=Urls.js.map

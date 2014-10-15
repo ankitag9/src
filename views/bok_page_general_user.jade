@@ -1,0 +1,477 @@
+doctype html(lang='en')
+head
+    meta(charset='utf-8')
+    title BookBanyan
+    meta(name='viewport', content='width=device-width, initial-scale = 1.0, user-scalable=no ')
+    //
+       Loading Bootstrap 
+    link(href='css/bootstrap.css', rel='stylesheet')
+    link(href='css/flat-ui.css', rel='stylesheet')
+    link(href='http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css', rel='stylesheet')
+    //
+       Loading Flat UI 
+    link(href='css/book-page.css', rel='stylesheet')
+    script(src='js/respond.min.js')
+    script(src='js/modernizr.js')
+    //
+       HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. 
+    //if lt IE 9
+      script(src='js/html5shiv.js')
+      script(src='js/respond.min.js')
+    body
+        header.header
+            #myheader.navbar.navbar-fixed-top
+                .navbar-inner
+                    .container
+                        button.navbar-toggle(data-toggle='collapse', data-target='.navbar-collapse')
+                            span.icon-bar
+                            span.icon-bar
+                            span.icon-bar
+                        a.navbar-brand(href='#')
+                            img(src='img/logo.png')
+                        ul.nav.navbar-right
+                            li
+                                a.btn.btn-small.btn-info(href='') Log-In
+                        .navbar-collapse.collapse
+                            ul.nav.navbar-nav
+                                li
+                                    a(href='#') How It Works
+                                li
+                                    a(href='#') Features
+                                li
+                                    a(href='#') Pricing
+        section.genbook
+            .container
+                .row
+                    .col-md-6.col-md-offset-3.col-sm-6.col-sm-offset-4
+                        form.form-inline(action='', role='form')
+                            .search-wrap
+                                span.glyphicon.glyphicon-search
+                                input#searchforbook.form-control(type='text', placeholder='Search for a Book....')
+                            //
+                              <div class="go-btn"><a href=""><img src="img/go-btn2.png" alt="1"></a></div>
+                .row
+                    .col-md-2.col-sm-3.col-xs-6.bookdisp
+                        .bookdispimg.pop-dis
+                            .caption
+                                a.btn.btn-success.btn-sm(href='') BUY NOW
+                                a.btn.btn-info.btn-sm(href='') VIEW
+                            img.img-responsive.img-rounded(src='img/book1.jpg', alt='1')
+                        h6 Title of book
+                        p
+                            small by
+                            | Ravu Kumar
+                        //
+                           Popover 2 hidden content
+                        .popoverExampleTwoHiddenContent(style='display: none;')
+                            .bhb1
+                                p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
+                                p.text-primay Ravi Kumar
+                                a.btn.btn-block.btn-warning(href='') Buy Now
+                        //
+                           Popover 2 hidden title
+                        .popoverExampleTwoHiddenTitle(style='display: none;')
+                            .bhb
+                                h6
+                                    | Title of Book
+                                    br
+                                    small Fiction
+                        //
+                          eg2
+                    //
+                      1st-book
+                    .col-md-2.col-sm-3.col-xs-6.bookdisp
+                        .bookdispimg.pop-dis
+                            .caption
+                                a.btn.btn-success.btn-sm(href='') BUY NOW
+                                a.btn.btn-info.btn-sm(href='') VIEW
+                            .sidepop
+                                .bhb
+                                    h6
+                                        | Title of Book
+                                        br
+                                        small Fiction
+                                    .rating-display
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star-empty
+                                .bhb1
+                                    p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
+                                    p.text-primary Ravi Kumar
+                                    a.btn.btn-block.btn-warning(href='') Buy Now
+                            img.img-responsive.img-rounded(src='img/book2.jpg', alt='1')
+                        h6 Title of book
+                        p
+                            small by
+                            | Ravu Kumar
+                    //
+                      2nd-book
+                    //
+                      -2nd book's code below
+                    .col-md-2.col-sm-3.col-xs-6.bookdisp
+                        .bookdispimg.pop-dis
+                            .caption
+                                a.btn.btn-success.btn-sm(href='') BUY NOW
+                                a.btn.btn-info.btn-sm(href='BookB-book-page.html') VIEW
+                            .sidepop
+                                .bhb
+                                    h6
+                                        | Title of Book
+                                        br
+                                        small Fiction
+                                    .rating-display
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star-empty
+                                .bhb1
+                                    p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
+                                    p.text-primary Ravi Kumar
+                                    a.btn.btn-block.btn-warning(href='') Buy Now
+                            img.img-responsive.img-rounded(src='img/book3.jpg', alt='1')
+                        h6 Title of book
+                        p
+                            small by
+                            | Ravu Kumar
+                    .col-md-2.col-sm-3.col-xs-6.bookdisp
+                        .bookdispimg.pop-dis
+                            .caption
+                                a.btn.btn-success.btn-sm(href='') BUY NOW
+                                a.btn.btn-info.btn-sm(href='BookB-book-page.html') VIEW
+                            .sidepop
+                                .bhb
+                                    h6
+                                        | Title of Book
+                                        br
+                                        small Fiction
+                                    .rating-display
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star-empty
+                                .bhb1
+                                    p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
+                                    p.text-primary Ravi Kumar
+                                    a.btn.btn-block.btn-warning(href='') Buy Now
+                            img.img-responsive.img-rounded(src='img/book4.jpg', alt='1')
+                        h6 Title of book
+                        p
+                            small by
+                            | Ravu Kumar
+                    .col-md-2.col-sm-3.col-xs-6.bookdisp
+                        .bookdispimg.pop-dis
+                            .caption
+                                a.btn.btn-success.btn-sm(href='') BUY NOW
+                                a.btn.btn-info.btn-sm(href='BookB-book-page.html') VIEW
+                            .sidepop
+                                .bhb
+                                    h6
+                                        | Title of Book
+                                        br
+                                        small Fiction
+                                    .rating-display
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star-empty
+                                .bhb1
+                                    p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
+                                    p.text-primary Ravi Kumar
+                                    a.btn.btn-block.btn-warning(href='') Buy Now
+                            img.img-responsive.img-rounded(src='img/book5.jpg', alt='1')
+                        h6 Title of book
+                        p
+                            small by
+                            | Ravu Kumar
+                    .col-md-2.col-sm-3.col-xs-6.bookdisp
+                        .bookdispimg.pop-dis
+                            .caption
+                                a.btn.btn-success.btn-sm(href='') BUY NOW
+                                a.btn.btn-info.btn-sm(href='BookB-book-page.html') VIEW
+                            .sidepop
+                                .bhb
+                                    h6
+                                        | Title of Book
+                                        br
+                                        small Fiction
+                                    .rating-display
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star-empty
+                                .bhb1
+                                    p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
+                                    p.text-primary Ravi Kumar
+                                    a.btn.btn-block.btn-warning(href='') Buy Now
+                            img.img-responsive.img-rounded(src='img/book2.jpg', alt='1')
+                        h6 Title of book
+                        p
+                            small by
+                            | Ravu Kumar
+                    .col-md-2.col-sm-3.col-xs-6.bookdisp
+                        .bookdispimg.pop-dis
+                            .caption
+                                a.btn.btn-success.btn-sm(href='') BUY NOW
+                                a.btn.btn-info.btn-sm(href='BookB-book-page.html') VIEW
+                            .sidepop
+                                .bhb
+                                    h6
+                                        | Title of Book
+                                        br
+                                        small Fiction
+                                    .rating-display
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star-empty
+                                .bhb1
+                                    p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
+                                    p.text-primary Ravi Kumar
+                                    a.btn.btn-block.btn-warning(href='') Buy Now
+                            img.img-responsive.img-rounded(src='img/book1.jpg', alt='1')
+                        h6 Title of book
+                        p
+                            small by
+                            | Ravu Kumar
+                    .col-md-2.col-sm-3.col-xs-6.bookdisp
+                        .bookdispimg.pop-dis
+                            .caption
+                                a.btn.btn-success.btn-sm(href='') BUY NOW
+                                a.btn.btn-info.btn-sm(href='') VIEW
+                            .sidepop
+                                .bhb
+                                    h6
+                                        | Title of Book
+                                        br
+                                        small Fiction
+                                    .rating-display
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star-empty
+                                .bhb1
+                                    p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
+                                    p.text-primary Ravi Kumar
+                                    a.btn.btn-block.btn-warning(href='') Buy Now
+                            img.img-responsive.img-rounded(src='img/book2.jpg', alt='1')
+                        h6 Title of book
+                        p
+                            small by
+                            | Ravu Kumar
+                    //
+                      2nd-book
+                    //
+                      -2nd book's code below
+                    .col-md-2.col-sm-3.col-xs-6.bookdisp
+                        .bookdispimg.pop-dis
+                            .caption
+                                a.btn.btn-success.btn-sm(href='') BUY NOW
+                                a.btn.btn-info.btn-sm(href='') VIEW
+                            .sidepop
+                                .bhb
+                                    h6
+                                        | Title of Book
+                                        br
+                                        small Fiction
+                                    .rating-display
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star-empty
+                                .bhb1
+                                    p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
+                                    p.text-primary Ravi Kumar
+                                    a.btn.btn-block.btn-warning(href='') Buy Now
+                            img.img-responsive.img-rounded(src='img/book3.jpg', alt='1')
+                        h6 Title of book
+                        p
+                            small by
+                            | Ravu Kumar
+                    .col-md-2.col-sm-3.col-xs-6.bookdisp
+                        .bookdispimg.pop-dis
+                            .caption
+                                a.btn.btn-success.btn-sm(href='') BUY NOW
+                                a.btn.btn-info.btn-sm(href='') VIEW
+                            .sidepop
+                                .bhb
+                                    h6
+                                        | Title of Book
+                                        br
+                                        small Fiction
+                                    .rating-display
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star-empty
+                                .bhb1
+                                    p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
+                                    p.text-primary Ravi Kumar
+                                    a.btn.btn-block.btn-warning(href='') Buy Now
+                            img.img-responsive.img-rounded(src='img/book4.jpg', alt='1')
+                        h6 Title of book
+                        p
+                            small by
+                            | Ravu Kumar
+                    .col-md-2.col-sm-3.col-xs-6.bookdisp
+                        .bookdispimg.pop-dis
+                            .caption
+                                a.btn.btn-success.btn-sm(href='') BUY NOW
+                                a.btn.btn-info.btn-sm(href='') VIEW
+                            .sidepop
+                                .bhb
+                                    h6
+                                        | Title of Book
+                                        br
+                                        small Fiction
+                                    .rating-display
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star-empty
+                                .bhb1
+                                    p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
+                                    p.text-primary Ravi Kumar
+                                    a.btn.btn-block.btn-warning(href='') Buy Now
+                            img.img-responsive.img-rounded(src='img/book5.jpg', alt='1')
+                        h6 Title of book
+                        p
+                            small by
+                            | Ravu Kumar
+                    .col-md-2.col-sm-3.col-xs-6.bookdisp
+                        .bookdispimg.pop-dis
+                            .caption
+                                a.btn.btn-success.btn-sm(href='') BUY NOW
+                                a.btn.btn-info.btn-sm(href='') VIEW
+                            .sidepop
+                                .bhb
+                                    h6
+                                        | Title of Book
+                                        br
+                                        small Fiction
+                                    .rating-display
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star
+                                        span.glyphicon.glyphicon-star-empty
+                                .bhb1
+                                    p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
+                                    p.text-primary Ravi Kumar
+                                    a.btn.btn-block.btn-warning(href='') Buy Now
+                            img.img-responsive.img-rounded(src='img/book2.jpg', alt='1')
+                        h6 Title of book
+                        p
+                            small by
+                            | Ravu Kumar
+                    //
+                      <div class="col-md-2 col-sm-3 col-xs-6 bookdisp">
+                              <div class="bookdispimg pop-dis">
+                                <div class="caption">
+                                          <a href="" class="btn btn-success btn-sm" >BUY NOW</a>
+                                          <a href="" class="btn btn-info btn-sm" >VIEW</a>
+                                </div>
+                              <img src="img/book2.jpg" class="img-responsive img-rounded" alt="1">
+                              </div>
+                              <h6>Title of book</h6>
+                              <p><small>by</small> Ravu Kumar</p>
+                                <!-- Popover 2 hidden content
+                    //
+                       <div class="popoverExampleTwoHiddenContent" style="display: none">
+                                   <div class="bhb1">
+                                     <p class="text-default">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!</p>
+                                     <p class="text-primay">Ravi Kumar</p>
+                                     <a href="" class="btn btn-block btn-warning">Buy Now</a>
+                                    </div>
+                                </div>
+                                <!-- Popover 2 hidden title
+                    //
+                      <div class="popoverExampleTwoHiddenTitle" style="display: none">
+                                   <div class="bhb">
+                                     <h6>Title of Book <br/>
+                                      <small>Fiction</small>
+                                     </h6>
+                                    </div>
+                                </div>
+                            </div>
+        section.footer
+            .container
+                .row
+                    .col-md-8.col-sm-8.col-xs-12
+                        ul.footer-nav.pull-left
+                            li
+                                a(href='#') About BookBanyan
+                            li
+                                a(href='#') Team
+                            li
+                                a(href='#') Blog
+                            li
+                                a.active(href='#') Pricing
+                            li
+                                a(href='#') Terms & Conditions
+                            li
+                                a(href='#') Contact Us
+                    .col-md-4.col-sm-4.col-xs-12.copyright
+                        ul.footer-nav.pull-right
+                            li Copyright © 2014 BookBanyan
+        //
+           Load JS here for greater good =============================
+        script(src='js/jquery-1.11.0.min.js')
+        script(src='js/bootstrap.min.js')
+        //
+          <script>
+                      $( document ).ready(function() {
+                     // $('#mypopover').popover();
+                  $('.pop-dis').hover(
+                      function(){
+                          $(this).find('.caption').slideDown(250); //.fadeIn(250)
+                      },
+                      function(){
+                          $(this).find('.caption').slideUp(250); //.fadeOut(205)
+                      }
+                  );
+                  $(".pop-dis").popover({
+                  container:'.pop-dis',
+                  trigger:'hover',
+                  html : true,
+                  content: function() {
+                    return $('.popoverExampleTwoHiddenContent').html();
+                  },
+                  title: function() {
+                    return $('.popoverExampleTwoHiddenTitle').html();
+                  }
+              });
+              });
+              </script>
+        script.
+            $( document ).ready(function() {
+            $('.pop-dis').hover(
+            function(){
+            $(this).find('.caption').slideDown(250); //.fadeIn(250)
+            },
+            function(){
+            $(this).find('.caption').slideUp(250); //.fadeOut(205)
+            }
+            );
+            });
+        script.
+            $( document ).ready(function() {
+            $('.pop-dis').hover(
+            function(){
+            $(this).find('.sidepop').fadeIn(250); //.fadeIn(250)
+            },
+            function(){
+            $(this).find('.sidepop').fadeOut(205); //.fadeOut(205)
+            }
+            );
+            });
