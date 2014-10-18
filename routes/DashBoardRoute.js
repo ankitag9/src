@@ -1,9 +1,15 @@
+///<reference path='../_references.d.ts'/>
+var _ = require('underscore');
+
 var express = require('express');
 var Urls = require('./Urls');
 var Config = require('../common/Config');
 
+var EmailDelegate = require('../delegates/EmailDelegate');
+
 var DashBoardRoute = (function () {
     function DashBoardRoute(app) {
+        this.emailDelegate = new EmailDelegate();
         app.get(Urls.home(), this.home.bind(this));
         app.get(Urls.confirmation(), this.confirmation.bind(this));
 
@@ -25,13 +31,17 @@ var DashBoardRoute = (function () {
 
     DashBoardRoute.prototype.upload = function (req, res) {
         var path = req.files['files'][0].path;
+        path = 'http://www.bookbanyan.com/upload/' + _.last(path.split('/'));
         res.json(path).status(200);
     };
 
     DashBoardRoute.prototype.submitPost = function (req, res) {
         var user = req.body['user'];
         var book = req.body['book'];
-        res.json('OK').status(200);
+
+        this.emailDelegate.sendManuscriptSubmitEmail(user, book).then(function emailSent() {
+            res.json('OK').status(200);
+        });
     };
     DashBoardRoute.SUBMIT_PAGE = 'submit';
     DashBoardRoute.HOME_PAGE = 'home';

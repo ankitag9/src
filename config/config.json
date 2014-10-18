@@ -8,6 +8,5 @@
     "database.pass"                 :   "ankit",
 
     "upload.path"                   :   "/var/bbn/upload",
-
-    "email.cdn.base_uri"            :   ""
+    "admin.email"                   :   "bookbanyantech@gmail.com"
 }

@@ -5,12 +5,14 @@ import express                                      = require('express');
 import Urls                                         = require('./Urls');
 import Config                                       = require('../common/Config');
 import Coral                                        = require('Coral');
+import EmailDelegate                                = require('../delegates/EmailDelegate');
 
 class DashBoardRoute
 {
     private static SUBMIT_PAGE:string = 'submit';
     private static HOME_PAGE:string = 'home';
     private static CONFIRMATION_PAGE:string = 'confirmation';
+    emailDelegate = new EmailDelegate();
 
     constructor(app)
     {
@@ -40,6 +42,7 @@ class DashBoardRoute
     private upload(req:express.Request, res:express.Response)
     {
         var path = req.files['files'][0].path;
+        path = 'http://www.bookbanyan.com/upload/' + _.last(path.split('/'))
         res.json(path).status(200);
     }
 
@@ -47,7 +50,11 @@ class DashBoardRoute
     {
         var user = req.body['user'];
         var book = req.body['book'];
-        res.json('OK').status(200);
+
+        this.emailDelegate.sendManuscriptSubmitEmail(user,book)
+            .then(function emailSent(){
+                res.json('OK').status(200);
+            })
     }
 }
 export = DashBoardRoute

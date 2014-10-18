@@ -11,7 +11,7 @@ class Config
     static REF_DATABASE_NAME:string                     = 'ref.database.name';
     static DATABASE_SOCKET:string                       = 'database.socket';
     static UPLOAD_PATH:string                           = 'upload.path';
-    static EMAIL_CDN_BASE_URI:string                    = 'email.cdn.base_uri';
+    static ADMIN_EMAIL:string                           = 'admin.email';
 
     private static ctor = (() =>
     {

@@ -1,0 +1,11 @@
+extends headerAndStyle
+block content
+    title Congrats! Manuscript received
+    h3 A manuscript with title: {{book.title}} received
+    p
+        a.btn.btn-primary(href='{{ book.location }}') View Manuscript
+    hr
+    h3 User Details :
+    div Name  - {{user.name}}
+    div Email - {{user.email}}
+    div Phone - {{user.phoneNumber}}

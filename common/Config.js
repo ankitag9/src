@@ -16,7 +16,7 @@ var Config = (function () {
     Config.REF_DATABASE_NAME = 'ref.database.name';
     Config.DATABASE_SOCKET = 'database.socket';
     Config.UPLOAD_PATH = 'upload.path';
-    Config.EMAIL_CDN_BASE_URI = 'email.cdn.base_uri';
+    Config.ADMIN_EMAIL = 'admin.email';
 
     Config.ctor = (function () {
         nconf.file({ file: "/var/bbn/config/config.json" });

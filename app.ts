@@ -9,21 +9,25 @@ import DashBoardRoute                               = require('./routes/DashBoar
 import Api                                          = require('./api/index');
 import Config                                       = require('./common/Config');
 
-{
-    var app:express.Application = express();
-    app.set('views', path.join(__dirname, 'views'));
-    app.set('view engine', 'jade');
+/* Underscore settings and helpers */
+_.templateSettings = {
+    evaluate: /\{\[([\s\S]+?)\]\}/g,
+    interpolate: /\{\{([\s\S]+?)\}\}/g
+};
 
-    var oneDay = 86400000;
-    app.use(express.static(path.join(__dirname, 'public'), {maxAge: oneDay}));
+var app:express.Application = express();
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
 
-    app.use(express.json());
+var oneDay = 86400000;
+app.use(express.static(path.join(__dirname, 'public'), {maxAge: oneDay}));
 
-    app.set('port', Config.get(Config.PORT));
-    app.listen(app.get('port'), function(){
-        console.log('BBN server started on port ' + Config.get(Config.PORT));
-    });
+app.use(express.json());
 
-    new DashBoardRoute(app);
-    new Api(app);
-}
+app.set('port', Config.get(Config.PORT));
+app.listen(app.get('port'), function(){
+    console.log('BBN server started on port ' + Config.get(Config.PORT));
+});
+
+new DashBoardRoute(app);
+new Api(app);

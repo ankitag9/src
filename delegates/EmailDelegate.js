@@ -23,8 +23,8 @@ var EmailDelegate = (function () {
             EmailDelegate.transport = nodemailer.createTransport('SMTP', {
                 service: 'SendGrid',
                 auth: {
-                    user: 'infollion',
-                    pass: 'infollion123'
+                    user: 'bookbanyan',
+                    pass: 'ankitag9'
                 }
             });
     }
@@ -49,9 +49,8 @@ var EmailDelegate = (function () {
     EmailDelegate.prototype.composeAndSend = function (template, to, emailData, from, replyTo) {
         var deferred = q.defer();
 
-        emailData["email_cdn_base_uri"] = Config.get(Config.EMAIL_CDN_BASE_URI);
-        from = from || 'SearchNTalk.com\<contact@searchntalk.com\>';
-        replyTo = replyTo || 'no-reply\<no-reply@searchntalk.com\>';
+        from = from || 'Bookbanyan.com\<bookbanyanpublications@gmail.com\>';
+        replyTo = replyTo || 'no-reply\<no-reply@bookbanyan.com\>';
 
         try  {
             var body = this.getEmailBody(template, emailData);
@@ -99,17 +98,29 @@ var EmailDelegate = (function () {
             return subjectTemplate(emailData);
         } catch (err) {
             EmailDelegate.logger.error("Couldn't generate email subject for (template %s, data: %s), Error: %s", template, emailData, err);
+
             throw (err);
         }
     };
+
+    EmailDelegate.prototype.sendManuscriptSubmitEmail = function (user, book) {
+        var self = this;
+
+        return q.all([
+            self.composeAndSend(EmailDelegate.USER_MANUSCRIPT_SUBMIT_CONFIRM, user.email, {}),
+            self.composeAndSend(EmailDelegate.ADMIN_MANUSCRIPT_SUBMIT, Config.get(Config.ADMIN_EMAIL), { user: user, book: book })
+        ]);
+    };
     EmailDelegate.EMAIL_TEST = 'EMAIL_TEST';
+    EmailDelegate.USER_MANUSCRIPT_SUBMIT_CONFIRM = 'USER_MANUSCRIPT_SUBMIT_CONFIRM';
+    EmailDelegate.ADMIN_MANUSCRIPT_SUBMIT = 'ADMIN_MANUSCRIPT_SUBMIT';
 
     EmailDelegate.templateCache = {};
 
     EmailDelegate.logger = log4js.getLogger('EmailDelegate');
 
     EmailDelegate.ctor = (function () {
-        new Coral.FileWatcherDelegate(path.resolve(__dirname, '../docs/emailTemplates'), [new RegExp('\.html$')], function initHandler(files) {
+        new Coral.FileWatcherDelegate(path.resolve(__dirname, '../emailTemplates'), [new RegExp('\.html$')], function initHandler(files) {
             _.each(files, function (fileName) {
                 EmailDelegate.readFileAndCache(fileName);
             });

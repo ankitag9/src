@@ -21,6 +21,8 @@ import Config                                                       = require('.
 class EmailDelegate
 {
     private static EMAIL_TEST:string = 'EMAIL_TEST';
+    private static USER_MANUSCRIPT_SUBMIT_CONFIRM:string = 'USER_MANUSCRIPT_SUBMIT_CONFIRM';
+    private static ADMIN_MANUSCRIPT_SUBMIT:string = 'ADMIN_MANUSCRIPT_SUBMIT';
 
     private static templateCache:{[templateNameAndLocale:string]:{bodyTemplate:Function; subjectTemplate:Function}} = {};
     private static transport:nodemailer.Transport;
@@ -32,8 +34,8 @@ class EmailDelegate
             EmailDelegate.transport = nodemailer.createTransport('SMTP', {
                 service: 'SendGrid',
                 auth: {
-                    user: 'infollion',
-                    pass: 'infollion123'
+                    user: 'bookbanyan',
+                    pass: 'ankitag9'
                 }
             });
     }
@@ -41,7 +43,7 @@ class EmailDelegate
     /* Static constructor workaround */
     private static ctor = (() =>
     {
-        new Coral.FileWatcherDelegate(path.resolve(__dirname, '../docs/emailTemplates'), [new RegExp('\.html$')],
+        new Coral.FileWatcherDelegate(path.resolve(__dirname, '../emailTemplates'), [new RegExp('\.html$')],
             function initHandler(files:string[])
             {
                 _.each(files, function (fileName) { EmailDelegate.readFileAndCache(fileName); });
@@ -75,9 +77,8 @@ class EmailDelegate
     {
         var deferred = q.defer<any>();
 
-        emailData["email_cdn_base_uri"] = Config.get(Config.EMAIL_CDN_BASE_URI);
-        from = from || 'SearchNTalk.com\<contact@searchntalk.com\>';
-        replyTo = replyTo || 'no-reply\<no-reply@searchntalk.com\>';
+        from = from || 'Bookbanyan.com\<bookbanyanpublications@gmail.com\>';
+        replyTo = replyTo || 'no-reply\<no-reply@bookbanyan.com\>';
 
         try
         {
@@ -142,8 +143,20 @@ class EmailDelegate
         catch (err)
         {
             EmailDelegate.logger.error("Couldn't generate email subject for (template %s, data: %s), Error: %s", template, emailData, err);
+
+
             throw(err);
         }
+    }
+
+    sendManuscriptSubmitEmail(user, book):q.Promise<any>
+    {
+        var self = this;
+
+        return q.all([
+            self.composeAndSend(EmailDelegate.USER_MANUSCRIPT_SUBMIT_CONFIRM, user.email,{}),
+            self.composeAndSend(EmailDelegate.ADMIN_MANUSCRIPT_SUBMIT, Config.get(Config.ADMIN_EMAIL), {user: user, book:book})
+        ]);
     }
 }
 export = EmailDelegate
