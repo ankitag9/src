@@ -5,272 +5,276 @@ head
     title BookBanyan
     meta(name='viewport', content='width=device-width, initial-scale = 1.0, user-scalable=no ')
     //
-       Loading Bootstrap 
+         Loading Bootstrap
     link(href='/css/bootstrap.css', rel='stylesheet')
     link(href='/css/flat-ui.css', rel='stylesheet')
     link(href='http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css', rel='stylesheet')
     //
-       Loading Flat UI 
+         Loading Flat UI
     link(href='/css/BookB-style-Copy2.css', rel='stylesheet')
     script(src='/js/respond.min.js')
     script(src='/js/modernizr.min.js')
     //
-       HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. 
+         HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file.
     //if lt IE 9
-      script(src='js/html5shiv.js')
-      script(src='js/respond.min.js')
-  body
+        script(src='js/html5shiv.js')
+        script(src='js/respond.min.js')
+body
     header.header
-      #myheader.navbar.navbar-fixed-top
-        .navbar-inner
-          .container
-            button.navbar-toggle(data-toggle='collapse', data-target='.navbar-collapse')
-              span.icon-bar
-              span.icon-bar
-              span.icon-bar
-            a.navbar-brand(href='#')
-              img(src='img/logo.png')
-            ul.nav.navbar-right
-              li
-                a.btn.btn-small.btn-info(href='') Log-In
-            .navbar-collapse.collapse
-              ul.nav.navbar-nav
-                li
-                  a(href='#') How It Works
-                li
-                  a(href='#') Features
-                li
-                  a(href='#') Pricing
+        #myheader.navbar.navbar-fixed-top
+            .navbar-inner
+                .container
+                    button.navbar-toggle(data-toggle='collapse', data-target='.navbar-collapse')
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+                    a.navbar-brand(href='#')
+                        img(src='img/logo.png')
+                    ul.nav.navbar-right
+                        li
+                            a.btn.btn-small.btn-info(href='') Log-In
+                    .navbar-collapse.collapse
+                        ul.nav.navbar-nav
+                            li
+                                a(href='#') How It Works
+                            li
+                                a(href='#') Features
+                            li
+                                a(href='#') Pricing
     //
-      main-content
+        main-content
     section.main-content
-      .container
-        .row
-          .col-md-12.text-center
-            h4 Write your dream..we'll fullfill It!!
-            a.btn.btn-large.btn-default.getstarted(href='') Get Started
+        .container
+            .row
+                .col-md-12.text-center
+                    h4 Write your dream..we'll fullfill It!!
+                    a.btn.btn-large.btn-default.getstarted(href='/submit') Get Started
     //
-      sub-content
+        sub-content
     section.sub-content
-      .container-fluid
-        .row
-          ul.nav.nav-tabs.col-md-12
-            li.active.up3
-              a#clickthis1.uppho(data-toggle='tab', href='#author')
-                .wrap1
-                  span.icon-profile-male
-                  | For Author
-            li.up4
-              a#clickthis2.upvid(data-toggle='tab', href='#blogger')
-                .wrap1
-                  span.icon-profile-male
-                  | For Blogger
-          .container.tabit
-            .col-md-12.text-center
-              h6 How it works?
-            .tab-content.forauthrnblogr
-              #author.tab-pane.fade.in.active
-                .col-md-4.col-sm-4.text-center
-                  div
-                    span.icon-upload
-                  h6 Upload your Book
-                  p Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                .col-md-4.col-sm-4.text-center
-                  div
-                    span.icon-pricetags
-                  h6 Choose a Package
-                  p Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                .col-md-4.col-sm-4.text-center
-                  div
-                    span.icon-genius
-                  h6 We do the rest!
-                  p Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              #blogger.tab-pane.fade
-                .col-md-4.col-sm-4.text-center
-                  div
-                    span.icon-paperclip
-                  h6 Select a Book
-                  p Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                .col-md-4.col-sm-4.text-center
-                  div
-                    span.icon-pencil
-                  h6 Write a Review
-                  p Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                .col-md-4.col-sm-4.text-center
-                  div
-                    span.icon-wallet
-                  h6 Get Paid
-                  p Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            .col-md-12.text-center
-              a.btn.btn-large.btn-default.getstarted(href='') Get Started
+        .container-fluid
+            .row
+                ul.nav.nav-tabs.col-md-12
+                    li.active.up3
+                        a#clickthis1.uppho(data-toggle='tab', href='#author')
+                            .wrap1
+                                span.icon-profile-male
+                                | For Author
+                    li.up4
+                        a#clickthis2.upvid(data-toggle='tab', href='#blogger')
+                            .wrap1
+                                span.icon-profile-male
+                                | For Blogger
+                .container.tabit
+                    .col-md-12.text-center
+                        h6 How it works?
+                    .tab-content.forauthrnblogr
+                        #author.tab-pane.fade.in.active
+                            .col-md-4.col-sm-4.text-center
+                                div
+                                    span.icon-upload
+                                h6 Upload your Book
+                                p Ready with a script in your hand and don't know where to go? Your search ends here. Just upload here
+                            .col-md-4.col-sm-4.text-center
+                                div
+                                    span.icon-pricetags
+                                h6 Choose a Package
+                                p We have a wide variety of packages for you to choose from. We also give you the option to create your own.
+                            .col-md-4.col-sm-4.text-center
+                                div
+                                    span.icon-genius
+                                h6 We do the rest!
+                                p Sit back and relax while we finish your work and get you the identity you
+                            .col-md-12.text-center
+                                a.btn.btn-large.btn-default.getstarted(href='/submit') Get Started
+                        #blogger.tab-pane.fade
+                            .col-md-4.col-sm-4.text-center
+                                div
+                                    span.icon-paperclip
+                                h6 Select a Book
+                                p We have a wide variety of books for you to choose from.
+                            .col-md-4.col-sm-4.text-center
+                                div
+                                    span.icon-pencil
+                                h6 Write a Review
+                                p Time to do the thing you love to do. Write a Review for the selected book.
+                            .col-md-4.col-sm-4.text-center
+                                div
+                                    span.icon-wallet
+                                h6 Get Paid
+                                p That's it. You get paid for doing what you love to do.
+                            .col-md-12.text-center
+                                a.btn.btn-large.btn-default.getstarted(href='') Get Started
     section.separator1
-      .container
-        .row
-          .col-md-10.col-md-offset-1
-            .media
-              img.media-object.img-circle.pull-left(src='img/upic2.png', alt='1')
-              .media-body
-                h6.media-heading
-                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, rem, reprehenderit quasi quia soluta.
-                p.pull-right --Some Author
+        .container
+            .row
+                .col-md-10.col-md-offset-1
+                    .media
+                        img.media-object.img-circle.pull-left(src='img/kafka.jpg', alt='1')
+                        .media-body
+                            h6.media-heading
+                                | Writing is a sweet, wonderful reward…
+                            p.pull-right --Franz Kafka
     section.book-display
-      .container
-        .row
-          .col-md-12.text-center
-            h6
-              | Why customers
-              span.icon-heart
-              | Us
-          .col-md-3.col-sm-6
-            .imgwrap.text-center
-              img(src='img/book1.png', alt='1')
-            p.text-center Twenty-five
-            blockquote
-              p
-                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
-              footer.pull-right Someone famous in
-          .col-md-3.col-sm-6
-            .imgwrap.text-center
-              img(src='img/book1.png', alt='1')
-            p.text-center Twenty-five
-            blockquote
-              p
-                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
-              footer.pull-right Someone famous in
-          .col-md-3.col-sm-6
-            .imgwrap.text-center
-              img(src='img/book1.png', alt='1')
-            p.text-center Twenty-five
-            blockquote
-              p
-                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
-              footer.pull-right Someone famous in
-          .col-md-3.col-sm-6
-            .imgwrap.text-center
-              img(src='img/book1.png', alt='1')
-            p.text-center Twenty-five
-            blockquote
-              p
-                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
-              footer.pull-right Someone famous in
-          .col-md-10.col-md-offset-1.text-center.morebooks
-            a.btn.btn-large.btn-default.getstarted(href='') More Books
+        .container
+            .row
+                .col-md-12.text-center
+                    h6
+                        | Why customers
+                        span.icon-heart
+                        | Us
+                .col-md-4.col-sm-8
+                //.col-md-3.col-sm-6
+                    .imgwrap.text-center
+                        img(src='img/book1.png', alt='1')
+                    p.text-center Twenty-five
+                    blockquote
+                        p
+                            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                        footer.pull-right Someone famous in
+                .col-md-4.col-sm-8
+                    .imgwrap.text-center
+                        img(src='img/Suicide-at-IIT.png', alt='1')
+                    p.text-center Suicide at IIT
+                    blockquote
+                        p
+                            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                        footer.pull-right Someone famous in
+                .col-md-4.col-sm-8
+                //.col-md-3.col-sm-6
+                    .imgwrap.text-center
+                        img(src='img/book1.png', alt='1')
+                    p.text-center Twenty-five
+                    blockquote
+                        p
+                            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                        footer.pull-right Someone famous in
+                //.col-md-3.col-sm-6
+                    .imgwrap.text-center
+                        img(src='img/book1.png', alt='1')
+                    p.text-center Twenty-five
+                    blockquote
+                        p
+                            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                        footer.pull-right Someone famous in
+                .col-md-10.col-md-offset-1.text-center.morebooks
+                    a.btn.btn-large.btn-default.getstarted(href='') More Books
     section.separator1
-      .container
-        .row
-          .col-md-10.col-md-offset-1
-            .media
-              img.media-object.img-circle.pull-left(src='img/upic2.png', alt='1')
-              .media-body
-                h6.media-heading
-                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, rem, reprehenderit quasi quia soluta.
-                p.pull-right --Some Author
+        .container
+            .row
+                .col-md-10.col-md-offset-1
+                    .media
+                        img.media-object.img-circle.pull-left(src='img/stout.jpg', alt='1')
+                        .media-body
+                            h6.media-heading
+                                | Whether or not you write well, write bravely.
+                            p.pull-right --Bill Stout
     section.pricing
-      .container
-        .row
-          .col-md-12.text-center
-            h6 Choose your Dream Package  
-            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, sit.
-          .col-md-4.col-sm-4.text-center
-            .basic
-              p Basic
-            .basic2
-              p
-                | 499/mo
-                br
-                span Perfect for starters
-              a.btn.btn-default(href='') get started
-            //
-              <div class="pointer"></div>
-            ul.perkwrap
-              li.perks
-                span.icon-search
-                p 10 reviews
-              li.perks
-                span.icon-edit
-                p Editing
-              li.perks
-                span.icon-megaphone
-                p feedback
-              li.perks
-                span.icon-book-open
-                p publishing
-          .col-md-4.col-sm-4.text-center
-            .basic
-              p Standard
-            .basic2
-              p
-                | 699/mo
-                br
-                span Perfect for starters
-              a.btn.btn-default(href='') get started
-            //
-               <div class="pointer"></div>
-            ul.perkwrap
-              li.perks
-                span.icon-search
-                p 10 reviews
-              li.perks
-                span.icon-edit
-                p Editing
-              li.perks
-                span.icon-megaphone
-                p feedback
-              li.perks
-                span.icon-book-open
-                p publishing
-          .col-md-4.col-sm-4.text-center
-            .basic
-              p Pro
-            .basic2
-              p
-                | 999/mo
-                br
-                span Perfect for starters
-              a.btn.btn-default(href='') get started
-            //
-              <div class="pointer"></div>
-            ul.perkwrap
-              li.perks
-                span.icon-search
-                p 10 reviews
-              li.perks
-                span.icon-edit
-                p Editing
-              li.perks
-                span.icon-megaphone
-                p feedback
-              li.perks
-                span.icon-book-open
-                p publishing
+        .container
+            .row
+                .col-md-12.text-center
+                    h6 Choose your Dream Package
+                    p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, sit.
+                .col-md-4.col-sm-4.text-center
+                    .basic
+                        p Basic
+                    .basic2
+                        p
+                            | 499/mo
+                            br
+                            span Perfect for starters
+                        a.btn.btn-default(href='') get started
+                    //
+                        <div class="pointer"></div>
+                    ul.perkwrap
+                        li.perks
+                            span.icon-search
+                            p 10 reviews
+                        li.perks
+                            span.icon-edit
+                            p Editing
+                        li.perks
+                            span.icon-megaphone
+                            p feedback
+                        li.perks
+                            span.icon-book-open
+                            p publishing
+                .col-md-4.col-sm-4.text-center
+                    .basic
+                        p Standard
+                    .basic2
+                        p
+                            | 699/mo
+                            br
+                            span Perfect for starters
+                        a.btn.btn-default(href='') get started
+                    //
+                         <div class="pointer"></div>
+                    ul.perkwrap
+                        li.perks
+                            span.icon-search
+                            p 10 reviews
+                        li.perks
+                            span.icon-edit
+                            p Editing
+                        li.perks
+                            span.icon-megaphone
+                            p feedback
+                        li.perks
+                            span.icon-book-open
+                            p publishing
+                .col-md-4.col-sm-4.text-center
+                    .basic
+                        p Pro
+                    .basic2
+                        p
+                            | 999/mo
+                            br
+                            span Perfect for starters
+                        a.btn.btn-default(href='') get started
+                    //
+                        <div class="pointer"></div>
+                    ul.perkwrap
+                        li.perks
+                            span.icon-search
+                            p 10 reviews
+                        li.perks
+                            span.icon-edit
+                            p Editing
+                        li.perks
+                            span.icon-megaphone
+                            p feedback
+                        li.perks
+                            span.icon-book-open
+                            p publishing
     section.footer
-      .container
-        .row
-          .col-md-8.col-sm-8
-            ul.footer-nav.pull-left
-              li
-                a(href='#') About BookBanyan
-              li
-                a(href='#') Team
-              li
-                a(href='#') Blog
-              li
-                a.active(href='#') Pricing
-              li
-                a(href='#') Terms & Conditions
-              li
-                a(href='#') Contact Us
-          .col-md-4.copyright
-            p.pull-right Copyright © 2014 BookBanyan
+        .container
+            .row
+                .col-md-8.col-sm-8
+                    ul.footer-nav.pull-left
+                        li
+                            a(href='#') About BookBanyan
+                        li
+                            a(href='#') Team
+                        li
+                            a(href='#') Blog
+                        li
+                            a.active(href='#') Pricing
+                        li
+                            a(href='#') Terms & Conditions
+                        li
+                            a(href='#') Contact Us
+                .col-md-4.copyright
+                    p.pull-right Copyright © 2014 BookBanyan
     //
-       Load JS here for greater good =============================
-    script(src='/js/jquery-1.11.0.min.js')
-    script(src='/js/bootstrap.min.js')
-    script.
-      $(document).ready(function() {
-      //Set the carousel options
-      $('#mycarousel').carousel({
-      pause: false,
-      interval: 6000,
-      });
-      });
+         Load JS here for greater good =============================
+script(src='/js/jquery-1.11.0.min.js')
+script(src='/js/bootstrap.min.js')
+script.
+    $(document).ready(function() {
+    //Set the carousel options
+    $('#mycarousel').carousel({
+    pause: false,
+    interval: 6000,
+    });
+    });
