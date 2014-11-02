@@ -1,24 +1,4 @@
-doctype html
-html(lang='en')
-head
-    meta(charset='utf-8')
-    title BookBanyan
-    meta(name='viewport', content='width=device-width, initial-scale = 1.0, user-scalable=no ')
-    //
-         Loading Bootstrap
-    link(href='/css/bootstrap.css', rel='stylesheet')
-    link(href='/css/flat-ui.css', rel='stylesheet')
-    link(href='http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css', rel='stylesheet')
-    //
-         Loading Flat UI
-    link(href='/css/BookB-style-Copy2.css', rel='stylesheet')
-    script(src='/js/respond.min.js')
-    script(src='/js/modernizr.min.js')
-    //
-         HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file.
-    //if lt IE 9
-        script(src='js/html5shiv.js')
-        script(src='js/respond.min.js')
+include ./header
 body
     header.header
         #myheader.navbar.navbar-fixed-top
@@ -138,8 +118,12 @@ body
                     p.text-center Suicide at IIT
                     blockquote
                         p
-                            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
-                        footer.pull-right Someone famous in
+                            | Getting published is not difficult these days. Search for identity and web presence
+                            | is what bothers authors these days. Most noteworthy of the services offered by Bookbanyan
+                            | is the efforts they have put for increasing the web presence of my novel by getting it
+                            | reviewed with bloggers, authors and prominent members in the literary circles. I loved
+                            | the web page they have created for me.
+                        footer.pull-right Ravi Kumar
                 .col-md-4.col-sm-8
                 //.col-md-3.col-sm-6
                     .imgwrap.text-center
@@ -180,7 +164,7 @@ body
                         p Basic
                     .basic2
                         p
-                            | 499/mo
+                            | Rs. 70,000
                             br
                             span Perfect for starters
                         a.btn.btn-default(href='') get started
@@ -189,22 +173,22 @@ body
                     ul.perkwrap
                         li.perks
                             span.icon-search
-                            p 10 reviews
+                            p 20 reviews
                         li.perks
                             span.icon-edit
-                            p Editing
+                            p Editing - Basic
                         li.perks
                             span.icon-megaphone
-                            p feedback
+                            p Cover Page - 1 concept
                         li.perks
                             span.icon-book-open
-                            p publishing
+                            p Publishing - 500 Copies
                 .col-md-4.col-sm-4.text-center
                     .basic
-                        p Standard
+                        p Moderate
                     .basic2
                         p
-                            | 699/mo
+                            | Rs. 100,000
                             br
                             span Perfect for starters
                         a.btn.btn-default(href='') get started
@@ -213,22 +197,22 @@ body
                     ul.perkwrap
                         li.perks
                             span.icon-search
-                            p 10 reviews
+                            p 30 reviews
                         li.perks
                             span.icon-edit
-                            p Editing
+                            p Editing - Basic
                         li.perks
                             span.icon-megaphone
-                            p feedback
+                            p Cover Page - 1 concept
                         li.perks
                             span.icon-book-open
-                            p publishing
+                            p Publishing - 500 Copies
                 .col-md-4.col-sm-4.text-center
                     .basic
-                        p Pro
+                        p Extensive
                     .basic2
                         p
-                            | 999/mo
+                            | Rs. 150,000
                             br
                             span Perfect for starters
                         a.btn.btn-default(href='') get started
@@ -237,16 +221,16 @@ body
                     ul.perkwrap
                         li.perks
                             span.icon-search
-                            p 10 reviews
+                            p 50 reviews
                         li.perks
                             span.icon-edit
-                            p Editing
+                            p Editing - Extensive
                         li.perks
                             span.icon-megaphone
-                            p feedback
+                            p Cover Page - unlimited
                         li.perks
                             span.icon-book-open
-                            p publishing
+                            p Publishing - 500 Copies
     section.footer
         .container
             .row

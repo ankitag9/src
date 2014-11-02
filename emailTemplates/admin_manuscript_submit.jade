@@ -1,9 +1,13 @@
 extends headerAndStyle
 block content
-    title Congrats! Manuscript received
+    title Manuscript received
     h3 A manuscript with title: {{book.title}} received
     p
-        a.btn.btn-primary(href='{{ book.location }}') View Manuscript
+        a.btn.btn-primary(href='{{ book.details[0].path }}') {{ book.details[0].name }}
+    p
+        a.btn.btn-primary(href='{{ book.details[1].path }}') {{ book.details[1].name }}
+    p
+        a.btn.btn-primary(href='{{ book.details[2].path }}') {{ book.details[2].name }}
     hr
     h3 User Details :
     div Name  - {{user.name}}

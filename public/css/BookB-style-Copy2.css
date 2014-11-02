@@ -938,6 +938,7 @@ input.file {
 }
 .fakefile .form-control {
     border: 1px dotted #ccc !important;
+    text-align: center;
 }
 
 .fakefile span {

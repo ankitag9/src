@@ -42,8 +42,9 @@ class DashBoardRoute
     private upload(req:express.Request, res:express.Response)
     {
         var path = req.files['files'][0].path;
+        var name = req.files['files'][0].name;
         path = 'http://www.bookbanyan.com/upload/' + _.last(path.split('/'))
-        res.json(path).status(200);
+        res.json({name:name,path:path}).status(200);
     }
 
     private submitPost(req:express.Request, res:express.Response)

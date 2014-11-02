@@ -31,8 +31,9 @@ var DashBoardRoute = (function () {
 
     DashBoardRoute.prototype.upload = function (req, res) {
         var path = req.files['files'][0].path;
+        var name = req.files['files'][0].name;
         path = 'http://www.bookbanyan.com/upload/' + _.last(path.split('/'));
-        res.json(path).status(200);
+        res.json({ name: name, path: path }).status(200);
     };
 
     DashBoardRoute.prototype.submitPost = function (req, res) {
