@@ -1,0 +1,5 @@
+enum BookLinkType
+{
+
+}
+export = BookLinkType

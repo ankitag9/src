@@ -12,6 +12,8 @@ class Config
     static DATABASE_SOCKET:string                       = 'database.socket';
     static UPLOAD_PATH:string                           = 'upload.path';
     static ADMIN_EMAIL:string                           = 'admin.email';
+    static PASSWORD_SEED_LENGTH:string                  = 'password_seed.length';
+    static DEFAULT_PASSWORD_LENGTH:string               = 'default.password.length';
 
     private static ctor = (() =>
     {

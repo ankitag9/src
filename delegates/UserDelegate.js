@@ -6,11 +6,65 @@ var __extends = this.__extends || function (d, b) {
 };
 ///<reference path='../_references.d.ts'/>
 var Coral = require('Coral');
+
+var Config = require('../common/Config');
+var User = require('../models/User');
+var UserProfile = require('../models/UserProfile');
+var UserProfileDelegate = require('../delegates/UserProfileDelegate');
+var ForeignKeyConstants = require('../enums/ForeignKeyConstants');
+
 var UserDelegate = (function (_super) {
     __extends(UserDelegate, _super);
     function UserDelegate() {
-        _super.apply(this, arguments);
+        _super.call(this, User);
+        this.mysqlDelegate = new Coral.MysqlDelegate();
+        this.userProfileDelegate = new UserProfileDelegate();
     }
+    UserDelegate.prototype.create = function (object, dbTransaction) {
+        var self = this;
+
+        if (Coral.Utils.isNullOrEmpty(dbTransaction))
+            return self.mysqlDelegate.executeInTransaction(self, arguments);
+
+        if (!Coral.Utils.isNullOrEmpty(object)) {
+            object = new User(object);
+
+            if (Coral.Utils.isNullOrEmpty(object[User.COL_PASSWORD]))
+                object.setPassword(Coral.Utils.getRandomString(Config.get(Config.DEFAULT_PASSWORD_LENGTH)).toLowerCase() + Math.round(Math.random() * 1000));
+
+            console.log(object.getPassword()); //TODO -  save in redis and send in email
+            var newSeed = Coral.Utils.getRandomString(Config.get(Config.PASSWORD_SEED_LENGTH));
+            object.setPasswordSeed(newSeed);
+            object.setPassword(object.getPasswordHash());
+        }
+
+        return _super.prototype.create.call(this, object, dbTransaction).then(function userCreated(user) {
+            var userProfile = new UserProfile();
+            userProfile.setUserId(user.getId());
+
+            return self.userProfileDelegate.create(userProfile, dbTransaction).then(function (profile) {
+                user[ForeignKeyConstants.USER_PROFILE] = profile;
+                return user;
+            });
+        });
+    };
+
+    UserDelegate.prototype.update = function (criteria, newValues, transaction) {
+        var superUpdate = _super.prototype.update.bind(this);
+        delete newValues[User.COL_ID];
+        delete newValues[User.COL_EMAIL];
+
+        if (newValues.hasOwnProperty(User.COL_PASSWORD) && !Coral.Utils.isNullOrEmpty(newValues[User.COL_PASSWORD])) {
+            return this.find(criteria).then(function userFetched(user) {
+                var newSeed = Coral.Utils.getRandomString(Config.get(Config.PASSWORD_SEED_LENGTH));
+                user.setPassword(user.getPasswordHash(user.getEmail(), newValues[User.COL_PASSWORD], newSeed));
+                user.setPasswordSeed(newSeed);
+                return superUpdate(criteria, user, transaction);
+            });
+        }
+
+        return _super.prototype.update.call(this, criteria, newValues);
+    };
     return UserDelegate;
 })(Coral.BaseDaoDelegate);
 module.exports = UserDelegate;

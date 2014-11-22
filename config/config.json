@@ -8,5 +8,8 @@
     "database.pass"                 :   "ankit",
 
     "upload.path"                   :   "/var/bbn/upload",
-    "admin.email"                   :   "bookbanyantech@gmail.com"
+    "admin.email"                   :   "bookbanyantech@gmail.com",
+
+    "password_seed.length"          :   15,
+    "default.password.length"       :   10
 }

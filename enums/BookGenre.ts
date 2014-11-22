@@ -1,0 +1,5 @@
+enum BookGenre
+{
+
+}
+export = BookGenre

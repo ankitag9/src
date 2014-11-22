@@ -30,4 +30,5 @@
 ///<reference path='../DefinitelyTyped/oauth2orize/oauth2orize.d.ts'/>
 ///<reference path='../DefinitelyTyped/request/request.d.ts'/>
 ///<reference path='../DefinitelyTyped/then-redis/then-redis.d.ts'/>
+///<reference path='../DefinitelyTyped/cryptojs/cryptojs.d.ts'/>
 ///<reference path='../Coral/Coral.d.ts'/>

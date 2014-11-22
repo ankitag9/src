@@ -17,6 +17,8 @@ var Config = (function () {
     Config.DATABASE_SOCKET = 'database.socket';
     Config.UPLOAD_PATH = 'upload.path';
     Config.ADMIN_EMAIL = 'admin.email';
+    Config.PASSWORD_SEED_LENGTH = 'password_seed.length';
+    Config.DEFAULT_PASSWORD_LENGTH = 'default.password.length';
 
     Config.ctor = (function () {
         nconf.file({ file: "/var/bbn/config/config.json" });
