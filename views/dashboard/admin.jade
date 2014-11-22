@@ -1,769 +1,752 @@
-doctype  html(lang='en')
-head
-    meta(charset='utf-8')
-    title Bookbanyan
-    meta(name='viewport', content='width=device-width, initial-scale = 1.0, user-scalable=no ')
-    //
-       Loading Bootstrap
-    link(href='css/bootstrap.css', rel='stylesheet')
-    link(href='css/flat-ui.css', rel='stylesheet')
-    //
-       Loading Flat UI
-    link(href='css/bookb-dash-admin.css', rel='stylesheet')
-    script(src='js/respond.min.js')
-    script(src='js/modernizr.js')
-    //
-       HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file.
-    //if lt IE 9
-      script(src='js/html5shiv.js')
-      script(src='js/respond.min.js')
-    body
-        header.header
-            #myheader.navbar.navbar-fixed-top
-                .navbar-inner
-                    .container-fluid
-                        .col-xs-2
-                            a.navbar-brand(href='#')
-                                img(src='img/logo.png')
-                        form.navbar-form.navbar-left.hidden-xs(role='search')
-                            .form-group
-                                input.form-control(type='text', placeholder='Search')
-                                a(href='')
-                                    span.glyphicon.glyphicon-search
-                        //
-                          <ul class="nav navbar-right">
-                                    <div class="noti">
-                                   <a href="#"><span class="glyphicon glyphicon-bell"></span> <span class="badge">42</span></a>
-                                   </div>
-                                  </ul>
-                        ul.nav.navbar-right
-                            .noti
-                                a(href='#')
-                                    span.icon-envelope
-                                    span.badge 10
-                            .dropdown
-                                button#dropdownMenu1.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
-                                    img.img-circle(src='img/upic1.png', alt='1')
-                                    span.hidden-xs Sampoornesh Babu
-                                    span.glyphicon.glyphicon-chevron-down
-                                ul.dropdown-menu(role='menu', aria-labelledby='dropdownMenu1')
-                                    li(role='presentation')
-                                        a(role='menuitem', tabindex='-1', href='#') Settings
-                                    li(role='presentation')
-                                        a(role='menuitem', tabindex='-1', data-toggle='tab', href='#adminprofile') Profile
-                                    li.divider(role='presentation')
-                                    li(role='presentation')
-                                        a(role='menuitem', tabindex='-1', href='#') Sign Out
-        section.form-mobile.visible-xs
-            .container
-                .row
-                    .col-xs-12
-                        form.navbar-form(role='search')
-                            .form-group
-                                input.form-control(type='text', placeholder='Search')
-                                a(href='')
-                                    span.glyphicon.glyphicon-search
-        section.dashboard
-            .container-fluid
-                .row
-                    .col-md-2.col-sm-2.hidden-xs.side1
-                        ul.nav.nav-tabs.nav-stacked
-                            li.active
-                                a(data-toggle='tab', href='#admindash1')
-                                    span.glyphicon.glyphicon-tasks
-                                    | Dashboard
-                            li
-                                a(data-toggle='tab', href='#admindash2')
-                                    span.glyphicon.glyphicon-pencil
-                                    | Books
-                            li
-                                a(data-toggle='tab', href='#admindash3')
-                                    span.glyphicon.glyphicon-home
-                                    | Reporting
-                            li
-                                a(data-toggle='tab', href='#admindash4')
-                                    span.glyphicon.glyphicon-envelope
-                                    | Inbox
-                            li
-                                a(data-toggle='tab', href='#admindash5')
-                                    span.glyphicon.glyphicon-user
-                                    | Users
+include ../includeHeader
+link(href='css/bookb-dash-admin.css', rel='stylesheet')
+body
+    header.header
+        #myheader.navbar.navbar-fixed-top
+            .navbar-inner
+                .container-fluid
+                    .col-xs-2
+                        a.navbar-brand(href='#')
+                            img(src='img/logo.png')
+                    form.navbar-form.navbar-left.hidden-xs(role='search')
+                        .form-group
+                            input.form-control(type='text', placeholder='Search')
+                            a(href='')
+                                span.glyphicon.glyphicon-search
                     //
-                      col-md-2 hidden-xs
-                    .col-md-1.col-sm-1.col-xs-1.visible-xs.side2
-                        ul.nav.nav-tabs.nav-stacked
-                            li.active
-                                a(data-toggle='tab', href='#admindash1')
-                                    span.glyphicon.glyphicon-tasks
-                            li
-                                a(data-toggle='tab', href='#admindash2')
-                                    span.glyphicon.glyphicon-pencil
-                            li
-                                a(data-toggle='tab', href='#admindash3')
-                                    span.glyphicon.glyphicon-home
-                            li
-                                a(data-toggle='tab', href='#admindash4')
-                                    span.glyphicon.glyphicon-envelope
-                            li
-                                a(data-toggle='tab', href='#admindash5')
-                                    span.glyphicon.glyphicon-user
-                    //
-                      side-2 visible-xs
-                    .col-md-10.col-lg-10.col-sm-10.col-xs-12
-                        .tab-content
-                            #admindash1.tab-pane.fade.in.active
-                                .row
-                                    .col-sm-offset-1.col-sm-10.sortboxes
-                                        ul
-                                            li
-                                                span.button-checkbox
-                                                    button.btn(type='button', data-color='warning')  All
-                                                    input.hidden(type='checkbox', checked='checked')
-                                            li
-                                                span.button-checkbox
-                                                    button.btn(type='button', data-color='primary')
-                                                        span.hiddenfor Manuscript
-                                                        span.icon-documents.iconforbtn
-                                                    input.hidden(type='checkbox', checked='checked')
-                                            li
-                                                span.button-checkbox
-                                                    button.btn(type='button', data-color='danger')
-                                                        span.hiddenfor Books
-                                                        span.icon-notebook.iconforbtn
-                                                    input.hidden(type='checkbox', checked='checked')
-                                            li
-                                                span.button-checkbox
-                                                    button.btn(type='button', data-color='info')
-                                                        span.hiddenfor Review
-                                                        span.icon-expand.iconforbtn
-                                                    input.hidden(type='checkbox', checked='checked')
-                                .row
-                                    .col-xs-12.col-sm-10.col-sm-offset-1.notifboxes
-                                        .row
-                                            .col-xs-3.col-sm-2.text-center
-                                                span.icon-documents.iconswrap.manuicon
-                                            .col-xs-9.col-sm-10.col-md-9.col-lg-9.manuscriptbox
-                                                span.innerboxmatter A new manuscript is available
-                                            .col-sm-12.col-md-11.col-lg-11
-                                                .infoboxmatter2
-                                                    table.table.table-responsive
-                                                        tbody
-                                                            tr
-                                                                td title
-                                                                td My book
-                                                            tr
-                                                                td Author name
-                                                                td Ravi kumar
-                                                            tr
-                                                                td Author email
-                                                                td
-                                                                    | ravirenus
-                                                                    | @gmail.com
-                                                            tr
-                                                                td file Link
-                                                                td
-                                                                    a(href='') manuscript.docx
-                                                .innerboxmatter1
-                                                    a.btn.btn-sm.btn-default(href='') allot to blogger
-                                                    a.btn.btn-sm.btn-default(href='') Accept
-                                                    a.btn.btn-sm.btn-default(href='') Reject
-                                //
-                                  row
-                                .row
-                                    .col-xs-12.col-sm-10.col-sm-offset-1.notifboxes
-                                        .row
-                                            .col-xs-3.col-sm-2.col-md-2.col-lg-2.text-center
-                                                span.icon-notebook.iconswrap.bookicon
-                                            .col-xs-9.col-sm-10.col-md-9.col-lg-9.bookbox
-                                                span.innerboxmatter
-                                                    | A new book is available
-                                            .col-sm-12.col-md-11.col-lg-11
-                                                .infoboxmatter2
-                                                    table.table.table-responsive
-                                                        tbody
-                                                            tr
-                                                                td title
-                                                                td My book
-                                                            tr
-                                                                td Author name
-                                                                td Ravi kumar
-                                                            tr
-                                                                td Author email
-                                                                td
-                                                                    | ravirenus
-                                                                    | @gmail.com
-                                                            tr
-                                                                td file link
-                                                                td
-                                                                    a(href='') summary.docx
-                                                                    br
-                                                                    a(href='') full-book.docx
-                                                .innerboxmatter1
-                                                    a.btn.btn-sm.btn-default(href='') view
-                                                    a.btn.btn-sm.btn-default(href='') allot to blogger
-                                                    a.btn.btn-sm.btn-default(href='') reject
-                                //
-                                  row
-                                //
-                                  new exp
-                                .row
-                                    .col-xs-12.col-sm-10.col-sm-offset-1.notifboxes
-                                        .row
-                                            .col-xs-3.col-sm-2.col-md-2.col-lg-2.text-center
-                                                span.icon-notebook.iconswrap.bookicon
-                                            .col-xs-9.col-sm-10.col-md-9.col-lg-9.bookbox
-                                                span.innerboxmatter
-                                                    | A new book is available
-                                            .col-sm-12.col-md-11.col-lg-11
-                                                .infoboxmatter2.newxp
-                                                    table.table.table-responsive
-                                                        tbody
-                                                            tr
-                                                                td title
-                                                                td My book
-                                                            tr
-                                                                td Author name
-                                                                td Ravi kumar
-                                                            tr
-                                                                td Author email
-                                                                td
-                                                                    | ravirenus
-                                                                    | @gmail.com
-                                                            tr
-                                                                td file link
-                                                                td
-                                                                    a(href='') summary.docx
-                                                                    br
-                                                                    a(href='') full-book.docx
-                                                .innerboxmatter1
-                                                    a.btn.btn-sm.btn-default(href='') view
-                                                    a.btn.btn-sm.btn-default(href='') allot to blogger
-                                                    a.btn.btn-sm.btn-default(href='') reject
-                                //
-                                  row
-                                .row
-                                    .col-xs-12.col-sm-10.col-sm-offset-1.notifboxes
-                                        .row
-                                            .col-xs-3.col-sm-2.col-md-2.col-lg-2.text-center
-                                                span.icon-expand.iconswrap.reviewicon1
-                                            .col-xs-9.col-sm-10.col-md-9.col-lg-9.reviewbox1
-                                                span.innerboxmatter A new review is available
-                                            .col-sm-12.col-md-11.col-lg-11
-                                                .infoboxmatter2.newxp
-                                                    table.table.table-responsive
-                                                        tbody
-                                                            tr
-                                                                td.visible-md.visible-lg Title
-                                                                td suicide at IIT
-                                                            tr
-                                                                td.visible-md.visible-lg blogger name
-                                                                td ravi
-                                                            tr
-                                                                td.visible-md.visible-lg blogger url
-                                                                td
-                                                                    a(href='') ravirenus.blogspot.com
-                                                            tr
-                                                                td.visible-md.visible-lg review
-                                                                td
-                                                                    p
-                                                                        img.pull-right.revimg11(src='img/book2.jpg', alt='1')
-                                                                        | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, reiciendis, ullam, numquam vitae sed quisquam
-                                                                        a(href='')
-                                                                            small read more
-                                                .innerboxmatter1
-                                                    a.btn.btn-sm.btn-default(href='') view
-                                                    a.btn.btn-sm.btn-default(href='') comment
-                                                    a.btn.btn-sm.btn-default(href='') accept
-                                                    a.btn.btn-sm.btn-default(href='') reject
-                                //
-                                  row
-                                .row
-                                    .col-xs-12.col-sm-10.col-sm-offset-1.notifboxes
-                                        .row
-                                            .col-xs-3.col-sm-2.col-md-2.col-lg-2.text-center
-                                                span.icon-expand.iconswrap.reviewicon1
-                                            .col-xs-9.col-sm-10.col-md-9.col-lg-9.reviewbox1
-                                                span.innerboxmatter
-                                                    | A new review is available
-                                            .col-sm-12.col-md-11.col-lg-11
-                                                .infoboxmatter2.newxp
-                                                    table.table.table-responsive
-                                                        tbody
-                                                            tr
-                                                                td.visible-md.visible-lg Title
-                                                                td suicide at IIT
-                                                            tr
-                                                                td.visible-md.visible-lg blogger name
-                                                                td ravi
-                                                            tr
-                                                                td.visible-md.visible-lg blogger url
-                                                                td
-                                                                    a(href='') ravirenus.blogspot.com
-                                                            tr
-                                                                td.visible-md.visible-lg review
-                                                                td
-                                                                    p
-                                                                        img.pull-right.revimg11(src='img/book2.jpg', alt='1')
-                                                                        | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, reiciendis, ullam, numquam vitae sed quisquam Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, optio, cum, sunt, praesentium repudiandae eos quia minima ducimus maxime at voluptatem incidunt repellendus quas dolores omnis esse inventore temporibus facere. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, nihil, asperiores, quos placeat laboriosam quibusdam odio veniam neque maxime maiores reprehenderit officia eius repudiandae nulla nostrum dignissimos incidunt. Dicta, iure!
-                                                .commentfield
-                                                    form(action='')
-                                                        textarea.form-control(type='text', rows='8', placeholder='write comment here')
-                                                        .cmntbtns
-                                                            a.btn.btn-md.btn-info(href='') Comment
-                                                            a.btn.btn-md.btn-info(href='') cancel
-                                //
-                                  row
-                            //
-                              #admindash1
-                            #admindash2.tab-pane.fade
-                            //
-                              #dash3 bookshelf
-                            #admindash3.tab-pane.fade
-                            //
-                               admindash3
-                            #adminprofile.page-content.tab-pane.fade
-                                .row
-                                    .col-md-4
-                                        .profile_bg
-                                            .user-profile-sidebar
-                                                .row
-                                                    .col-md-4
-                                                        img(src='img/upic1.png')
-                                                    .col-md-8
-                                                        .user-identity
-                                                            h4
-                                                                strong John Doe
-                                                            p
-                                                                i.fa.fa-map-marker
-                                                                | Riaxe Systems Pvt
-                                            .account-status-data
-                                                .row
-                                                    .col-md-4
-                                                        h5
-                                                            strong 2,173
-                                                            br
-                                                            | Posts
-                                                    .col-md-4
-                                                        h5
-                                                            strong 14
-                                                            br
-                                                            | Following
-                                                    .col-md-4
-                                                        h5
-                                                            strong 100
-                                                            br
-                                                            | Followers
-                                            .user-button
-                                                .row
-                                                    .col-sm-12.text-center
-                                                        button.btn.btn-primary.btn-rounded(type='button')
-                                                            i.fa.fa-envelope
-                                                            | Send Message
-                                            div
-                                                small. about me
-                                                p Artist
-                                                small. info
-                                                p
-                                                    | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis ipsum ac feugiat.
-                                                .line
-                                                p.m-t-sm
-                                            h6
-                                                strong CONNECTION
-                                                ul.social_icons
-                                                    li
-                                                        a(href='#')
-                                                            i.icon-facebook
-                                                    li
-                                                        a(href='#')
-                                                            i.icon-twitter
-                                                    li
-                                                        a(href='#')
-                                                            i.icon-googleplus
-                                        //
-                                          /block-web
-                                    //
-                                      /col-md-4
-                                    .col-md-8
-                                        .block-web.full
-                                            ul.nav.nav-tabs.nav-justified.nav_bg
-                                                li.active
-                                                    a(href='#about', data-toggle='tab')
-                                                        i.fa.fa-user
-                                                        | About
-                                                li.
-                                                  a(href='#edit-profile', data-toggle='tab')
-                                                    i.fa.fa-pencil
-                                                    | Edit
-                                                li.
-                                                  a(href='#user-activities', data-toggle='tab')
-                                                    i.fa.fa-laptop
-                                                    | Activities
-                                                li.
-                                                  a(href='#mymessage', data-toggle='tab')
-                                                    i.fa.fa-envelope
-                                                    | Message
-                                            .tab-content
-                                                #about.tab-pane.animated.fadeInRight.active
-                                                    .user-profile-content
-                                                        h5
-                                                            strong ABOUT
-                                                            | ME
-                                                        p
-                                                            | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-                                                        hr
-                                                        .row
-                                                            .col-sm-6
-                                                                h5
-                                                                    strong CONTACT
-                                                                    | ME
-                                                                address
-                                                                    strong Phone
-                                                                    br
-                                                                    abbr(title='Phone') +91 354 123 4567
-                                                                address
-                                                                    strong Email
-                                                                    br
-                                                                    a(href='mailto:#') first.last@example.com
-                                                                address
-                                                                    strong Website
-                                                                    br
-                                                                    a(href='http://riaxe.com') http://riaxe.com
-                                                            .col-sm-6
-                                                                h5
-                                                                    strong MY
-                                                                    | SKILLS
-                                                                p UI Design
-                                                                p Clean and Modern Web Design
-                                                                p PHP and MySQL Programming
-                                                                p Vector Design
-                                                #edit-profile.tab-pane.animated.fadeInRight
-                                                    .user-profile-content
-                                                        form(role='form')
-                                                            .form-group
-                                                                label(for='FullName') Full Name
-                                                                input#FullName.form-control(type='text', value='John Doe')
-                                                            .form-group
-                                                                label(for='Email') Email
-                                                                input#Email.form-control(type='email', value='first.last@example.com')
-                                                            .form-group
-                                                                label(for='Username') Username
-                                                                input#Username.form-control(type='text', value='john')
-                                                            .form-group
-                                                                label(for='Password') Password
-                                                                input#Password.form-control(type='password', placeholder='6 - 15 Characters')
-                                                            .form-group
-                                                                label(for='RePassword') Re-Password
-                                                                input#RePassword.form-control(type='password', placeholder='6 - 15 Characters')
-                                                            .form-group
-                                                                label(for='AboutMe') About Me
-                                                                textarea#AboutMe.form-control(style='height: 125px;')
-                                                                    | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-                                                            button.btn.btn-primary(type='submit') Save
-                                                #user-activities.tab-pane
-                                                    ul.media-list
-                                                        li.media
-                                                            a(href='#')
-                                                                p
-                                                                    strong John Doe
-                                                                    | Uploaded a photo
-                                                                    strong "DSC000254.jpg"
-                                                                    br
-                                                                    i 2 minutes ago
-                                                        li.media
-                                                            a(href='#')
-                                                                p
-                                                                    strong Imran Tahir
-                                                                    | Created an photo album
-                                                                    strong "Indonesia Tourism"
-                                                                    br
-                                                                    i 8 minutes ago
-                                                        li.media
-                                                            a(href='#')
-                                                                p
-                                                                    strong Colin Munro
-                                                                    | Posted an article
-                                                                    strong "London never ending Asia"
-                                                                    br
-                                                                    i an hour ago
-                                                        li.media
-                                                            a(href='#')
-                                                                p
-                                                                    strong Corey Anderson
-                                                                    | Added 3 products
-                                                                    br
-                                                                    i 3 hours ago
-                                                        li.media
-                                                            a(href='#')
-                                                                p
-                                                                    strong Morne Morkel
-                                                                    | Send you a message
-                                                                    strong "Lorem ipsum dolor..."
-                                                                    br
-                                                                    i 12 hours ago
-                                                        li.media
-                                                            a(href='#')
-                                                                p
-                                                                    strong Imran Tahir
-                                                                    | Updated his avatar
-                                                                    br
-                                                                    i Yesterday
-                                                #mymessage.tab-pane
-                                                    ul.media-list
-                                                        li.media
-                                                            a.pull-left(href='#')
-                                                                img(src='images/gg.png')
-                                                            .media-body
-                                                                h4.media-heading
-                                                                    a(href='#fakelink') John Doe
-                                                                    small Just now
-                                                                p Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                                                        li.media
-                                                            a.pull-left(href='#')
-                                                                img(src='images/gg.png')
-                                                            .media-body
-                                                                h4.media-heading
-                                                                    a(href='#fakelink') Tim Southee
-                                                                    small Yesterday at 04:00 AM
-                                                                p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam rhoncus
-                                                        li.media
-                                                            a.pull-left(href='#')
-                                                                img(src='images/gg.png')
-                                                            .media-body
-                                                                h4.media-heading
-                                                                    a(href='#fakelink') Kane Williamson
-                                                                    small January 17, 2014 05:35 PM
-                                                                p Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                                                        li.media
-                                                            a.pull-left(href='#')
-                                                                img(src='images/gg.png')
-                                                            .media-body
-                                                                h4.media-heading
-                                                                    a(href='#fakelink') Lonwabo Tsotsobe
-                                                                    small January 17, 2014 05:35 PM
-                                                                p Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                                                        li.media
-                                                            a.pull-left(href='#')
-                                                                img(src='images/gg.png')
-                                                            .media-body
-                                                                h4.media-heading
-                                                                    a(href='#fakelink') Dale Steyn
-                                                                    small January 17, 2014 05:35 PM
-                                                                p Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                                                        li.media
-                                                            a.pull-left(href='#')
-                                                                img(src='images/gg.png')
-                                                            .media-body
-                                                                h4.media-heading
-                                                                    a(href='#fakelink') John Doe
-                                                                    small Just now
-                                                                p Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                                            //
-                                              /tab-content
-                                        //
-                                          /block-web
-                                    //
-                                      /col-md-8
-                                //
-                                  /row
-                            //
-                              admin-profile
-                            #admindash5.tab-pane.fade.user-list
-                                .row
-                                    .col-sm-10.col-sm-offset-1
-                                        form(action='')
-                                            input.form-control(type='text', placeholder='search')
-                                            small use name or email
-                                        .table-responsive
-                                            table.table.table-bordered
-                                                tr
-                                                    th id
-                                                    th name
-                                                    th email
-                                                    th role
-                                                tbody
-                                                    tr
-                                                        td 1
-                                                        td kajskjdsa kjkjk
-                                                        td skdjsakdsjka@gmail.com
-                                                        td author
-                                                    tr
-                                                        td 1
-                                                        td kajskjdsa kjkjk
-                                                        td skdjsakdsjka@gmail.com
-                                                        td author
-                                                    tr
-                                                        td 1
-                                                        td kajskjdsa kjkjk
-                                                        td skdjsakdsjka@gmail.com
-                                                        td author
-                                                    tr
-                                                        td 1
-                                                        td kajskjdsa kjkjk
-                                                        td skdjsakdsjka@gmail.com
-                                                        td author
-                                                    tr
-                                                        td 1
-                                                        td kajskjdsa kjkjk
-                                                        td skdjsakdsjka@gmail.com
-                                                        td author
-                                                    tr
-                                                        td 1
-                                                        td kajskjdsa kjkjk
-                                                        td skdjsakdsjka@gmail.com
-                                                        td author
-                                                    tr
-                                                        td 1
-                                                        td kajskjdsa kjkjk
-                                                        td skdjsakdsjka@gmail.com
-                                                        td author
-                                                    tr
-                                                        td 1
-                                                        td kajskjdsa kjkjk
-                                                        td skdjsakdsjka@gmail.com
-                                                        td author
-                                                    tr
-                                                        td 1
-                                                        td kajskjdsa kjkjk
-                                                        td skdjsakdsjka@gmail.com
-                                                        td author
-                                                    tr
-                                                        td 1
-                                                        td kajskjdsa kjkjk
-                                                        td skdjsakdsjka@gmail.com
-                                                        td author
-                                                    tr
-                                                        td 1
-                                                        td kajskjdsa kjkjk
-                                                        td skdjsakdsjka@gmail.com
-                                                        td author
-                                                    tr
-                                                        td 1
-                                                        td kajskjdsa kjkjk
-                                                        td skdjsakdsjka@gmail.com
-                                                        td author
-                                                    tr
-                                                        td 1
-                                                        td kajskjdsa kjkjk
-                                                        td skdjsakdsjka@gmail.com
-                                                        td author
-                        //
-                          tab-conntent
-                //
-                  row
-            //
-              container-fluid
-        //
-           <section class="footer">
-                  <div class="container">
-                    <div class="row">
-                          <div class="col-md-8 col-sm-8">
-                              <ul class="footer-nav pull-left">
-                                <li><a href="#">About Migrera</a></li>
-                                <li><a href="#">Team</a></li>
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#" class="active">For Vendors</a></li>
-                                <li><a href="#">For Companies</a></li>
-                                <li><a href="#">Terms &amp; Conditions</a></li>
-                                <li><a href="#">Contact Us</a></li>
+                      <ul class="nav navbar-right">
+                                <div class="noti">
+                               <a href="#"><span class="glyphicon glyphicon-bell"></span> <span class="badge">42</span></a>
+                               </div>
                               </ul>
-                            </div>
-                            <div class="col-md-4 copyright">
-                              <p class="pull-right">Copyright &copy; 2014 Migrera</p>
-                            </div>
-                         </div>
-                    </div>
-           </section>
+                    ul.nav.navbar-right
+                        .noti
+                            a(href='#')
+                                span.icon-envelope
+                                span.badge 10
+                        .dropdown
+                            button#dropdownMenu1.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
+                                img.img-circle(src='img/upic1.png', alt='1')
+                                span.hidden-xs Sampoornesh Babu
+                                span.glyphicon.glyphicon-chevron-down
+                            ul.dropdown-menu(role='menu', aria-labelledby='dropdownMenu1')
+                                li(role='presentation')
+                                    a(role='menuitem', tabindex='-1', href='#') Settings
+                                li(role='presentation')
+                                    a(role='menuitem', tabindex='-1', data-toggle='tab', href='#adminprofile') Profile
+                                li.divider(role='presentation')
+                                li(role='presentation')
+                                    a(role='menuitem', tabindex='-1', href='#') Sign Out
+    section.form-mobile.visible-xs
+        .container
+            .row
+                .col-xs-12
+                    form.navbar-form(role='search')
+                        .form-group
+                            input.form-control(type='text', placeholder='Search')
+                            a(href='')
+                                span.glyphicon.glyphicon-search
+    section.dashboard
+        .container-fluid
+            .row
+                .col-md-2.col-sm-2.hidden-xs.side1
+                    ul.nav.nav-tabs.nav-stacked
+                        li.active
+                            a(data-toggle='tab', href='#admindash1')
+                                span.glyphicon.glyphicon-tasks
+                                | Dashboard
+                        li
+                            a(data-toggle='tab', href='#admindash2')
+                                span.glyphicon.glyphicon-pencil
+                                | Books
+                        li
+                            a(data-toggle='tab', href='#admindash3')
+                                span.glyphicon.glyphicon-home
+                                | Reporting
+                        li
+                            a(data-toggle='tab', href='#admindash4')
+                                span.glyphicon.glyphicon-envelope
+                                | Inbox
+                        li
+                            a(data-toggle='tab', href='#admindash5')
+                                span.glyphicon.glyphicon-user
+                                | Users
+                //
+                  col-md-2 hidden-xs
+                .col-md-1.col-sm-1.col-xs-1.visible-xs.side2
+                    ul.nav.nav-tabs.nav-stacked
+                        li.active
+                            a(data-toggle='tab', href='#admindash1')
+                                span.glyphicon.glyphicon-tasks
+                        li
+                            a(data-toggle='tab', href='#admindash2')
+                                span.glyphicon.glyphicon-pencil
+                        li
+                            a(data-toggle='tab', href='#admindash3')
+                                span.glyphicon.glyphicon-home
+                        li
+                            a(data-toggle='tab', href='#admindash4')
+                                span.glyphicon.glyphicon-envelope
+                        li
+                            a(data-toggle='tab', href='#admindash5')
+                                span.glyphicon.glyphicon-user
+                //
+                  side-2 visible-xs
+                .col-md-10.col-lg-10.col-sm-10.col-xs-12
+                    .tab-content
+                        #admindash1.tab-pane.fade.in.active
+                            .row
+                                .col-sm-offset-1.col-sm-10.sortboxes
+                                    ul
+                                        li
+                                            span.button-checkbox
+                                                button.btn(type='button', data-color='warning')  All
+                                                input.hidden(type='checkbox', checked='checked')
+                                        li
+                                            span.button-checkbox
+                                                button.btn(type='button', data-color='primary')
+                                                    span.hiddenfor Manuscript
+                                                    span.icon-documents.iconforbtn
+                                                input.hidden(type='checkbox', checked='checked')
+                                        li
+                                            span.button-checkbox
+                                                button.btn(type='button', data-color='danger')
+                                                    span.hiddenfor Books
+                                                    span.icon-notebook.iconforbtn
+                                                input.hidden(type='checkbox', checked='checked')
+                                        li
+                                            span.button-checkbox
+                                                button.btn(type='button', data-color='info')
+                                                    span.hiddenfor Review
+                                                    span.icon-expand.iconforbtn
+                                                input.hidden(type='checkbox', checked='checked')
+                            .row
+                                .col-xs-12.col-sm-10.col-sm-offset-1.notifboxes
+                                    .row
+                                        .col-xs-3.col-sm-2.text-center
+                                            span.icon-documents.iconswrap.manuicon
+                                        .col-xs-9.col-sm-10.col-md-9.col-lg-9.manuscriptbox
+                                            span.innerboxmatter A new manuscript is available
+                                        .col-sm-12.col-md-11.col-lg-11
+                                            .infoboxmatter2
+                                                table.table.table-responsive
+                                                    tbody
+                                                        tr
+                                                            td title
+                                                            td My book
+                                                        tr
+                                                            td Author name
+                                                            td Ravi kumar
+                                                        tr
+                                                            td Author email
+                                                            td
+                                                                | ravirenus
+                                                                | @gmail.com
+                                                        tr
+                                                            td file Link
+                                                            td
+                                                                a(href='') manuscript.docx
+                                            .innerboxmatter1
+                                                a.btn.btn-sm.btn-default(href='') allot to blogger
+                                                a.btn.btn-sm.btn-default(href='') Accept
+                                                a.btn.btn-sm.btn-default(href='') Reject
+                            //
+                              row
+                            .row
+                                .col-xs-12.col-sm-10.col-sm-offset-1.notifboxes
+                                    .row
+                                        .col-xs-3.col-sm-2.col-md-2.col-lg-2.text-center
+                                            span.icon-notebook.iconswrap.bookicon
+                                        .col-xs-9.col-sm-10.col-md-9.col-lg-9.bookbox
+                                            span.innerboxmatter
+                                                | A new book is available
+                                        .col-sm-12.col-md-11.col-lg-11
+                                            .infoboxmatter2
+                                                table.table.table-responsive
+                                                    tbody
+                                                        tr
+                                                            td title
+                                                            td My book
+                                                        tr
+                                                            td Author name
+                                                            td Ravi kumar
+                                                        tr
+                                                            td Author email
+                                                            td
+                                                                | ravirenus
+                                                                | @gmail.com
+                                                        tr
+                                                            td file link
+                                                            td
+                                                                a(href='') summary.docx
+                                                                br
+                                                                a(href='') full-book.docx
+                                            .innerboxmatter1
+                                                a.btn.btn-sm.btn-default(href='') view
+                                                a.btn.btn-sm.btn-default(href='') allot to blogger
+                                                a.btn.btn-sm.btn-default(href='') reject
+                            //
+                              row
+                            //
+                              new exp
+                            .row
+                                .col-xs-12.col-sm-10.col-sm-offset-1.notifboxes
+                                    .row
+                                        .col-xs-3.col-sm-2.col-md-2.col-lg-2.text-center
+                                            span.icon-notebook.iconswrap.bookicon
+                                        .col-xs-9.col-sm-10.col-md-9.col-lg-9.bookbox
+                                            span.innerboxmatter
+                                                | A new book is available
+                                        .col-sm-12.col-md-11.col-lg-11
+                                            .infoboxmatter2.newxp
+                                                table.table.table-responsive
+                                                    tbody
+                                                        tr
+                                                            td title
+                                                            td My book
+                                                        tr
+                                                            td Author name
+                                                            td Ravi kumar
+                                                        tr
+                                                            td Author email
+                                                            td
+                                                                | ravirenus
+                                                                | @gmail.com
+                                                        tr
+                                                            td file link
+                                                            td
+                                                                a(href='') summary.docx
+                                                                br
+                                                                a(href='') full-book.docx
+                                            .innerboxmatter1
+                                                a.btn.btn-sm.btn-default(href='') view
+                                                a.btn.btn-sm.btn-default(href='') allot to blogger
+                                                a.btn.btn-sm.btn-default(href='') reject
+                            //
+                              row
+                            .row
+                                .col-xs-12.col-sm-10.col-sm-offset-1.notifboxes
+                                    .row
+                                        .col-xs-3.col-sm-2.col-md-2.col-lg-2.text-center
+                                            span.icon-expand.iconswrap.reviewicon1
+                                        .col-xs-9.col-sm-10.col-md-9.col-lg-9.reviewbox1
+                                            span.innerboxmatter A new review is available
+                                        .col-sm-12.col-md-11.col-lg-11
+                                            .infoboxmatter2.newxp
+                                                table.table.table-responsive
+                                                    tbody
+                                                        tr
+                                                            td.visible-md.visible-lg Title
+                                                            td suicide at IIT
+                                                        tr
+                                                            td.visible-md.visible-lg blogger name
+                                                            td ravi
+                                                        tr
+                                                            td.visible-md.visible-lg blogger url
+                                                            td
+                                                                a(href='') ravirenus.blogspot.com
+                                                        tr
+                                                            td.visible-md.visible-lg review
+                                                            td
+                                                                p
+                                                                    img.pull-right.revimg11(src='img/book2.jpg', alt='1')
+                                                                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, reiciendis, ullam, numquam vitae sed quisquam
+                                                                    a(href='')
+                                                                        small read more
+                                            .innerboxmatter1
+                                                a.btn.btn-sm.btn-default(href='') view
+                                                a.btn.btn-sm.btn-default(href='') comment
+                                                a.btn.btn-sm.btn-default(href='') accept
+                                                a.btn.btn-sm.btn-default(href='') reject
+                            //
+                              row
+                            .row
+                                .col-xs-12.col-sm-10.col-sm-offset-1.notifboxes
+                                    .row
+                                        .col-xs-3.col-sm-2.col-md-2.col-lg-2.text-center
+                                            span.icon-expand.iconswrap.reviewicon1
+                                        .col-xs-9.col-sm-10.col-md-9.col-lg-9.reviewbox1
+                                            span.innerboxmatter
+                                                | A new review is available
+                                        .col-sm-12.col-md-11.col-lg-11
+                                            .infoboxmatter2.newxp
+                                                table.table.table-responsive
+                                                    tbody
+                                                        tr
+                                                            td.visible-md.visible-lg Title
+                                                            td suicide at IIT
+                                                        tr
+                                                            td.visible-md.visible-lg blogger name
+                                                            td ravi
+                                                        tr
+                                                            td.visible-md.visible-lg blogger url
+                                                            td
+                                                                a(href='') ravirenus.blogspot.com
+                                                        tr
+                                                            td.visible-md.visible-lg review
+                                                            td
+                                                                p
+                                                                    img.pull-right.revimg11(src='img/book2.jpg', alt='1')
+                                                                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, reiciendis, ullam, numquam vitae sed quisquam Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, optio, cum, sunt, praesentium repudiandae eos quia minima ducimus maxime at voluptatem incidunt repellendus quas dolores omnis esse inventore temporibus facere. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, nihil, asperiores, quos placeat laboriosam quibusdam odio veniam neque maxime maiores reprehenderit officia eius repudiandae nulla nostrum dignissimos incidunt. Dicta, iure!
+                                            .commentfield
+                                                form(action='')
+                                                    textarea.form-control(type='text', rows='8', placeholder='write comment here')
+                                                    .cmntbtns
+                                                        a.btn.btn-md.btn-info(href='') Comment
+                                                        a.btn.btn-md.btn-info(href='') cancel
+                            //
+                              row
+                        //
+                          #admindash1
+                        #admindash2.tab-pane.fade
+                        //
+                          #dash3 bookshelf
+                        #admindash3.tab-pane.fade
+                        //
+                           admindash3
+                        #adminprofile.page-content.tab-pane.fade
+                            .row
+                                .col-md-4
+                                    //.profile_bg
+                                        .user-profile-sidebar
+                                            .row
+                                                .col-md-4
+                                                    img(src='img/upic1.png')
+                                                .col-md-8
+                                                    .user-identity
+                                                        h4
+                                                            strong John Doe
+                                                        p
+                                                            i.fa.fa-map-marker
+                                                            | Riaxe Systems Pvt
+                                        .account-status-data
+                                            .row
+                                                .col-md-4
+                                                    h5
+                                                        strong 2,173
+                                                        br
+                                                        | Posts
+                                                .col-md-4
+                                                    h5
+                                                        strong 14
+                                                        br
+                                                        | Following
+                                                .col-md-4
+                                                    h5
+                                                        strong 100
+                                                        br
+                                                        | Followers
+                                        .user-button
+                                            .row
+                                                .col-sm-12.text-center
+                                                    button.btn.btn-primary.btn-rounded(type='button')
+                                                        i.fa.fa-envelope
+                                                        | Send Message
+                                        div
+                                            small. about me
+                                            p Artist
+                                            small. info
+                                            p
+                                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis ipsum ac feugiat.
+                                            .line
+                                            p.m-t-sm
+                                        h6
+                                            strong CONNECTION
+                                            ul.social_icons
+                                                li
+                                                    a(href='#')
+                                                        i.icon-facebook
+                                                li
+                                                    a(href='#')
+                                                        i.icon-twitter
+                                                li
+                                                    a(href='#')
+                                                        i.icon-googleplus
+                                    //
+                                      /block-web
+                                //
+                                  /col-md-4
+                                .col-md-8
+                                    .block-web.full
+                                        ul.nav.nav-tabs.nav-justified.nav_bg
+                                            li.active
+                                                a(href='#about', data-toggle='tab')
+                                                    i.fa.fa-user
+                                                    | About
+                                            li.
+                                              a(href='#edit-profile', data-toggle='tab')
+                                                i.fa.fa-pencil
+                                                | Edit
+                                            li.
+                                              a(href='#user-activities', data-toggle='tab')
+                                                i.fa.fa-laptop
+                                                | Activities
+                                            li.
+                                              a(href='#mymessage', data-toggle='tab')
+                                                i.fa.fa-envelope
+                                                | Message
+                                        .tab-content
+                                            #about.tab-pane.animated.fadeInRight.active
+                                                .user-profile-content
+                                                    h5
+                                                        strong ABOUT
+                                                        | ME
+                                                    p
+                                                        | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                                                    hr
+                                                    .row
+                                                        .col-sm-6
+                                                            h5
+                                                                strong CONTACT
+                                                                | ME
+                                                            address
+                                                                strong Phone
+                                                                br
+                                                                abbr(title='Phone') +91 354 123 4567
+                                                            address
+                                                                strong Email
+                                                                br
+                                                                a(href='mailto:#') first.last@example.com
+                                                            address
+                                                                strong Website
+                                                                br
+                                                                a(href='http://riaxe.com') http://riaxe.com
+                                                        .col-sm-6
+                                                            h5
+                                                                strong MY
+                                                                | SKILLS
+                                                            p UI Design
+                                                            p Clean and Modern Web Design
+                                                            p PHP and MySQL Programming
+                                                            p Vector Design
+                                            #edit-profile.tab-pane.animated.fadeInRight
+                                                .user-profile-content
+                                                    form(role='form')
+                                                        .form-group
+                                                            label(for='FullName') Full Name
+                                                            input#FullName.form-control(type='text', value='John Doe')
+                                                        .form-group
+                                                            label(for='Email') Email
+                                                            input#Email.form-control(type='email', value='first.last@example.com')
+                                                        .form-group
+                                                            label(for='Username') Username
+                                                            input#Username.form-control(type='text', value='john')
+                                                        .form-group
+                                                            label(for='Password') Password
+                                                            input#Password.form-control(type='password', placeholder='6 - 15 Characters')
+                                                        .form-group
+                                                            label(for='RePassword') Re-Password
+                                                            input#RePassword.form-control(type='password', placeholder='6 - 15 Characters')
+                                                        .form-group
+                                                            label(for='AboutMe') About Me
+                                                            textarea#AboutMe.form-control(style='height: 125px;')
+                                                                | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                                                        button.btn.btn-primary(type='submit') Save
+                                            #user-activities.tab-pane
+                                                ul.media-list
+                                                    li.media
+                                                        a(href='#')
+                                                            p
+                                                                strong John Doe
+                                                                | Uploaded a photo
+                                                                strong "DSC000254.jpg"
+                                                                br
+                                                                i 2 minutes ago
+                                                    li.media
+                                                        a(href='#')
+                                                            p
+                                                                strong Imran Tahir
+                                                                | Created an photo album
+                                                                strong "Indonesia Tourism"
+                                                                br
+                                                                i 8 minutes ago
+                                                    li.media
+                                                        a(href='#')
+                                                            p
+                                                                strong Colin Munro
+                                                                | Posted an article
+                                                                strong "London never ending Asia"
+                                                                br
+                                                                i an hour ago
+                                                    li.media
+                                                        a(href='#')
+                                                            p
+                                                                strong Corey Anderson
+                                                                | Added 3 products
+                                                                br
+                                                                i 3 hours ago
+                                                    li.media
+                                                        a(href='#')
+                                                            p
+                                                                strong Morne Morkel
+                                                                | Send you a message
+                                                                strong "Lorem ipsum dolor..."
+                                                                br
+                                                                i 12 hours ago
+                                                    li.media
+                                                        a(href='#')
+                                                            p
+                                                                strong Imran Tahir
+                                                                | Updated his avatar
+                                                                br
+                                                                i Yesterday
+                                            #mymessage.tab-pane
+                                                ul.media-list
+                                                    li.media
+                                                        a.pull-left(href='#')
+                                                            img(src='images/gg.png')
+                                                        .media-body
+                                                            h4.media-heading
+                                                                a(href='#fakelink') John Doe
+                                                                small Just now
+                                                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                                                    li.media
+                                                        a.pull-left(href='#')
+                                                            img(src='images/gg.png')
+                                                        .media-body
+                                                            h4.media-heading
+                                                                a(href='#fakelink') Tim Southee
+                                                                small Yesterday at 04:00 AM
+                                                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam rhoncus
+                                                    li.media
+                                                        a.pull-left(href='#')
+                                                            img(src='images/gg.png')
+                                                        .media-body
+                                                            h4.media-heading
+                                                                a(href='#fakelink') Kane Williamson
+                                                                small January 17, 2014 05:35 PM
+                                                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                                                    li.media
+                                                        a.pull-left(href='#')
+                                                            img(src='images/gg.png')
+                                                        .media-body
+                                                            h4.media-heading
+                                                                a(href='#fakelink') Lonwabo Tsotsobe
+                                                                small January 17, 2014 05:35 PM
+                                                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                                                    li.media
+                                                        a.pull-left(href='#')
+                                                            img(src='images/gg.png')
+                                                        .media-body
+                                                            h4.media-heading
+                                                                a(href='#fakelink') Dale Steyn
+                                                                small January 17, 2014 05:35 PM
+                                                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                                                    li.media
+                                                        a.pull-left(href='#')
+                                                            img(src='images/gg.png')
+                                                        .media-body
+                                                            h4.media-heading
+                                                                a(href='#fakelink') John Doe
+                                                                small Just now
+                                                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                                        //
+                                          /tab-content
+                                    //
+                                      /block-web
+                                //
+                                  /col-md-8
+                            //
+                              /row
+                        //
+                          admin-profile
+                        #admindash5.tab-pane.fade.user-list
+                            .row
+                                .col-sm-10.col-sm-offset-1
+                                    form(action='')
+                                        input.form-control(type='text', placeholder='search')
+                                        small use name or email
+                                    .table-responsive
+                                        table.table.table-bordered
+                                            tr
+                                                th id
+                                                th name
+                                                th email
+                                                th role
+                                            tbody
+                                                tr
+                                                    td 1
+                                                    td kajskjdsa kjkjk
+                                                    td skdjsakdsjka@gmail.com
+                                                    td author
+                                                tr
+                                                    td 1
+                                                    td kajskjdsa kjkjk
+                                                    td skdjsakdsjka@gmail.com
+                                                    td author
+                                                tr
+                                                    td 1
+                                                    td kajskjdsa kjkjk
+                                                    td skdjsakdsjka@gmail.com
+                                                    td author
+                                                tr
+                                                    td 1
+                                                    td kajskjdsa kjkjk
+                                                    td skdjsakdsjka@gmail.com
+                                                    td author
+                                                tr
+                                                    td 1
+                                                    td kajskjdsa kjkjk
+                                                    td skdjsakdsjka@gmail.com
+                                                    td author
+                                                tr
+                                                    td 1
+                                                    td kajskjdsa kjkjk
+                                                    td skdjsakdsjka@gmail.com
+                                                    td author
+                                                tr
+                                                    td 1
+                                                    td kajskjdsa kjkjk
+                                                    td skdjsakdsjka@gmail.com
+                                                    td author
+                                                tr
+                                                    td 1
+                                                    td kajskjdsa kjkjk
+                                                    td skdjsakdsjka@gmail.com
+                                                    td author
+                                                tr
+                                                    td 1
+                                                    td kajskjdsa kjkjk
+                                                    td skdjsakdsjka@gmail.com
+                                                    td author
+                                                tr
+                                                    td 1
+                                                    td kajskjdsa kjkjk
+                                                    td skdjsakdsjka@gmail.com
+                                                    td author
+                                                tr
+                                                    td 1
+                                                    td kajskjdsa kjkjk
+                                                    td skdjsakdsjka@gmail.com
+                                                    td author
+                                                tr
+                                                    td 1
+                                                    td kajskjdsa kjkjk
+                                                    td skdjsakdsjka@gmail.com
+                                                    td author
+                                                tr
+                                                    td 1
+                                                    td kajskjdsa kjkjk
+                                                    td skdjsakdsjka@gmail.com
+                                                    td author
+                    //
+                      tab-conntent
+            //
+              row
         //
-           Load JS here for greater good =============================
-        script(src='js/jquery-1.11.0.min.js')
-        script(src='js/bootstrap.min.js')
-        script.
-            $(document).ready(function() {
-            $('.panel-body button').on('click', function(){
-            $(this).toggleClass('btnactive');
-            });
-            });
-        script.
-            $(".carddtnyear.dropdown-menu li").click(function(){
-            var selText = $(this).text();
-            $(this).parents('.btn-group').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
-            });
-        script.
-            $( document ).ready(function() {
-            $('.pop-dis').hover(
-            function(){
-            $(this).find('.caption').slideDown(250); //.fadeIn(250)
-            },
-            function(){
-            $(this).find('.caption').slideUp(250); //.fadeOut(205)
-            }
-            );
-            });
-        script.
-            $( document ).ready(function() {
-            $('.pop-dis').hover(
-            function(){
-            $(this).find('.sidepop').fadeIn(250); //.fadeIn(250)
-            },
-            function(){
-            $(this).find('.sidepop').fadeOut(205); //.fadeOut(205)
-            }
-            );
-            });
-        script.
-            $(function () {
-            $('.button-checkbox').each(function () {
-            // Settings
-            var $widget = $(this),
-            $button = $widget.find('button'),
-            $checkbox = $widget.find('input:checkbox'),
-            color = $button.data('color'),
-            settings = {
-            on: {
-            icon: 'glyphicon glyphicon-ok'
-            },
-            off: {
-            icon: 'glyphicon glyphicon-remove'
-            }
-            };
-            // Event Handlers
-            $button.on('click', function () {
-            $checkbox.prop('checked', !$checkbox.is(':checked'));
-            $checkbox.triggerHandler('change');
-            updateDisplay();
-            });
-            $checkbox.on('change', function () {
-            updateDisplay();
-            });
-            // Actions
-            function updateDisplay() {
-            var isChecked = $checkbox.is(':checked');
-            // Set the button's state
-            $button.data('state', (isChecked) ? "on" : "off");
-            // Set the button's icon
-            $button.find('.state-icon')
-            .removeClass()
-            .addClass('state-icon ' + settings[$button.data('state')].icon);
-            // Update the button's color
-            if (isChecked) {
-            $button
-            .removeClass('btn-default')
-            .addClass('btn-' + color + ' active');
-            }
-            else {
-            $button
-            .removeClass('btn-' + color + ' active')
-            .addClass('btn-default');
-            }
-            }
-            // Initialization
-            function init() {
-            updateDisplay();
-            // Inject the icon if applicable
-            if ($button.find('.state-icon').length == 0) {
-            $button.prepend('<i class="state-icon ' + settings[$button.data('state')].icon + '"></i> ');
-            }
-            }
-            init();
-            });
-            });
+          container-fluid
+    //
+       <section class="footer">
+              <div class="container">
+                <div class="row">
+                      <div class="col-md-8 col-sm-8">
+                          <ul class="footer-nav pull-left">
+                            <li><a href="#">About Migrera</a></li>
+                            <li><a href="#">Team</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#" class="active">For Vendors</a></li>
+                            <li><a href="#">For Companies</a></li>
+                            <li><a href="#">Terms &amp; Conditions</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                          </ul>
+                        </div>
+                        <div class="col-md-4 copyright">
+                          <p class="pull-right">Copyright &copy; 2014 Migrera</p>
+                        </div>
+                     </div>
+                </div>
+       </section>
+    //
+       Load JS here for greater good =============================
+    script(src='js/jquery-1.11.0.min.js')
+    script(src='js/bootstrap.min.js')
+    script.
+        $(document).ready(function() {
+        $('.panel-body button').on('click', function(){
+        $(this).toggleClass('btnactive');
+        });
+        });
+    script.
+        $(".carddtnyear.dropdown-menu li").click(function(){
+        var selText = $(this).text();
+        $(this).parents('.btn-group').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
+        });
+    script.
+        $( document ).ready(function() {
+        $('.pop-dis').hover(
+        function(){
+        $(this).find('.caption').slideDown(250); //.fadeIn(250)
+        },
+        function(){
+        $(this).find('.caption').slideUp(250); //.fadeOut(205)
+        }
+        );
+        });
+    script.
+        $( document ).ready(function() {
+        $('.pop-dis').hover(
+        function(){
+        $(this).find('.sidepop').fadeIn(250); //.fadeIn(250)
+        },
+        function(){
+        $(this).find('.sidepop').fadeOut(205); //.fadeOut(205)
+        }
+        );
+        });
+    script.
+        $(function () {
+        $('.button-checkbox').each(function () {
+        // Settings
+        var $widget = $(this),
+        $button = $widget.find('button'),
+        $checkbox = $widget.find('input:checkbox'),
+        color = $button.data('color'),
+        settings = {
+        on: {
+        icon: 'glyphicon glyphicon-ok'
+        },
+        off: {
+        icon: 'glyphicon glyphicon-remove'
+        }
+        };
+        // Event Handlers
+        $button.on('click', function () {
+        $checkbox.prop('checked', !$checkbox.is(':checked'));
+        $checkbox.triggerHandler('change');
+        updateDisplay();
+        });
+        $checkbox.on('change', function () {
+        updateDisplay();
+        });
+        // Actions
+        function updateDisplay() {
+        var isChecked = $checkbox.is(':checked');
+        // Set the button's state
+        $button.data('state', (isChecked) ? "on" : "off");
+        // Set the button's icon
+        $button.find('.state-icon')
+        .removeClass()
+        .addClass('state-icon ' + settings[$button.data('state')].icon);
+        // Update the button's color
+        if (isChecked) {
+        $button
+        .removeClass('btn-default')
+        .addClass('btn-' + color + ' active');
+        }
+        else {
+        $button
+        .removeClass('btn-' + color + ' active')
+        .addClass('btn-default');
+        }
+        }
+        // Initialization
+        function init() {
+        updateDisplay();
+        // Inject the icon if applicable
+        if ($button.find('.state-icon').length == 0) {
+        $button.prepend('<i class="state-icon ' + settings[$button.data('state')].icon + '"></i> ');
+        }
+        }
+        init();
+        });
+        });

@@ -1,1231 +1,1213 @@
-doctype  html(lang='en')
-head
-    meta(charset='utf-8')
-    title Bookbanyan
-    meta(name='viewport', content='width=device-width, initial-scale = 1.0, user-scalable=no ')
-    //
-       Loading Bootstrap
-    link(href='css/bootstrap.css', rel='stylesheet')
-    link(href='css/flat-ui.css', rel='stylesheet')
-    //
-       Loading Flat UI
-    link(href='css/bookb-dash-author.css', rel='stylesheet')
-    script(src='js/respond.min.js')
-    script(src='js/modernizr.js')
-    //
-       HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file.
-    //if lt IE 9
-      script(src='js/html5shiv.js')
-      script(src='js/respond.min.js')
-    body
-        header.header
-            #myheader.navbar.navbar-fixed-top
-                .navbar-inner
-                    .container-fluid
-                        .col-xs-2
-                            a.navbar-brand(href='#')
-                                img(src='img/logo.png')
-                        form.navbar-form.navbar-left.hidden-xs(role='search')
-                            .form-group
-                                input.form-control(type='text', placeholder='Search')
-                                a(href='')
-                                    span.glyphicon.glyphicon-search
-                        //
-                          <ul class="nav navbar-right">
-                                    <div class="noti">
-                                   <a href="#"><span class="glyphicon glyphicon-bell"></span> <span class="badge">42</span></a>
-                                   </div>
-                                  </ul>
-                        ul.nav.navbar-right
-                            .noti.dropdown
-                                a#dropdownMenu2.dropdown-toggle(href='', data-toggle='dropdown')
-                                    span.glyphicon.glyphicon-info-sign
-                                    span.badge.badge1 10
-                                ul.dropdown-menu(role='menu', aria-labelledby='dropdownMenu2')
-                                    li.text-center Notifications
-                                    li(role='presentation')
-                                        a(role='menuitem', tabindex='-1', href='#')
-                                            img.img-circle(src='img/upic2.png', alt='1')
-                                            span A new book is available for review
-                                    li(role='presentation')
-                                        a(role='menuitem', tabindex='-1', href='#')
-                                            img.img-circle(src='img/upic1.png', alt='1')
-                                            span Your review has been approved by the admin.
-                            .dropdown.maindropdown
-                                button#dropdownMenu1.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
-                                    img.img-circle(src='img/upic1.png', alt='1')
-                                    span.hidden-xs Sampoornesh Babu
-                                    span.glyphicon.glyphicon-chevron-down
-                                ul.dropdown-menu(role='menu', aria-labelledby='dropdownMenu1')
-                                    li(role='presentation')
-                                        a(role='menuitem', tabindex='-1', href='#') Settings
-                                    li(role='presentation')
-                                        a(role='menuitem', tabindex='-1', href='#') Profile
-                                    li.divider(role='presentation')
-                                    li(role='presentation')
-                                        a(role='menuitem', tabindex='-1', href='#') Sign Out
-        section.form-mobile.visible-xs
-            .container
-                .row
-                    .col-xs-12
-                        form.navbar-form(role='search')
-                            .form-group
-                                input.form-control(type='text', placeholder='Search')
-                                a(href='')
-                                    span.glyphicon.glyphicon-search
-        section.dashboard
+include ../includeHeader
+link(href='css/bookb-dash-author.css', rel='stylesheet')
+header.header
+    #myheader.navbar.navbar-fixed-top
+        .navbar-inner
             .container-fluid
-                .row
-                    .col-md-2.col-sm-2.hidden-xs.side1
-                        ul.nav.nav-tabs.nav-stacked
-                            li
-                                a(data-toggle='tab', href='#dash1')
-                                    span.glyphicon.glyphicon-home
-                                    | home
-                            li.active
-                                a(data-toggle='tab', href='#dash2')
-                                    span.glyphicon.glyphicon-align-justify
-                                    | Dashboard
-                            li
-                                a(data-toggle='tab', href='#dash3')
-                                    span.glyphicon.glyphicon-tasks
-                                    | bookshelf
-                            li
-                                a(data-toggle='tab', href='#dash4')
-                                    span.glyphicon.glyphicon-envelope
-                                    | INbox
-                            li
-                                a(data-toggle='tab', href='#mybooks')
-                                    span.glyphicon.glyphicon-book
-                                    | My books
-                    //
-                      col-md-2 hidden-xs
-                    .col-md-1.col-sm-1.col-xs-1.visible-xs.side2
-                        ul.nav.nav-tabs.nav-stacked
-                            li.active
-                                a(data-toggle='tab', href='#dash1')
-                                    span.glyphicon.glyphicon-home
-                            li
-                                a(data-toggle='tab', href='#dash2')
-                                    span.glyphicon.glyphicon-pencil
-                            li
-                                a(data-toggle='tab', href='#dash3')
-                                    span.glyphicon.glyphicon-tasks
-                            li
-                                a(data-toggle='tab', href='#dash4')
-                                    span.glyphicon.glyphicon-envelope
-                            li
-                                a(data-toggle='tab', href='#mybooks')
-                                    span.glyphicon.glyphicon-book
-                    //
-                      side-2 visible-xs
-                    .col-md-10.col-lg-10.col-sm-10.col-xs-12
-                        .tab-content
-                            #dash1.tab-pane.fade
-                                .row
-                                    .col-lg-offset-1.col-lg-11.col-md-offset-1.col-md-11.col-sm-offset-1.col-sm-11
-                                        #accordion.panel-group
-                                            .panel.panel-primary
-                                                .panel-heading
-                                                    h6.panel-title
-                                                        a(data-toggle='collapse', data-parent='#accordion', href='#collapseOne') Choose Services
-                                                #collapseOne.panel-collapse.collapse.in
-                                                    .panel-body.text-center
-                                                        .row
-                                                            .col-lg-4.col-md-4.col-sm-4.col-xs-4
-                                                                button.btn.btn-large.btn-default
-                                                                    span.icon-notebook
-                                                                    | Publishing
-                                                            .col-lg-4.col-md-4.col-sm-4.col-xs-4
-                                                                button.btn.btn-large.btn-default
-                                                                    span.icon-rss
-                                                                    | Online
-                                                                    br
-                                                                    | distribution
-                                                            .col-lg-4.col-md-4.col-sm-4.col-xs-4
-                                                                button.btn.btn-large.btn-default
-                                                                    span.icon-tools
-                                                                    | Reviewing
-                                                            .clearfix.visible-sm
-                                                            .clearfix.visible-xs
-                                                            .col-md-12.text-center
-                                                                a.btn.btn-lg.btn-danger(href='') Continue
-                                            .panel.panel-primary
-                                                .panel-heading
-                                                    h6.panel-title
-                                                        a(data-toggle='collapse', data-parent='#accordion', href='#collapseTwo') Book Details
-                                                #collapseTwo.panel-collapse.collapse.in
-                                                    .panel-body
-                                                        .col-sm-10.col-sm-offset-1
-                                                            h6 Upload your book
-                                                        .col-sm-10.col-sm-offset-1
-                                                            //
-                                                               The file input field used as target for the file upload widget
-                                                            .fileinputs
-                                                                input#fileupload.form-control.file(type='file', name='files[]', multiple='multiple')
-                                                                .fakefile
-                                                                    span.glyphicon.glyphicon-cloud-upload
-                                                                    p Drag & Dropn or CLick to upload
-                                                                    input.form-control
-                                                            br
-                                                            //
-                                                               The global progress bar
-                                                            #progress.progress
-                                                                .progress-bar.progress-bar-success
-                                                            //
-                                                               The container for the uploaded files
-                                                            #files.files
-                                                        .col-md-12.text-center
-                                                            a.btn.btn-lg.btn-danger(href='') Continue
-                                            .panel.panel-primary
-                                                .panel-heading
-                                                    h6.panel-title
-                                                        a(data-toggle='collapse', data-parent='#accordion', href='#collapseThree') Choose Package
-                                                #collapseThree.panel-collapse.collapse.in
-                                                    .panel-body
-                                                        .col-sm-6.col-xs-12.col-md-3.col-lg-3.text-center
-                                                            .package-wrap
-                                                                p RS/- 400
-                                                                p
-                                                                    small
-                                                                        | Book Editing
-                                                                        | Cover Page
-                                                                        br
-                                                                        | Printing
-                                                                        br
-                                                                        | Online Distribution
-                                                                        br
-                                                                        | 10 reviews
-                                                                button.btn.btn-sm.btn-default choose
-                                                        .col-sm-6.col-xs-12.col-md-3.col-lg-3.text-center
-                                                            .package-wrap
-                                                                p RS/- 400
-                                                                p
-                                                                    small
-                                                                        | Book Editing
-                                                                        | Cover Page
-                                                                        br
-                                                                        | Printing
-                                                                        br
-                                                                        | Online Distribution
-                                                                        br
-                                                                        | 10 reviews
-                                                                button.btn.btn-sm.btn-default choose
-                                                        .col-sm-6.col-xs-12.col-md-3.col-lg-3.text-center
-                                                            .package-wrap
-                                                                p RS/- 400
-                                                                p
-                                                                    small
-                                                                        | Book Editing
-                                                                        | Cover Page
-                                                                        br
-                                                                        | Printing
-                                                                        br
-                                                                        | Online Distribution
-                                                                        br
-                                                                        | 10 reviews
-                                                                button.btn.btn-sm.btn-default choose
-                                                        .col-sm-6.col-xs-12.col-md-3.col-lg-3.text-center
-                                                            .package-wrap
-                                                                p click to customize your own plan
-                                                        .clearfix.vixsible-xs
-                                                        .col-sm-12.text-center
-                                                            a.btn.btn-lg.btn-danger(href='') Continue
-                                            .panel.panel-primary
-                                                .panel-heading
-                                                    h6.panel-title
-                                                        a(data-toggle='collapse', data-parent='#accordion', href='#collapseFour') Payment
-                                                #collapseFour.panel-collapse.collapse.in
-                                                    .panel-body
-                                                        .col-md-10.billing-details
-                                                            form.form-horizontal(action='')
-                                                                .form-group
-                                                                    label.col-sm-5.control-label(for='name') Card Holder Name
-                                                                    .col-sm-7
-                                                                        input#name.form-control(type='text', placeholder='Enter Name')
-                                                                .form-group
-                                                                    label.col-sm-5.control-label(for='name') Card Number(no spacing needed)
-                                                                    .col-sm-7
-                                                                        .row
-                                                                            .col-sm-12
-                                                                                input#name.form-control(type='text', placeholder='Enter Name')
-                                                                            .col-sm-6.col-xs-6.datenyear
-                                                                                .btn-group
-                                                                                    a.btn.btn-primary.dropdown-toggle(data-toggle='dropdown', href='#')
-                                                                                        | Exp Date
-                                                                                        span.caret
-                                                                                    ul.carddtnyear.dropdown-menu
-                                                                                        li 1
-                                                                                        li 2
-                                                                                        li 3
-                                                                                        li 4
-                                                                                        li 1
-                                                                                        li 2
-                                                                                        li 3
-                                                                                        li 4
-                                                                                        li 1
-                                                                                        li 2
-                                                                                        li 3
-                                                                                        li 4
-                                                                                        li 1
-                                                                                        li 2
-                                                                                        li 3
-                                                                                        li 4
-                                                                            .col-sm-6.col-xs-6.datenyear
-                                                                                .btn-group
-                                                                                    a.btn.btn-primary.dropdown-toggle(data-toggle='dropdown', href='#')
-                                                                                        | Exp Year
-                                                                                        span.caret
-                                                                                    ul.carddtnyear.dropdown-menu
-                                                                                        li 2014
-                                                                                        li 2015
-                                                                                        li 2016
-                                                                                        li 2016
-                                                                                        li 2014
-                                                                                        li 2015
-                                                                                        li 2016
-                                                                                        li 2016
-                                                                                        li 2014
-                                                                                        li 2015
-                                                                                        li 2016
-                                                                                        li 2016
-                                                                                        li 2014
-                                                                                        li 2015
-                                                                                        li 2016
-                                                                                        li 2016
-                                                                                        li 2014
-                                                                                        li 2015
-                                                                                        li 2016
-                                                                                        li 2016
-                                                                                        li 2014
-                                                                                        li 2015
-                                                                                        li 2016
-                                                                                        li 2016
-                                                                    //
-                                                                      col-sm-8
-                                                                .form-group
-                                                                    label.col-sm-5.control-label(for='name') CVV number
-                                                                    .col-sm-7
-                                                                        .row
-                                                                            .col-sm-6
-                                                                                input#name.form-control(type='text', placeholder='cvv number')
-                                                                .form-group
-                                                                    label.col-sm-5.control-label(for='name')
-                                                                    .col-sm-7
-                                                                        .row
-                                                                            .col-sm-12
-                                                                                .planinfo
-                                                                                    p.thankstext Thanks for choosing
-                                                                                    p#plan499.thankstext your plan is Pro 400
-                                                                                    p.text-default
-                                                                                        | we will send you a reciept via email
-                                                                                        br
-                                                                                        | you can upgrade , downgrade or cancel at anytime.
-                                                        //
-                                                          col-md-12-card-details
-                                                        .col-sm-12.text-center
-                                                            a.btn.btn-lg.btn-danger(href='') SubMit
-                                                    //
-                                                      panel-body
-                            //
-                              #dash1
-                            #dash2.tab-pane.fade.in.active
-                                .row
-                                    .col-sm-2.col-xs-3.col-sm-offset-1.text-center
-                                        span.glyphicon.glyphicon-leaf
-                                    .col-sm-5.col-xs-9.authinfomsg
-                                        h6 information
-                                        p Your book is accepted and please click to get started
-                                    .clearfix.visible-xs
-                                    .col-sm-3.conbtn.text-center
-                                        button.btn.btn-md Continue
-                                .row
-                                    .col-sm-offset-1.col-sm-10.tandc
-                                        p
-                                            | Please read the
-                                            a(href='') terms & conditons carefully
-                                            | before filling the details..
-                                        p
-                                            | You can download the acceptance letter from
-                                            a(href='') here
-                                .row
-                                    .col-sm-offset-1.col-sm-10.accpform
-                                        form(action='')
-                                            .form-group
-                                                label(for='lttr')
-                                                    span.glyphicon.glyphicon-share-alt
-                                                    p.text-default upload the acceptance letter
-                                                .fileinputs
-                                                    input#fileupload.form-control.file(type='file', name='files[]', multiple='multiple')
-                                                    .fakefile
-                                                        span.icon-upload
-                                                        p Drag & Dropn or CLick to upload
-                                                        input.form-control
-                                            .form-group
-                                                label(for='lttr')
-                                                    span.glyphicon.glyphicon-font
-                                                    p.text-default Title of Book
-                                                input#titlebk1.form-control(type='text', placeholder='write here')
-                                            .form-group
-                                                label(for='wordodc')
-                                                    span.glyphicon.glyphicon-folder-open
-                                                    p.text-default  upload the word document
-                                                .fileinputs
-                                                    input#fileupload.form-control.file(type='file', name='files[]', multiple='multiple')
-                                                    .fakefile
-                                                        span.icon-upload
-                                                        p Drag & Dropn or CLick to upload
-                                                        input.form-control
-                                            .form-group
-                                                label(for='lttr')
-                                                    span.glyphicon.glyphicon-picture
-                                                    p.text-default upload the cover page if available
-                                                .fileinputs
-                                                    input#fileupload.form-control.file(type='file', name='files[]', multiple='multiple')
-                                                    .fakefile
-                                                        span.icon-upload
-                                                        p Drag & Dropn or CLick to upload
-                                                        input.form-control
-                                            .form-group
-                                                .col-sm-offset-1.col-sm-10.text-center
-                                                    a.btn.btn-lg.btn-submit1(data-toggle='tab', href='#feedback1') Submit
-                            //
-                              #dash2
-                            #dash3.tab-pane.fade
-                                section.related-books
-                                    .col-md-12
-                                        h6.text-danger Bookshelf
-                                    .col-md-12
-                                        h6.head1
-                                            | Latest
-                                            a.btn.btn-small(href='') see all
-                                    .col-md-2.col-sm-2.col-xs-6
-                                        //
-                                          first row book 1
-                                        .bookdispimg.pop-dis
-                                            .caption
-                                                a(href='')
-                                                    span.icon-heart
-                                                    | add to review list
-                                            .sidepop
-                                                .bhb
-                                                    h6
-                                                        | Title of Book
-                                                        br
-                                                        small Fiction
-                                                    p.text-right 100 points
-                                                .bhb1
-                                                    p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
-                                                    p.text-primary Ravi Kumar
-                                                    a.btn.btn-block.btn-warning(href='') Add to review
-                                            img.img-rounded(src='img/book2.jpg', alt='1')
-                                        h6 Title Of Book
-                                        p
-                                            a(href='') By Sampoornesh Babu
-                                        .rating-display
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star-empty
-                                        p.reviewcount
-                                            | | Rs 199
-                                    //
-                                      first row book 1
-                                    .col-md-2.col-sm-2.col-xs-6
-                                        //
-                                          first row
-                                        .bookdispimg.pop-dis
-                                            .caption
-                                                a(href='')
-                                                    span.icon-heart
-                                                    | add to review list
-                                            .sidepop
-                                                .bhb
-                                                    h6
-                                                        | Title of Book
-                                                        br
-                                                        small Fiction
-                                                    p.text-right 100 points
-                                                .bhb1
-                                                    p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
-                                                    p.text-primary Ravi Kumar
-                                                    a.btn.btn-block.btn-warning(href='') Add to review
-                                            img.img-rounded(src='img/book3.jpg', alt='1')
-                                        h6 Title Of Book
-                                        p
-                                            a(href='') By Sampoornesh Babu
-                                        .rating-display
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star-empty
-                                        p.reviewcount
-                                            | | Rs 199
-                                    //
-                                      first row
-                                    .col-md-2.col-sm-2.col-xs-6
-                                        //
-                                          first row
-                                        .bookdispimg.pop-dis
-                                            .caption
-                                                a(href='')
-                                                    span.icon-heart
-                                                    | add to review list
-                                            .sidepop
-                                                .bhb
-                                                    h6
-                                                        | Title of Book
-                                                        br
-                                                        small Fiction
-                                                    p.text-right 100 points
-                                                .bhb1
-                                                    p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
-                                                    p.text-primary Ravi Kumar
-                                                    a.btn.btn-block.btn-warning(href='') Add to review
-                                            img.img-rounded(src='img/book4.jpg', alt='1')
-                                        h6 Title Of Book
-                                        p
-                                            a(href='') By Sampoornesh Babu
-                                        .rating-display
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star-empty
-                                        p.reviewcount
-                                            | | Rs 199
-                                    //
-                                      first row
-                                    .col-md-2.col-sm-2.col-xs-6
-                                        //
-                                          first row
-                                        .bookdispimg.pop-dis
-                                            .caption
-                                                a(href='')
-                                                    span.icon-heart
-                                                    | add to review list
-                                            .sidepop
-                                                .bhb
-                                                    h6
-                                                        | Title of Book
-                                                        br
-                                                        small Fiction
-                                                    p.text-right 100 points
-                                                .bhb1
-                                                    p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
-                                                    p.text-primary Ravi Kumar
-                                                    a.btn.btn-block.btn-warning(href='') Add to review
-                                            img.img-rounded(src='img/book5.jpg', alt='1')
-                                        h6 Title Of Book
-                                        p
-                                            a(href='') By Sampoornesh Babu
-                                        .rating-display
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star-empty
-                                        p.reviewcount
-                                            | | Rs 199
-                                    //
-                                      first row
-                                    .col-md-2.col-sm-2.col-xs-6
-                                        //
-                                          first row
-                                        .bookdispimg.pop-dis
-                                            .caption
-                                                a(href='')
-                                                    span.icon-heart
-                                                    | add to review list
-                                            .sidepop
-                                                .bhb
-                                                    h6
-                                                        | Title of Book
-                                                        br
-                                                        small Fiction
-                                                    p.text-right 100 points
-                                                .bhb1
-                                                    p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
-                                                    p.text-primary Ravi Kumar
-                                                    a.btn.btn-block.btn-warning(href='') Add to review
-                                            img.img-rounded(src='img/book1.jpg', alt='1')
-                                        h6 Title Of Book
-                                        p
-                                            a(href='') By Sampoornesh Babu
-                                        .rating-display
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star-empty
-                                        p.reviewcount
-                                            | | Rs 199
-                                    //
-                                      first row
-                                    .col-md-2.col-sm-2.col-xs-6
-                                        //
-                                          first row
-                                        .bookdispimg.pop-dis
-                                            .caption
-                                                a(href='')
-                                                    span.icon-heart
-                                                    | add to review list
-                                            .sidepop
-                                                .bhb
-                                                    h6
-                                                        | Title of Book
-                                                        br
-                                                        small Fiction
-                                                    p.text-right 100 points
-                                                .bhb1
-                                                    p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
-                                                    p.text-primary Ravi Kumar
-                                                    a.btn.btn-block.btn-warning(href='') Add to review
-                                            img.img-rounded(src='img/book3.jpg', alt='1')
-                                        h6 Title Of Book
-                                        p
-                                            a(href='') By Sampoornesh Babu
-                                        .rating-display
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star-empty
-                                        p.reviewcount
-                                            | | Rs 199
-                                    //
-                                      first row
-                                    .clearfix.visible-sm
-                                    .clearfix.visible-xs
-                                    .col-md-12
-                                        h6.head3
-                                            | Fiction
-                                            a.btn.btn-small(href='') see all
-                                    .col-md-2.col-sm-2.col-xs-6
-                                        //
-                                          first row book 1
-                                        .bookdispimg.pop-dis
-                                            .caption
-                                                a(href='')
-                                                    span.icon-heart
-                                                    | add to review list
-                                            .sidepop
-                                                .bhb
-                                                    h6
-                                                        | Title of Book
-                                                        br
-                                                        small Fiction
-                                                    p.text-right 100 points
-                                                .bhb1
-                                                    p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
-                                                    p.text-primary Ravi Kumar
-                                                    a.btn.btn-block.btn-warning(href='') Add to review
-                                            img.img-rounded(src='img/book2.jpg', alt='1')
-                                        h6 Title Of Book
-                                        p
-                                            a(href='') By Sampoornesh Babu
-                                        .rating-display
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star-empty
-                                        p.reviewcount
-                                            | | Rs 199
-                                    //
-                                      first row book 1
-                                    .col-md-2.col-sm-2.col-xs-6
-                                        //
-                                          first row
-                                        .bookdispimg.pop-dis
-                                            .caption
-                                                a(href='')
-                                                    span.icon-heart
-                                                    | add to review list
-                                            .sidepop
-                                                .bhb
-                                                    h6
-                                                        | Title of Book
-                                                        br
-                                                        small Fiction
-                                                    p.text-right 100 points
-                                                .bhb1
-                                                    p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
-                                                    p.text-primary Ravi Kumar
-                                                    a.btn.btn-block.btn-warning(href='') Add to review
-                                            img.img-rounded(src='img/book3.jpg', alt='1')
-                                        h6 Title Of Book
-                                        p
-                                            a(href='') By Sampoornesh Babu
-                                        .rating-display
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star-empty
-                                        p.reviewcount
-                                            | | Rs 199
-                                    //
-                                      first row
-                                    .col-md-2.col-sm-2.col-xs-6
-                                        //
-                                          first row
-                                        .bookdispimg.pop-dis
-                                            .caption
-                                                a(href='')
-                                                    span.icon-heart
-                                                    | add to review list
-                                            .sidepop
-                                                .bhb
-                                                    h6
-                                                        | Title of Book
-                                                        br
-                                                        small Fiction
-                                                    p.text-right 100 points
-                                                .bhb1
-                                                    p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
-                                                    p.text-primary Ravi Kumar
-                                                    a.btn.btn-block.btn-warning(href='') Add to review
-                                            img.img-rounded(src='img/book4.jpg', alt='1')
-                                        h6 Title Of Book
-                                        p
-                                            a(href='') By Sampoornesh Babu
-                                        .rating-display
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star-empty
-                                        p.reviewcount
-                                            | | Rs 199
-                                    //
-                                      first row
-                                    .col-md-2.col-sm-2.col-xs-6
-                                        //
-                                          first row
-                                        .bookdispimg.pop-dis
-                                            .caption
-                                                a(href='')
-                                                    span.icon-heart
-                                                    | add to review list
-                                            .sidepop
-                                                .bhb
-                                                    h6
-                                                        | Title of Book
-                                                        br
-                                                        small Fiction
-                                                    p.text-right 100 points
-                                                .bhb1
-                                                    p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
-                                                    p.text-primary Ravi Kumar
-                                                    a.btn.btn-block.btn-warning(href='') Add to review
-                                            img.img-rounded(src='img/book5.jpg', alt='1')
-                                        h6 Title Of Book
-                                        p
-                                            a(href='') By Sampoornesh Babu
-                                        .rating-display
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star-empty
-                                        p.reviewcount
-                                            | | Rs 199
-                                    //
-                                      first row
-                                    .col-md-2.col-sm-2.col-xs-6
-                                        //
-                                          first row
-                                        .bookdispimg.pop-dis
-                                            .caption
-                                                a(href='')
-                                                    span.icon-heart
-                                                    | add to review list
-                                            .sidepop
-                                                .bhb
-                                                    h6
-                                                        | Title of Book
-                                                        br
-                                                        small Fiction
-                                                    p.text-right 100 points
-                                                .bhb1
-                                                    p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
-                                                    p.text-primary Ravi Kumar
-                                                    a.btn.btn-block.btn-warning(href='') Add to review
-                                            img.img-rounded(src='img/book1.jpg', alt='1')
-                                        h6 Title Of Book
-                                        p
-                                            a(href='') By Sampoornesh Babu
-                                        .rating-display
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star-empty
-                                        p.reviewcount
-                                            | | Rs 199
-                                    //
-                                      first row
-                                    .col-md-2.col-sm-2.col-xs-6
-                                        //
-                                          first row
-                                        .bookdispimg.pop-dis
-                                            .caption
-                                                a(href='')
-                                                    span.icon-heart
-                                                    | add to review list
-                                            .sidepop
-                                                .bhb
-                                                    h6
-                                                        | Title of Book
-                                                        br
-                                                        small Fiction
-                                                    p.text-right 100 points
-                                                .bhb1
-                                                    p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
-                                                    p.text-primary Ravi Kumar
-                                                    a.btn.btn-block.btn-warning(href='') Add to review
-                                            img.img-rounded(src='img/book3.jpg', alt='1')
-                                        h6 Title Of Book
-                                        p
-                                            a(href='') By Sampoornesh Babu
-                                        .rating-display
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star-empty
-                                        p.reviewcount
-                                            | | Rs 199
-                                    //
-                                      first row
-                                    .clearfix.visible-sm
-                                    .clearfix.visible-xs
-                                    .col-md-12
-                                        h6.head3
-                                            | Thriller
-                                            a.btn.btn-small(href='') see all
-                                    .col-md-2.col-sm-2.col-xs-6
-                                        //
-                                          first row book 1
-                                        .bookdispimg.pop-dis
-                                            .caption
-                                                a(href='')
-                                                    span.icon-heart
-                                                    | add to review list
-                                            .sidepop
-                                                .bhb
-                                                    h6
-                                                        | Title of Book
-                                                        br
-                                                        small Fiction
-                                                    p.text-right 100 points
-                                                .bhb1
-                                                    p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
-                                                    p.text-primary Ravi Kumar
-                                                    a.btn.btn-block.btn-warning(href='') Add to review
-                                            img.img-rounded(src='img/book2.jpg', alt='1')
-                                        h6 Title Of Book
-                                        p
-                                            a(href='') By Sampoornesh Babu
-                                        .rating-display
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star-empty
-                                        p.reviewcount
-                                            | | Rs 199
-                                    //
-                                      first row book 1
-                                    .col-md-2.col-sm-2.col-xs-6
-                                        //
-                                          first row
-                                        .bookdispimg.pop-dis
-                                            .caption
-                                                a(href='')
-                                                    span.icon-heart
-                                                    | add to review list
-                                            .sidepop
-                                                .bhb
-                                                    h6
-                                                        | Title of Book
-                                                        br
-                                                        small Fiction
-                                                    p.text-right 100 points
-                                                .bhb1
-                                                    p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
-                                                    p.text-primary Ravi Kumar
-                                                    a.btn.btn-block.btn-warning(href='') Add to review
-                                            img.img-rounded(src='img/book3.jpg', alt='1')
-                                        h6 Title Of Book
-                                        p
-                                            a(href='') By Sampoornesh Babu
-                                        .rating-display
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star-empty
-                                        p.reviewcount
-                                            | | Rs 199
-                                    //
-                                      first row
-                                    .col-md-2.col-sm-2.col-xs-6
-                                        //
-                                          first row
-                                        .bookdispimg.pop-dis
-                                            .caption
-                                                a(href='')
-                                                    span.icon-heart
-                                                    | add to review list
-                                            .sidepop
-                                                .bhb
-                                                    h6
-                                                        | Title of Book
-                                                        br
-                                                        small Fiction
-                                                    p.text-right 100 points
-                                                .bhb1
-                                                    p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
-                                                    p.text-primary Ravi Kumar
-                                                    a.btn.btn-block.btn-warning(href='') Add to review
-                                            img.img-rounded(src='img/book4.jpg', alt='1')
-                                        h6 Title Of Book
-                                        p
-                                            a(href='') By Sampoornesh Babu
-                                        .rating-display
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star-empty
-                                        p.reviewcount
-                                            | | Rs 199
-                                    //
-                                      first row
-                                    .col-md-2.col-sm-2.col-xs-6
-                                        //
-                                          first row
-                                        .bookdispimg.pop-dis
-                                            .caption
-                                                a(href='')
-                                                    span.icon-heart
-                                                    | add to review list
-                                            .sidepop
-                                                .bhb
-                                                    h6
-                                                        | Title of Book
-                                                        br
-                                                        small Fiction
-                                                    p.text-right 100 points
-                                                .bhb1
-                                                    p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
-                                                    p.text-primary Ravi Kumar
-                                                    a.btn.btn-block.btn-warning(href='') Add to review
-                                            img.img-rounded(src='img/book5.jpg', alt='1')
-                                        h6 Title Of Book
-                                        p
-                                            a(href='') By Sampoornesh Babu
-                                        .rating-display
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star-empty
-                                        p.reviewcount
-                                            | | Rs 199
-                                    //
-                                      first row
-                                    .col-md-2.col-sm-2.col-xs-6
-                                        //
-                                          first row
-                                        .bookdispimg.pop-dis
-                                            .caption
-                                                a(href='')
-                                                    span.icon-heart
-                                                    | add to review list
-                                            .sidepop
-                                                .bhb
-                                                    h6
-                                                        | Title of Book
-                                                        br
-                                                        small Fiction
-                                                    p.text-right 100 points
-                                                .bhb1
-                                                    p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
-                                                    p.text-primary Ravi Kumar
-                                                    a.btn.btn-block.btn-warning(href='') Add to review
-                                            img.img-rounded(src='img/book1.jpg', alt='1')
-                                        h6 Title Of Book
-                                        p
-                                            a(href='') By Sampoornesh Babu
-                                        .rating-display
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star-empty
-                                        p.reviewcount
-                                            | | Rs 199
-                                    //
-                                      first row
-                                    .col-md-2.col-sm-2.col-xs-6
-                                        //
-                                          first row
-                                        .bookdispimg.pop-dis
-                                            .caption
-                                                a(href='')
-                                                    span.icon-heart
-                                                    | add to review list
-                                            .sidepop
-                                                .bhb
-                                                    h6
-                                                        | Title of Book
-                                                        br
-                                                        small Fiction
-                                                    p.text-right 100 points
-                                                .bhb1
-                                                    p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
-                                                    p.text-primary Ravi Kumar
-                                                    a.btn.btn-block.btn-warning(href='') Add to review
-                                            img.img-rounded(src='img/book3.jpg', alt='1')
-                                        h6 Title Of Book
-                                        p
-                                            a(href='') By Sampoornesh Babu
-                                        .rating-display
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star-empty
-                                        p.reviewcount
-                                            | | Rs 199
-                                    //
-                                      first row
-                            //
-                              #dash3
-                            #feedback1.tab-pane.fade
-                                .row
-                                    .col-sm-offset-2.col-sm-8
-                                        h6 Please Provide your valuable feedback
-                                .row
-                                    form(action='')
-                                        .col-sm-8.col-sm-offset-2
-                                            p Accessility Rating
-                                            .range.range-primary
-                                                input(type='range', name='range', min='1', max='100', value='50', onchange='rangePrimary.value=value')
-                                                output#rangePrimary 50
-                                        .col-sm-8.col-sm-offset-2
-                                            p Editor Rating
-                                            .range.range-success
-                                                input(type='range', name='range', min='1', max='100', value='50', onchange='rangeSuccess.value=value')
-                                                output#rangeSuccess 50
-                                        .col-sm-8.col-sm-offset-2
-                                            p Cover page Rating
-                                            .range.range-info
-                                                input(type='range', name='range', min='1', max='100', value='50', onchange='rangeInfo.value=value')
-                                                output#rangeInfo 50
-                                        .col-sm-8.col-sm-offset-2
-                                            p Website Usability
-                                            .range.range-warning
-                                                input(type='range', name='range', min='1', max='100', value='50', onchange='rangeWarning.value=value')
-                                                output#rangeWarning 50
-                                        .col-sm-8.col-sm-offset-2
-                                            p Overall Rating
-                                            .range.range-danger
-                                                input(type='range', name='range', min='1', max='100', value='50', onchange='rangeDanger.value=value')
-                                                output#rangeDanger 50
-                                        .col-sm-8.col-sm-offset-2.text-center
-                                            button.btn.btn-lg.btn-submit1 submit
-                            //
-                              #feedback1
-                            #mybooks.tab-pane.fade
-                                //
-                                   ***********my books ***********
-                                .col-md-12
-                                    h6.head3 MY books
-                                section.related-books
-                                    .col-md-2.col-sm-2.col-xs-6
-                                        //
-                                          first row book 1
-                                        .bookdispimg.pop-dis
-                                            .caption
-                                                a(href='#dash5info', data-toggle='tab')
-                                                    span.icon-pencil
-                                                    | view review
-                                                a(href='#dashviewbook', data-toggle='tab') view
-                                            img.img-rounded(src='img/book2.jpg', alt='1')
-                                        h6 Title Of Book
-                                        p
-                                            a(href='') By Sampoornesh Babu
-                                        .rating-display
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star-empty
-                                        p.reviewcount
-                                            | | 100 pts
-                                    //
-                                      first row book 1
-                                    .col-md-2.col-sm-2.col-xs-6
-                                        //
-                                          first row
-                                        .bookdispimg.pop-dis
-                                            .caption
-                                                a(href='#dash5info', data-toggle='tab')
-                                                    span.icon-pencil
-                                                    | view review
-                                                a(href='#dashviewbook', data-toggle='tab') view
-                                            img.img-rounded(src='img/book1.jpg', alt='1')
-                                        h6 Title Of Book
-                                        p
-                                            a(href='') By Sampoornesh Babu
-                                        .rating-display
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star-empty
-                                        p.reviewcount
-                                            | | 100 pts
-                                    //
-                                      first row
-                                    .col-md-2.col-sm-2.col-xs-6
-                                        //
-                                          first row
-                                        .bookdispimg.pop-dis
-                                            .caption
-                                                a(href='#dash5info', data-toggle='tab')
-                                                    span.icon-pencil
-                                                    | view review
-                                                a(href='#dashviewbook', data-toggle='tab') view
-                                            img.img-rounded(src='img/book3.jpg', alt='1')
-                                        h6 Title Of Book
-                                        p
-                                            a(href='') By Sampoornesh Babu
-                                        .rating-display
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star-empty
-                                        p.reviewcount
-                                            | | 100 pts
-                                    //
-                                      first row
-                                    .col-md-2.col-sm-2.col-xs-6
-                                        //
-                                          first row
-                                        .bookdispimg.pop-dis
-                                            .caption
-                                                a(href='#dash5info', data-toggle='tab')
-                                                    span.icon-pencil
-                                                    | view review
-                                                a(href='#dashviewbook', data-toggle='tab') view
-                                            img.img-rounded(src='img/book4.jpg', alt='1')
-                                        h6 Title Of Book
-                                        p
-                                            a(href='') By Sampoornesh Babu
-                                        .rating-display
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star-empty
-                                        p.reviewcount
-                                            | | 100 pts
-                                    //
-                                      first row
-                                    .col-md-2.col-sm-2.col-xs-6
-                                        //
-                                          first row
-                                        .bookdispimg.pop-dis
-                                            .caption
-                                                a(href='#dash5info', data-toggle='tab')
-                                                    span.icon-pencil
-                                                    | view review
-                                                a(href='#dashviewbook', data-toggle='tab') view
-                                            img.img-rounded(src='img/book5.jpg', alt='1')
-                                        h6 Title Of Book
-                                        p
-                                            a(href='') By Sampoornesh Babu
-                                        .rating-display
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star
-                                            span.glyphicon.glyphicon-star-empty
-                                        p.reviewcount
-                                            | | 100 pts
-                                    //
-                                      first row
-                        //
-                           tab content
-                    //
-                      col-md-8
+                .col-xs-2
+                    a.navbar-brand(href='#')
+                        img(src='img/logo.png')
+                form.navbar-form.navbar-left.hidden-xs(role='search')
+                    .form-group
+                        input.form-control(type='text', placeholder='Search')
+                        a(href='')
+                            span.glyphicon.glyphicon-search
                 //
-                  row
+                  <ul class="nav navbar-right">
+                            <div class="noti">
+                           <a href="#"><span class="glyphicon glyphicon-bell"></span> <span class="badge">42</span></a>
+                           </div>
+                          </ul>
+                ul.nav.navbar-right
+                    .noti.dropdown
+                        a#dropdownMenu2.dropdown-toggle(href='', data-toggle='dropdown')
+                            span.glyphicon.glyphicon-info-sign
+                            span.badge.badge1 10
+                        ul.dropdown-menu(role='menu', aria-labelledby='dropdownMenu2')
+                            li.text-center Notifications
+                            li(role='presentation')
+                                a(role='menuitem', tabindex='-1', href='#')
+                                    img.img-circle(src='img/upic2.png', alt='1')
+                                    span A new book is available for review
+                            li(role='presentation')
+                                a(role='menuitem', tabindex='-1', href='#')
+                                    img.img-circle(src='img/upic1.png', alt='1')
+                                    span Your review has been approved by the admin.
+                    .dropdown.maindropdown
+                        button#dropdownMenu1.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
+                            img.img-circle(src='img/upic1.png', alt='1')
+                            span.hidden-xs Sampoornesh Babu
+                            span.glyphicon.glyphicon-chevron-down
+                        ul.dropdown-menu(role='menu', aria-labelledby='dropdownMenu1')
+                            li(role='presentation')
+                                a(role='menuitem', tabindex='-1', href='#') Settings
+                            li(role='presentation')
+                                a(role='menuitem', tabindex='-1', href='#') Profile
+                            li.divider(role='presentation')
+                            li(role='presentation')
+                                a(role='menuitem', tabindex='-1', href='#') Sign Out
+section.form-mobile.visible-xs
+    .container
+        .row
+            .col-xs-12
+                form.navbar-form(role='search')
+                    .form-group
+                        input.form-control(type='text', placeholder='Search')
+                        a(href='')
+                            span.glyphicon.glyphicon-search
+section.dashboard
+    .container-fluid
+        .row
+            .col-md-2.col-sm-2.hidden-xs.side1
+                ul.nav.nav-tabs.nav-stacked
+                    li
+                        a(data-toggle='tab', href='#dash1')
+                            span.glyphicon.glyphicon-home
+                            | home
+                    li.active
+                        a(data-toggle='tab', href='#dash2')
+                            span.glyphicon.glyphicon-align-justify
+                            | Dashboard
+                    li
+                        a(data-toggle='tab', href='#dash3')
+                            span.glyphicon.glyphicon-tasks
+                            | bookshelf
+                    li
+                        a(data-toggle='tab', href='#dash4')
+                            span.glyphicon.glyphicon-envelope
+                            | INbox
+                    li
+                        a(data-toggle='tab', href='#mybooks')
+                            span.glyphicon.glyphicon-book
+                            | My books
             //
-              container-fluid
+              col-md-2 hidden-xs
+            .col-md-1.col-sm-1.col-xs-1.visible-xs.side2
+                ul.nav.nav-tabs.nav-stacked
+                    li.active
+                        a(data-toggle='tab', href='#dash1')
+                            span.glyphicon.glyphicon-home
+                    li
+                        a(data-toggle='tab', href='#dash2')
+                            span.glyphicon.glyphicon-pencil
+                    li
+                        a(data-toggle='tab', href='#dash3')
+                            span.glyphicon.glyphicon-tasks
+                    li
+                        a(data-toggle='tab', href='#dash4')
+                            span.glyphicon.glyphicon-envelope
+                    li
+                        a(data-toggle='tab', href='#mybooks')
+                            span.glyphicon.glyphicon-book
+            //
+              side-2 visible-xs
+            .col-md-10.col-lg-10.col-sm-10.col-xs-12
+                .tab-content
+                    #dash1.tab-pane.fade
+                        .row
+                            .col-lg-offset-1.col-lg-11.col-md-offset-1.col-md-11.col-sm-offset-1.col-sm-11
+                                #accordion.panel-group
+                                    .panel.panel-primary
+                                        .panel-heading
+                                            h6.panel-title
+                                                a(data-toggle='collapse', data-parent='#accordion', href='#collapseOne') Choose Services
+                                        #collapseOne.panel-collapse.collapse.in
+                                            .panel-body.text-center
+                                                .row
+                                                    .col-lg-4.col-md-4.col-sm-4.col-xs-4
+                                                        button.btn.btn-large.btn-default
+                                                            span.icon-notebook
+                                                            | Publishing
+                                                    .col-lg-4.col-md-4.col-sm-4.col-xs-4
+                                                        button.btn.btn-large.btn-default
+                                                            span.icon-rss
+                                                            | Online
+                                                            br
+                                                            | distribution
+                                                    .col-lg-4.col-md-4.col-sm-4.col-xs-4
+                                                        button.btn.btn-large.btn-default
+                                                            span.icon-tools
+                                                            | Reviewing
+                                                    .clearfix.visible-sm
+                                                    .clearfix.visible-xs
+                                                    .col-md-12.text-center
+                                                        a.btn.btn-lg.btn-danger(href='') Continue
+                                    .panel.panel-primary
+                                        .panel-heading
+                                            h6.panel-title
+                                                a(data-toggle='collapse', data-parent='#accordion', href='#collapseTwo') Book Details
+                                        #collapseTwo.panel-collapse.collapse.in
+                                            .panel-body
+                                                .col-sm-10.col-sm-offset-1
+                                                    h6 Upload your book
+                                                .col-sm-10.col-sm-offset-1
+                                                    //
+                                                       The file input field used as target for the file upload widget
+                                                    .fileinputs
+                                                        input#fileupload.form-control.file(type='file', name='files[]', multiple='multiple')
+                                                        .fakefile
+                                                            span.glyphicon.glyphicon-cloud-upload
+                                                            p Drag & Dropn or CLick to upload
+                                                            input.form-control
+                                                    br
+                                                    //
+                                                       The global progress bar
+                                                    #progress.progress
+                                                        .progress-bar.progress-bar-success
+                                                    //
+                                                       The container for the uploaded files
+                                                    #files.files
+                                                .col-md-12.text-center
+                                                    a.btn.btn-lg.btn-danger(href='') Continue
+                                    .panel.panel-primary
+                                        .panel-heading
+                                            h6.panel-title
+                                                a(data-toggle='collapse', data-parent='#accordion', href='#collapseThree') Choose Package
+                                        #collapseThree.panel-collapse.collapse.in
+                                            .panel-body
+                                                .col-sm-6.col-xs-12.col-md-3.col-lg-3.text-center
+                                                    .package-wrap
+                                                        p RS/- 400
+                                                        p
+                                                            small
+                                                                | Book Editing
+                                                                | Cover Page
+                                                                br
+                                                                | Printing
+                                                                br
+                                                                | Online Distribution
+                                                                br
+                                                                | 10 reviews
+                                                        button.btn.btn-sm.btn-default choose
+                                                .col-sm-6.col-xs-12.col-md-3.col-lg-3.text-center
+                                                    .package-wrap
+                                                        p RS/- 400
+                                                        p
+                                                            small
+                                                                | Book Editing
+                                                                | Cover Page
+                                                                br
+                                                                | Printing
+                                                                br
+                                                                | Online Distribution
+                                                                br
+                                                                | 10 reviews
+                                                        button.btn.btn-sm.btn-default choose
+                                                .col-sm-6.col-xs-12.col-md-3.col-lg-3.text-center
+                                                    .package-wrap
+                                                        p RS/- 400
+                                                        p
+                                                            small
+                                                                | Book Editing
+                                                                | Cover Page
+                                                                br
+                                                                | Printing
+                                                                br
+                                                                | Online Distribution
+                                                                br
+                                                                | 10 reviews
+                                                        button.btn.btn-sm.btn-default choose
+                                                .col-sm-6.col-xs-12.col-md-3.col-lg-3.text-center
+                                                    .package-wrap
+                                                        p click to customize your own plan
+                                                .clearfix.vixsible-xs
+                                                .col-sm-12.text-center
+                                                    a.btn.btn-lg.btn-danger(href='') Continue
+                                    .panel.panel-primary
+                                        .panel-heading
+                                            h6.panel-title
+                                                a(data-toggle='collapse', data-parent='#accordion', href='#collapseFour') Payment
+                                        #collapseFour.panel-collapse.collapse.in
+                                            .panel-body
+                                                .col-md-10.billing-details
+                                                    form.form-horizontal(action='')
+                                                        .form-group
+                                                            label.col-sm-5.control-label(for='name') Card Holder Name
+                                                            .col-sm-7
+                                                                input#name.form-control(type='text', placeholder='Enter Name')
+                                                        .form-group
+                                                            label.col-sm-5.control-label(for='name') Card Number(no spacing needed)
+                                                            .col-sm-7
+                                                                .row
+                                                                    .col-sm-12
+                                                                        input#name.form-control(type='text', placeholder='Enter Name')
+                                                                    .col-sm-6.col-xs-6.datenyear
+                                                                        .btn-group
+                                                                            a.btn.btn-primary.dropdown-toggle(data-toggle='dropdown', href='#')
+                                                                                | Exp Date
+                                                                                span.caret
+                                                                            ul.carddtnyear.dropdown-menu
+                                                                                li 1
+                                                                                li 2
+                                                                                li 3
+                                                                                li 4
+                                                                                li 1
+                                                                                li 2
+                                                                                li 3
+                                                                                li 4
+                                                                                li 1
+                                                                                li 2
+                                                                                li 3
+                                                                                li 4
+                                                                                li 1
+                                                                                li 2
+                                                                                li 3
+                                                                                li 4
+                                                                    .col-sm-6.col-xs-6.datenyear
+                                                                        .btn-group
+                                                                            a.btn.btn-primary.dropdown-toggle(data-toggle='dropdown', href='#')
+                                                                                | Exp Year
+                                                                                span.caret
+                                                                            ul.carddtnyear.dropdown-menu
+                                                                                li 2014
+                                                                                li 2015
+                                                                                li 2016
+                                                                                li 2016
+                                                                                li 2014
+                                                                                li 2015
+                                                                                li 2016
+                                                                                li 2016
+                                                                                li 2014
+                                                                                li 2015
+                                                                                li 2016
+                                                                                li 2016
+                                                                                li 2014
+                                                                                li 2015
+                                                                                li 2016
+                                                                                li 2016
+                                                                                li 2014
+                                                                                li 2015
+                                                                                li 2016
+                                                                                li 2016
+                                                                                li 2014
+                                                                                li 2015
+                                                                                li 2016
+                                                                                li 2016
+                                                            //
+                                                              col-sm-8
+                                                        .form-group
+                                                            label.col-sm-5.control-label(for='name') CVV number
+                                                            .col-sm-7
+                                                                .row
+                                                                    .col-sm-6
+                                                                        input#name.form-control(type='text', placeholder='cvv number')
+                                                        .form-group
+                                                            label.col-sm-5.control-label(for='name')
+                                                            .col-sm-7
+                                                                .row
+                                                                    .col-sm-12
+                                                                        .planinfo
+                                                                            p.thankstext Thanks for choosing
+                                                                            p#plan499.thankstext your plan is Pro 400
+                                                                            p.text-default
+                                                                                | we will send you a reciept via email
+                                                                                br
+                                                                                | you can upgrade , downgrade or cancel at anytime.
+                                                //
+                                                  col-md-12-card-details
+                                                .col-sm-12.text-center
+                                                    a.btn.btn-lg.btn-danger(href='') SubMit
+                                            //
+                                              panel-body
+                    //
+                      #dash1
+                    #dash2.tab-pane.fade.in.active
+                        .row
+                            .col-sm-2.col-xs-3.col-sm-offset-1.text-center
+                                span.glyphicon.glyphicon-leaf
+                            .col-sm-5.col-xs-9.authinfomsg
+                                h6 information
+                                p Your book is accepted and please click to get started
+                            .clearfix.visible-xs
+                            .col-sm-3.conbtn.text-center
+                                button.btn.btn-md Continue
+                        .row
+                            .col-sm-offset-1.col-sm-10.tandc
+                                p
+                                    | Please read the
+                                    a(href='') terms & conditons carefully
+                                    | before filling the details..
+                                p
+                                    | You can download the acceptance letter from
+                                    a(href='') here
+                        .row
+                            .col-sm-offset-1.col-sm-10.accpform
+                                form(action='')
+                                    .form-group
+                                        label(for='lttr')
+                                            span.glyphicon.glyphicon-share-alt
+                                            p.text-default upload the acceptance letter
+                                        .fileinputs
+                                            input#fileupload.form-control.file(type='file', name='files[]', multiple='multiple')
+                                            .fakefile
+                                                span.icon-upload
+                                                p Drag & Dropn or CLick to upload
+                                                input.form-control
+                                    .form-group
+                                        label(for='lttr')
+                                            span.glyphicon.glyphicon-font
+                                            p.text-default Title of Book
+                                        input#titlebk1.form-control(type='text', placeholder='write here')
+                                    .form-group
+                                        label(for='wordodc')
+                                            span.glyphicon.glyphicon-folder-open
+                                            p.text-default  upload the word document
+                                        .fileinputs
+                                            input#fileupload.form-control.file(type='file', name='files[]', multiple='multiple')
+                                            .fakefile
+                                                span.icon-upload
+                                                p Drag & Dropn or CLick to upload
+                                                input.form-control
+                                    .form-group
+                                        label(for='lttr')
+                                            span.glyphicon.glyphicon-picture
+                                            p.text-default upload the cover page if available
+                                        .fileinputs
+                                            input#fileupload.form-control.file(type='file', name='files[]', multiple='multiple')
+                                            .fakefile
+                                                span.icon-upload
+                                                p Drag & Dropn or CLick to upload
+                                                input.form-control
+                                    .form-group
+                                        .col-sm-offset-1.col-sm-10.text-center
+                                            a.btn.btn-lg.btn-submit1(data-toggle='tab', href='#feedback1') Submit
+                    //
+                      #dash2
+                    #dash3.tab-pane.fade
+                        section.related-books
+                            .col-md-12
+                                h6.text-danger Bookshelf
+                            .col-md-12
+                                h6.head1
+                                    | Latest
+                                    a.btn.btn-small(href='') see all
+                            .col-md-2.col-sm-2.col-xs-6
+                                //
+                                  first row book 1
+                                .bookdispimg.pop-dis
+                                    .caption
+                                        a(href='')
+                                            span.icon-heart
+                                            | add to review list
+                                    .sidepop
+                                        .bhb
+                                            h6
+                                                | Title of Book
+                                                br
+                                                small Fiction
+                                            p.text-right 100 points
+                                        .bhb1
+                                            p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
+                                            p.text-primary Ravi Kumar
+                                            a.btn.btn-block.btn-warning(href='') Add to review
+                                    img.img-rounded(src='img/book2.jpg', alt='1')
+                                h6 Title Of Book
+                                p
+                                    a(href='') By Sampoornesh Babu
+                                .rating-display
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star-empty
+                                p.reviewcount
+                                    | | Rs 199
+                            //
+                              first row book 1
+                            .col-md-2.col-sm-2.col-xs-6
+                                //
+                                  first row
+                                .bookdispimg.pop-dis
+                                    .caption
+                                        a(href='')
+                                            span.icon-heart
+                                            | add to review list
+                                    .sidepop
+                                        .bhb
+                                            h6
+                                                | Title of Book
+                                                br
+                                                small Fiction
+                                            p.text-right 100 points
+                                        .bhb1
+                                            p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
+                                            p.text-primary Ravi Kumar
+                                            a.btn.btn-block.btn-warning(href='') Add to review
+                                    img.img-rounded(src='img/book3.jpg', alt='1')
+                                h6 Title Of Book
+                                p
+                                    a(href='') By Sampoornesh Babu
+                                .rating-display
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star-empty
+                                p.reviewcount
+                                    | | Rs 199
+                            //
+                              first row
+                            .col-md-2.col-sm-2.col-xs-6
+                                //
+                                  first row
+                                .bookdispimg.pop-dis
+                                    .caption
+                                        a(href='')
+                                            span.icon-heart
+                                            | add to review list
+                                    .sidepop
+                                        .bhb
+                                            h6
+                                                | Title of Book
+                                                br
+                                                small Fiction
+                                            p.text-right 100 points
+                                        .bhb1
+                                            p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
+                                            p.text-primary Ravi Kumar
+                                            a.btn.btn-block.btn-warning(href='') Add to review
+                                    img.img-rounded(src='img/book4.jpg', alt='1')
+                                h6 Title Of Book
+                                p
+                                    a(href='') By Sampoornesh Babu
+                                .rating-display
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star-empty
+                                p.reviewcount
+                                    | | Rs 199
+                            //
+                              first row
+                            .col-md-2.col-sm-2.col-xs-6
+                                //
+                                  first row
+                                .bookdispimg.pop-dis
+                                    .caption
+                                        a(href='')
+                                            span.icon-heart
+                                            | add to review list
+                                    .sidepop
+                                        .bhb
+                                            h6
+                                                | Title of Book
+                                                br
+                                                small Fiction
+                                            p.text-right 100 points
+                                        .bhb1
+                                            p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
+                                            p.text-primary Ravi Kumar
+                                            a.btn.btn-block.btn-warning(href='') Add to review
+                                    img.img-rounded(src='img/book5.jpg', alt='1')
+                                h6 Title Of Book
+                                p
+                                    a(href='') By Sampoornesh Babu
+                                .rating-display
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star-empty
+                                p.reviewcount
+                                    | | Rs 199
+                            //
+                              first row
+                            .col-md-2.col-sm-2.col-xs-6
+                                //
+                                  first row
+                                .bookdispimg.pop-dis
+                                    .caption
+                                        a(href='')
+                                            span.icon-heart
+                                            | add to review list
+                                    .sidepop
+                                        .bhb
+                                            h6
+                                                | Title of Book
+                                                br
+                                                small Fiction
+                                            p.text-right 100 points
+                                        .bhb1
+                                            p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
+                                            p.text-primary Ravi Kumar
+                                            a.btn.btn-block.btn-warning(href='') Add to review
+                                    img.img-rounded(src='img/book1.jpg', alt='1')
+                                h6 Title Of Book
+                                p
+                                    a(href='') By Sampoornesh Babu
+                                .rating-display
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star-empty
+                                p.reviewcount
+                                    | | Rs 199
+                            //
+                              first row
+                            .col-md-2.col-sm-2.col-xs-6
+                                //
+                                  first row
+                                .bookdispimg.pop-dis
+                                    .caption
+                                        a(href='')
+                                            span.icon-heart
+                                            | add to review list
+                                    .sidepop
+                                        .bhb
+                                            h6
+                                                | Title of Book
+                                                br
+                                                small Fiction
+                                            p.text-right 100 points
+                                        .bhb1
+                                            p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
+                                            p.text-primary Ravi Kumar
+                                            a.btn.btn-block.btn-warning(href='') Add to review
+                                    img.img-rounded(src='img/book3.jpg', alt='1')
+                                h6 Title Of Book
+                                p
+                                    a(href='') By Sampoornesh Babu
+                                .rating-display
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star-empty
+                                p.reviewcount
+                                    | | Rs 199
+                            //
+                              first row
+                            .clearfix.visible-sm
+                            .clearfix.visible-xs
+                            .col-md-12
+                                h6.head3
+                                    | Fiction
+                                    a.btn.btn-small(href='') see all
+                            .col-md-2.col-sm-2.col-xs-6
+                                //
+                                  first row book 1
+                                .bookdispimg.pop-dis
+                                    .caption
+                                        a(href='')
+                                            span.icon-heart
+                                            | add to review list
+                                    .sidepop
+                                        .bhb
+                                            h6
+                                                | Title of Book
+                                                br
+                                                small Fiction
+                                            p.text-right 100 points
+                                        .bhb1
+                                            p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
+                                            p.text-primary Ravi Kumar
+                                            a.btn.btn-block.btn-warning(href='') Add to review
+                                    img.img-rounded(src='img/book2.jpg', alt='1')
+                                h6 Title Of Book
+                                p
+                                    a(href='') By Sampoornesh Babu
+                                .rating-display
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star-empty
+                                p.reviewcount
+                                    | | Rs 199
+                            //
+                              first row book 1
+                            .col-md-2.col-sm-2.col-xs-6
+                                //
+                                  first row
+                                .bookdispimg.pop-dis
+                                    .caption
+                                        a(href='')
+                                            span.icon-heart
+                                            | add to review list
+                                    .sidepop
+                                        .bhb
+                                            h6
+                                                | Title of Book
+                                                br
+                                                small Fiction
+                                            p.text-right 100 points
+                                        .bhb1
+                                            p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
+                                            p.text-primary Ravi Kumar
+                                            a.btn.btn-block.btn-warning(href='') Add to review
+                                    img.img-rounded(src='img/book3.jpg', alt='1')
+                                h6 Title Of Book
+                                p
+                                    a(href='') By Sampoornesh Babu
+                                .rating-display
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star-empty
+                                p.reviewcount
+                                    | | Rs 199
+                            //
+                              first row
+                            .col-md-2.col-sm-2.col-xs-6
+                                //
+                                  first row
+                                .bookdispimg.pop-dis
+                                    .caption
+                                        a(href='')
+                                            span.icon-heart
+                                            | add to review list
+                                    .sidepop
+                                        .bhb
+                                            h6
+                                                | Title of Book
+                                                br
+                                                small Fiction
+                                            p.text-right 100 points
+                                        .bhb1
+                                            p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
+                                            p.text-primary Ravi Kumar
+                                            a.btn.btn-block.btn-warning(href='') Add to review
+                                    img.img-rounded(src='img/book4.jpg', alt='1')
+                                h6 Title Of Book
+                                p
+                                    a(href='') By Sampoornesh Babu
+                                .rating-display
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star-empty
+                                p.reviewcount
+                                    | | Rs 199
+                            //
+                              first row
+                            .col-md-2.col-sm-2.col-xs-6
+                                //
+                                  first row
+                                .bookdispimg.pop-dis
+                                    .caption
+                                        a(href='')
+                                            span.icon-heart
+                                            | add to review list
+                                    .sidepop
+                                        .bhb
+                                            h6
+                                                | Title of Book
+                                                br
+                                                small Fiction
+                                            p.text-right 100 points
+                                        .bhb1
+                                            p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
+                                            p.text-primary Ravi Kumar
+                                            a.btn.btn-block.btn-warning(href='') Add to review
+                                    img.img-rounded(src='img/book5.jpg', alt='1')
+                                h6 Title Of Book
+                                p
+                                    a(href='') By Sampoornesh Babu
+                                .rating-display
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star-empty
+                                p.reviewcount
+                                    | | Rs 199
+                            //
+                              first row
+                            .col-md-2.col-sm-2.col-xs-6
+                                //
+                                  first row
+                                .bookdispimg.pop-dis
+                                    .caption
+                                        a(href='')
+                                            span.icon-heart
+                                            | add to review list
+                                    .sidepop
+                                        .bhb
+                                            h6
+                                                | Title of Book
+                                                br
+                                                small Fiction
+                                            p.text-right 100 points
+                                        .bhb1
+                                            p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
+                                            p.text-primary Ravi Kumar
+                                            a.btn.btn-block.btn-warning(href='') Add to review
+                                    img.img-rounded(src='img/book1.jpg', alt='1')
+                                h6 Title Of Book
+                                p
+                                    a(href='') By Sampoornesh Babu
+                                .rating-display
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star-empty
+                                p.reviewcount
+                                    | | Rs 199
+                            //
+                              first row
+                            .col-md-2.col-sm-2.col-xs-6
+                                //
+                                  first row
+                                .bookdispimg.pop-dis
+                                    .caption
+                                        a(href='')
+                                            span.icon-heart
+                                            | add to review list
+                                    .sidepop
+                                        .bhb
+                                            h6
+                                                | Title of Book
+                                                br
+                                                small Fiction
+                                            p.text-right 100 points
+                                        .bhb1
+                                            p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
+                                            p.text-primary Ravi Kumar
+                                            a.btn.btn-block.btn-warning(href='') Add to review
+                                    img.img-rounded(src='img/book3.jpg', alt='1')
+                                h6 Title Of Book
+                                p
+                                    a(href='') By Sampoornesh Babu
+                                .rating-display
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star-empty
+                                p.reviewcount
+                                    | | Rs 199
+                            //
+                              first row
+                            .clearfix.visible-sm
+                            .clearfix.visible-xs
+                            .col-md-12
+                                h6.head3
+                                    | Thriller
+                                    a.btn.btn-small(href='') see all
+                            .col-md-2.col-sm-2.col-xs-6
+                                //
+                                  first row book 1
+                                .bookdispimg.pop-dis
+                                    .caption
+                                        a(href='')
+                                            span.icon-heart
+                                            | add to review list
+                                    .sidepop
+                                        .bhb
+                                            h6
+                                                | Title of Book
+                                                br
+                                                small Fiction
+                                            p.text-right 100 points
+                                        .bhb1
+                                            p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
+                                            p.text-primary Ravi Kumar
+                                            a.btn.btn-block.btn-warning(href='') Add to review
+                                    img.img-rounded(src='img/book2.jpg', alt='1')
+                                h6 Title Of Book
+                                p
+                                    a(href='') By Sampoornesh Babu
+                                .rating-display
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star-empty
+                                p.reviewcount
+                                    | | Rs 199
+                            //
+                              first row book 1
+                            .col-md-2.col-sm-2.col-xs-6
+                                //
+                                  first row
+                                .bookdispimg.pop-dis
+                                    .caption
+                                        a(href='')
+                                            span.icon-heart
+                                            | add to review list
+                                    .sidepop
+                                        .bhb
+                                            h6
+                                                | Title of Book
+                                                br
+                                                small Fiction
+                                            p.text-right 100 points
+                                        .bhb1
+                                            p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
+                                            p.text-primary Ravi Kumar
+                                            a.btn.btn-block.btn-warning(href='') Add to review
+                                    img.img-rounded(src='img/book3.jpg', alt='1')
+                                h6 Title Of Book
+                                p
+                                    a(href='') By Sampoornesh Babu
+                                .rating-display
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star-empty
+                                p.reviewcount
+                                    | | Rs 199
+                            //
+                              first row
+                            .col-md-2.col-sm-2.col-xs-6
+                                //
+                                  first row
+                                .bookdispimg.pop-dis
+                                    .caption
+                                        a(href='')
+                                            span.icon-heart
+                                            | add to review list
+                                    .sidepop
+                                        .bhb
+                                            h6
+                                                | Title of Book
+                                                br
+                                                small Fiction
+                                            p.text-right 100 points
+                                        .bhb1
+                                            p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
+                                            p.text-primary Ravi Kumar
+                                            a.btn.btn-block.btn-warning(href='') Add to review
+                                    img.img-rounded(src='img/book4.jpg', alt='1')
+                                h6 Title Of Book
+                                p
+                                    a(href='') By Sampoornesh Babu
+                                .rating-display
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star-empty
+                                p.reviewcount
+                                    | | Rs 199
+                            //
+                              first row
+                            .col-md-2.col-sm-2.col-xs-6
+                                //
+                                  first row
+                                .bookdispimg.pop-dis
+                                    .caption
+                                        a(href='')
+                                            span.icon-heart
+                                            | add to review list
+                                    .sidepop
+                                        .bhb
+                                            h6
+                                                | Title of Book
+                                                br
+                                                small Fiction
+                                            p.text-right 100 points
+                                        .bhb1
+                                            p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
+                                            p.text-primary Ravi Kumar
+                                            a.btn.btn-block.btn-warning(href='') Add to review
+                                    img.img-rounded(src='img/book5.jpg', alt='1')
+                                h6 Title Of Book
+                                p
+                                    a(href='') By Sampoornesh Babu
+                                .rating-display
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star-empty
+                                p.reviewcount
+                                    | | Rs 199
+                            //
+                              first row
+                            .col-md-2.col-sm-2.col-xs-6
+                                //
+                                  first row
+                                .bookdispimg.pop-dis
+                                    .caption
+                                        a(href='')
+                                            span.icon-heart
+                                            | add to review list
+                                    .sidepop
+                                        .bhb
+                                            h6
+                                                | Title of Book
+                                                br
+                                                small Fiction
+                                            p.text-right 100 points
+                                        .bhb1
+                                            p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
+                                            p.text-primary Ravi Kumar
+                                            a.btn.btn-block.btn-warning(href='') Add to review
+                                    img.img-rounded(src='img/book1.jpg', alt='1')
+                                h6 Title Of Book
+                                p
+                                    a(href='') By Sampoornesh Babu
+                                .rating-display
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star-empty
+                                p.reviewcount
+                                    | | Rs 199
+                            //
+                              first row
+                            .col-md-2.col-sm-2.col-xs-6
+                                //
+                                  first row
+                                .bookdispimg.pop-dis
+                                    .caption
+                                        a(href='')
+                                            span.icon-heart
+                                            | add to review list
+                                    .sidepop
+                                        .bhb
+                                            h6
+                                                | Title of Book
+                                                br
+                                                small Fiction
+                                            p.text-right 100 points
+                                        .bhb1
+                                            p.text-default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, iure!
+                                            p.text-primary Ravi Kumar
+                                            a.btn.btn-block.btn-warning(href='') Add to review
+                                    img.img-rounded(src='img/book3.jpg', alt='1')
+                                h6 Title Of Book
+                                p
+                                    a(href='') By Sampoornesh Babu
+                                .rating-display
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star-empty
+                                p.reviewcount
+                                    | | Rs 199
+                            //
+                              first row
+                    //
+                      #dash3
+                    #feedback1.tab-pane.fade
+                        .row
+                            .col-sm-offset-2.col-sm-8
+                                h6 Please Provide your valuable feedback
+                        .row
+                            form(action='')
+                                .col-sm-8.col-sm-offset-2
+                                    p Accessility Rating
+                                    .range.range-primary
+                                        input(type='range', name='range', min='1', max='100', value='50', onchange='rangePrimary.value=value')
+                                        output#rangePrimary 50
+                                .col-sm-8.col-sm-offset-2
+                                    p Editor Rating
+                                    .range.range-success
+                                        input(type='range', name='range', min='1', max='100', value='50', onchange='rangeSuccess.value=value')
+                                        output#rangeSuccess 50
+                                .col-sm-8.col-sm-offset-2
+                                    p Cover page Rating
+                                    .range.range-info
+                                        input(type='range', name='range', min='1', max='100', value='50', onchange='rangeInfo.value=value')
+                                        output#rangeInfo 50
+                                .col-sm-8.col-sm-offset-2
+                                    p Website Usability
+                                    .range.range-warning
+                                        input(type='range', name='range', min='1', max='100', value='50', onchange='rangeWarning.value=value')
+                                        output#rangeWarning 50
+                                .col-sm-8.col-sm-offset-2
+                                    p Overall Rating
+                                    .range.range-danger
+                                        input(type='range', name='range', min='1', max='100', value='50', onchange='rangeDanger.value=value')
+                                        output#rangeDanger 50
+                                .col-sm-8.col-sm-offset-2.text-center
+                                    button.btn.btn-lg.btn-submit1 submit
+                    //
+                      #feedback1
+                    #mybooks.tab-pane.fade
+                        //
+                           ***********my books ***********
+                        .col-md-12
+                            h6.head3 MY books
+                        section.related-books
+                            .col-md-2.col-sm-2.col-xs-6
+                                //
+                                  first row book 1
+                                .bookdispimg.pop-dis
+                                    .caption
+                                        a(href='#dash5info', data-toggle='tab')
+                                            span.icon-pencil
+                                            | view review
+                                        a(href='#dashviewbook', data-toggle='tab') view
+                                    img.img-rounded(src='img/book2.jpg', alt='1')
+                                h6 Title Of Book
+                                p
+                                    a(href='') By Sampoornesh Babu
+                                .rating-display
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star-empty
+                                p.reviewcount
+                                    | | 100 pts
+                            //
+                              first row book 1
+                            .col-md-2.col-sm-2.col-xs-6
+                                //
+                                  first row
+                                .bookdispimg.pop-dis
+                                    .caption
+                                        a(href='#dash5info', data-toggle='tab')
+                                            span.icon-pencil
+                                            | view review
+                                        a(href='#dashviewbook', data-toggle='tab') view
+                                    img.img-rounded(src='img/book1.jpg', alt='1')
+                                h6 Title Of Book
+                                p
+                                    a(href='') By Sampoornesh Babu
+                                .rating-display
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star-empty
+                                p.reviewcount
+                                    | | 100 pts
+                            //
+                              first row
+                            .col-md-2.col-sm-2.col-xs-6
+                                //
+                                  first row
+                                .bookdispimg.pop-dis
+                                    .caption
+                                        a(href='#dash5info', data-toggle='tab')
+                                            span.icon-pencil
+                                            | view review
+                                        a(href='#dashviewbook', data-toggle='tab') view
+                                    img.img-rounded(src='img/book3.jpg', alt='1')
+                                h6 Title Of Book
+                                p
+                                    a(href='') By Sampoornesh Babu
+                                .rating-display
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star-empty
+                                p.reviewcount
+                                    | | 100 pts
+                            //
+                              first row
+                            .col-md-2.col-sm-2.col-xs-6
+                                //
+                                  first row
+                                .bookdispimg.pop-dis
+                                    .caption
+                                        a(href='#dash5info', data-toggle='tab')
+                                            span.icon-pencil
+                                            | view review
+                                        a(href='#dashviewbook', data-toggle='tab') view
+                                    img.img-rounded(src='img/book4.jpg', alt='1')
+                                h6 Title Of Book
+                                p
+                                    a(href='') By Sampoornesh Babu
+                                .rating-display
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star-empty
+                                p.reviewcount
+                                    | | 100 pts
+                            //
+                              first row
+                            .col-md-2.col-sm-2.col-xs-6
+                                //
+                                  first row
+                                .bookdispimg.pop-dis
+                                    .caption
+                                        a(href='#dash5info', data-toggle='tab')
+                                            span.icon-pencil
+                                            | view review
+                                        a(href='#dashviewbook', data-toggle='tab') view
+                                    img.img-rounded(src='img/book5.jpg', alt='1')
+                                h6 Title Of Book
+                                p
+                                    a(href='') By Sampoornesh Babu
+                                .rating-display
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star
+                                    span.glyphicon.glyphicon-star-empty
+                                p.reviewcount
+                                    | | 100 pts
+                            //
+                              first row
+                //
+                   tab content
+            //
+              col-md-8
         //
-           <section class="footer">
-                  <div class="container">
-                    <div class="row">
-                          <div class="col-md-8 col-sm-8">
-                              <ul class="footer-nav pull-left">
-                                <li><a href="#">About Migrera</a></li>
-                                <li><a href="#">Team</a></li>
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#" class="active">For Vendors</a></li>
-                                <li><a href="#">For Companies</a></li>
-                                <li><a href="#">Terms &amp; Conditions</a></li>
-                                <li><a href="#">Contact Us</a></li>
-                              </ul>
-                            </div>
-                            <div class="col-md-4 copyright">
-                              <p class="pull-right">Copyright &copy; 2014 Migrera</p>
-                            </div>
-                         </div>
+          row
+    //
+      container-fluid
+//
+   <section class="footer">
+          <div class="container">
+            <div class="row">
+                  <div class="col-md-8 col-sm-8">
+                      <ul class="footer-nav pull-left">
+                        <li><a href="#">About Migrera</a></li>
+                        <li><a href="#">Team</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#" class="active">For Vendors</a></li>
+                        <li><a href="#">For Companies</a></li>
+                        <li><a href="#">Terms &amp; Conditions</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                      </ul>
                     </div>
-           </section>
-        //
-           Load JS here for greater good =============================
-        script(src='js/jquery-1.11.0.min.js')
-        script(src='js/bootstrap.min.js')
-        script.
-            $(document).ready(function() {
-            $('.panel-body button').on('click', function(){
-            $(this).toggleClass('btnactive');
-            });
-            });
-        script.
-            $(".carddtnyear.dropdown-menu li").click(function(){
-            var selText = $(this).text();
-            $(this).parents('.btn-group').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
-            });
-        script.
-            $( document ).ready(function() {
-            $('.pop-dis').hover(
-            function(){
-            $(this).find('.caption').slideDown(250); //.fadeIn(250)
-            },
-            function(){
-            $(this).find('.caption').slideUp(250); //.fadeOut(205)
-            }
-            );
-            });
-        script.
-            $( document ).ready(function() {
-            $('.pop-dis').hover(
-            function(){
-            $(this).find('.sidepop').fadeIn(250); //.fadeIn(250)
-            },
-            function(){
-            $(this).find('.sidepop').fadeOut(205); //.fadeOut(205)
-            }
-            );
-            });
+                    <div class="col-md-4 copyright">
+                      <p class="pull-right">Copyright &copy; 2014 Migrera</p>
+                    </div>
+                 </div>
+            </div>
+   </section>
+//
+   Load JS here for greater good =============================
+script(src='js/jquery-1.11.0.min.js')
+script(src='js/bootstrap.min.js')
+script.
+    $(document).ready(function() {
+    $('.panel-body button').on('click', function(){
+    $(this).toggleClass('btnactive');
+    });
+    });
+script.
+    $(".carddtnyear.dropdown-menu li").click(function(){
+    var selText = $(this).text();
+    $(this).parents('.btn-group').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
+    });
+script.
+    $( document ).ready(function() {
+    $('.pop-dis').hover(
+    function(){
+    $(this).find('.caption').slideDown(250); //.fadeIn(250)
+    },
+    function(){
+    $(this).find('.caption').slideUp(250); //.fadeOut(205)
+    }
+    );
+    });
+script.
+    $( document ).ready(function() {
+    $('.pop-dis').hover(
+    function(){
+    $(this).find('.sidepop').fadeIn(250); //.fadeIn(250)
+    },
+    function(){
+    $(this).find('.sidepop').fadeOut(205); //.fadeOut(205)
+    }
+    );
+    });

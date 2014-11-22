@@ -1,77 +1,32 @@
-doctype html
-head
-    meta(charset='utf-8')
-    title BookBanyan
-    meta(name='viewport', content='width=device-width, initial-scale = 1.0, user-scalable=no ')
-    //
-       Loading Bootstrap 
-    link(href='/css/bootstrap.css', rel='stylesheet')
-    link(href='/css/flat-ui.css', rel='stylesheet')
-    link(href='http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css', rel='stylesheet')
-    //
-       Loading Flat UI 
-    link(href='/css/BookB-style-Copy2.css', rel='stylesheet')
-    script(src='/js/respond.min.js')
-    script(src='/js/modernizr.min.js')
-    script(src='/js/jquery-1.11.0.min.js')
-    script(src='/js/bootstrap.min.js')
-
-    //
-       HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. 
-    //if lt IE 9
-      script(src='js/html5shiv.js')
-      script(src='js/respond.min.js')
-  body
-    header.header
-      #myheader.navbar.navbar-fixed-top
-        .navbar-inner
-          .container-fluid
-            button.navbar-toggle(data-toggle='collapse', data-target='.navbar-collapse')
-              span.icon-bar
-              span.icon-bar
-              span.icon-bar
-            a.navbar-brand(href='#')
-              img(src='img/logo.png')
-            ul.nav.navbar-right
-              li
-                a.btn.btn-small.btn-info(href='') Log-In
-            .navbar-collapse.collapse
-              ul.nav.navbar-nav
-                li
-                  a(href='#') How It Works
-                li
-                  a(href='#') Features
-                li
-                  a(href='#') Pricing
-    section.confirmation
-      .container
-        .row
-          .col-md-10.col-md-offset-1
-            .jumbotron.text-center
-              span.icon-happy
-              p Successfully submitted!
-              h6.thankyou
-                | Thank you for choosing
-                strong.text-info Book Banyan
-              p.thankyou We will get back to you soon.
-    section.footer
-      .container
-        .row
-          .col-md-8.col-sm-8
-            ul.footer-nav.pull-left
-              li
-                a(href='#') About BookBanyan
-              li
-                a(href='#') Team
-              li
-                a(href='#') Blog
-              li
-                a.active(href='#') Pricing
-              li
-                a(href='#') Terms & Conditions
-              li
-                a(href='#') Contact Us
-          .col-md-4.copyright
-            p.pull-right Copyright © 2014 BookBanyan
-    //
-       Load JS here for greater good =============================
+include ./header
+link(href='/css/BookB-style-Copy2.css', rel='stylesheet')
+section.confirmation
+  .container
+    .row
+      .col-md-10.col-md-offset-1
+        .jumbotron.text-center
+          span.icon-happy
+          p Successfully submitted!
+          h6.thankyou
+            | Thank you for choosing
+            strong.text-info Book Banyan
+          p.thankyou We will get back to you soon.
+section.footer
+  .container
+    .row
+      .col-md-8.col-sm-8
+        ul.footer-nav.pull-left
+          li
+            a(href='#') About BookBanyan
+          li
+            a(href='#') Team
+          li
+            a(href='#') Blog
+          li
+            a.active(href='#') Pricing
+          li
+            a(href='#') Terms & Conditions
+          li
+            a(href='#') Contact Us
+      .col-md-4.copyright
+        p.pull-right Copyright © 2014 BookBanyan

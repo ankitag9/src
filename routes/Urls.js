@@ -6,16 +6,26 @@ var Urls = (function () {
     function Urls() {
     }
     Urls.submit = function (baseUrl) {
-        return Urls.get('/submit', baseUrl);
+        return Urls.get('/submit', {}, baseUrl);
     };
     Urls.home = function (baseUrl) {
-        return Urls.get('/', baseUrl);
+        return Urls.get('/', {}, baseUrl);
     };
     Urls.confirmation = function (baseUrl) {
-        return Urls.get('/confirmation', baseUrl);
+        return Urls.get('/confirmation', {}, baseUrl);
     };
     Urls.uploadFile = function (baseUrl) {
-        return Urls.get('/upload', baseUrl);
+        return Urls.get('/upload', {}, baseUrl);
+    };
+    Urls.book = function (bookId, baseUrl) {
+        return Urls.get('/book/:bookId', { bookId: bookId }, baseUrl);
+    };
+    Urls.author = function (authorId, baseUrl) {
+        return Urls.get('/author/:authorId', { authorId: authorId }, baseUrl);
+    };
+
+    Urls.dashboard = function (baseUrl) {
+        return Urls.get('/dashboard', {}, baseUrl);
     };
 
     Urls.get = function (urlPattern, values, baseUrl) {

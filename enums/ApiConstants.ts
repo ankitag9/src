@@ -18,6 +18,7 @@ class ApiConstants
     static OLD_PASSWORD:string                          = 'oldPass';
     static BOOK_ID:string                               = 'bookId';
     static REVIEW_ID:string                             = 'reviewId';
+    static AUTHOR_ID:string                             = 'authorId';
 
     /* Body constants */
     static USER:string                                  = 'user';

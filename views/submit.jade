@@ -1,178 +1,155 @@
 include ./header
-body
-    header.header
-      #myheader.navbar.navbar-fixed-top
-        .navbar-inner
-          .container
-            button.navbar-toggle(data-toggle='collapse', data-target='.navbar-collapse')
-              span.icon-bar
-              span.icon-bar
-              span.icon-bar
-            a.navbar-brand(href='/')
-              img(src='img/logo.png')
-            ul.nav.navbar-right
-              li
-                a.btn.btn-small.btn-info(href='') Log-In
-            .navbar-collapse.collapse
-              ul.nav.navbar-nav
-                li
-                  a(href='#') How It Works
-                li
-                  a(href='#') Features
-                li
-                  a(href='#') Pricing
-    //
-      submission-sec
-    section.submit
-      .container
-        .row
-          #accordian.panel-group
-            .panel.panel-info.col-xs-12.visible-xs.guidelines
-              .panel-heading
-                h6.panel-title
-                  a(data-toggle='collapse', data-parent='#accordion', href='#collapseOne')
-                    span.glyphicon.glyphicon-chevron-down
-                    | Important
-                    span.text-info Guidelines
-              #collapseOne.panel-collapse.collapse
-                .panel-body
-                  ul.list-group
-                    li.list-group-item.list-group-item-default
-                      span.glyphicon.glyphicon-pushpin.text-info
-                      | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, labore, corporis, sunt molestiae doloremque soluta commodi ipsam perspiciatis ducimus quisquam voluptate inventore neque unde officia aperiam impedit dolorem adipisci accusamus.
-                    li.list-group-item.list-group-item-default
-                      span.glyphicon.glyphicon-pushpin.text-info
-                      | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, omnis, hic. Temporibus, eum voluptatem eligendi reprehenderit excepturi quam hic beatae necessitatibus. .
-                    li.list-group-item.list-group-item-default
-                      span.glyphicon.glyphicon-pushpin.text-info
-                      | Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    li.list-group-item.list-group-item-default
-                      span.glyphicon.glyphicon-pushpin.text-info
-                      | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, deleniti, fugit, iusto eos velit itaque nihil repudiandae laudantium.
-                    li.list-group-item.list-group-item-default
-                      span.glyphicon.glyphicon-pushpin.text-info
-                      | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, labore, corporis, sunt molestiae doloremque soluta commodi ipsam perspiciatis ducimus quisquam voluptate inventore neque unde officia aperiam impedit dolorem adipisci accusamus.
-                    li.list-group-item.list-group-item-default
-                      span.glyphicon.glyphicon-pushpin.text-info
-                      | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, omnis, hic. Temporibus, eum voluptatem eligendi reprehenderit excepturi quam hic beatae necessitatibus. .
-                    li.list-group-item.list-group-item-default
-                      span.glyphicon.glyphicon-pushpin.text-info
-                      | Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            //
-               panel info
-            .panel.panel-default.col-md-12.col-sm-12.subform
-              .panel-body
-                .col-md-12.text-center
-                  h5 Submit your Manuscript
-                  h5
-                    small
-                      | Read the&nbsp;
-                      span.text-info guidelines
-                      | &nbsp;for submission
-                .col-md-7.col-sm-7
-                  form.form-horizontal(role='form')
-                    .col-md-12.personal-d
-                      h6 Personal Details
-                      .form-group
-                        label.col-sm-2.control-label(for='name') Name
-                        .col-sm-10
-                          input#name.form-control(type='name', placeholder='write your name')
-                      .form-group
-                        label.col-sm-2.control-label(for='email') Email
-                        .col-sm-10
-                          input#email.form-control(type='email', placeholder='enter your email')
-                      .form-group
-                        label.col-sm-2.control-label(for='email')
-                          | Phone No.
-                          br
-                          small (Optional)
-                        .col-sm-10
-                          input#phoneNumber.form-control(type='text', placeholder='enter your phone number')
-                    .col-md-12.book-d
-                      h6 Book Details
-                      .form-group
-                        label.col-sm-2.control-label(for='title') Title
-                        .col-sm-10
-                          input#bookTitle.form-control(type='name', placeholder='Book Title')
-                      .form-group
-                        label.col-sm-2.control-label(for='name') Upload files
-                        .col-sm-10
-                          //
-                             The file input field used as target for the file upload widget
-                          .fileinputs
-                            input#fileupload.form-control.file(type='file', name='files[]', multiple='multiple')
-                            .fakefile
-                              span.glyphicon.glyphicon-cloud-upload
-                              p Drag & Drop or Click to upload
-                              input.form-control(value="")
-                          br
-                          //
-                             The global progress bar
-                          #progress.progress
-                            .progress-bar.progress-bar-success
-                          //
-                             The container for the uploaded files
-                          #files.files
-                            p
-                    .col-md-12.text-center
-                      a.btn.btn-large.btn-info#upload() upload and SUbmit
-                //
-                  col-md-7 subform
-                .col-md-4.col-md-offset-1.col-sm-4.col-sm-offset-1.hidden-xs.guidelines
-                  h6.text-center
-                    span.text-info Guidelines
-                  ul.list-group
-                    li.list-group-item.list-group-item-default
-                      span.glyphicon.glyphicon-pushpin.text-info
-                      | Please upload the following 3 attachments before we come back to you. Synopsis and strength of the book, Two sample chapters and Curriculum Vitae of the Author
-                    li.list-group-item.list-group-item-default
-                      span.glyphicon.glyphicon-pushpin.text-info
-                      | Submission should be in word format only
-                    li.list-group-item.list-group-item-default
-                      span.glyphicon.glyphicon-pushpin.text-info
-                      | Bookbanyan accepts submissions in English in the fiction genre only at the moment
-                    li.list-group-item.list-group-item-default
-                      span.glyphicon.glyphicon-pushpin.text-info
-                      | Please allow at least 2 weeks for your manuscript to be considered for publication.
-                    li.list-group-item.list-group-item-default
-                      span.glyphicon.glyphicon-pushpin.text-info
-                      | We request you not to send us hard copies unless specifically requested by our Editors.
-                    li.list-group-item.list-group-item-default
-                      span.glyphicon.glyphicon-pushpin.text-info
-                      | Bookbanyan will not be responsible for any loss or damage to unsolicited material. Manuscripts will not be returned by the publishing house irrespective of the outcome of the review process.
-              //
-                panel-body
-            //
-              panel-default
-          //
-            accordin
+link(href='/css/BookB-style-Copy2.css', rel='stylesheet')
+section.submit
+  .container
+    .row
+      #accordian.panel-group
+        .panel.panel-info.col-xs-12.visible-xs.guidelines
+          .panel-heading
+            h6.panel-title
+              a(data-toggle='collapse', data-parent='#accordion', href='#collapseOne')
+                span.glyphicon.glyphicon-chevron-down
+                | Important
+                span.text-info Guidelines
+          #collapseOne.panel-collapse.collapse
+            .panel-body
+              ul.list-group
+                li.list-group-item.list-group-item-default
+                  span.glyphicon.glyphicon-pushpin.text-info
+                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, labore, corporis, sunt molestiae doloremque soluta commodi ipsam perspiciatis ducimus quisquam voluptate inventore neque unde officia aperiam impedit dolorem adipisci accusamus.
+                li.list-group-item.list-group-item-default
+                  span.glyphicon.glyphicon-pushpin.text-info
+                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, omnis, hic. Temporibus, eum voluptatem eligendi reprehenderit excepturi quam hic beatae necessitatibus. .
+                li.list-group-item.list-group-item-default
+                  span.glyphicon.glyphicon-pushpin.text-info
+                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                li.list-group-item.list-group-item-default
+                  span.glyphicon.glyphicon-pushpin.text-info
+                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, deleniti, fugit, iusto eos velit itaque nihil repudiandae laudantium.
+                li.list-group-item.list-group-item-default
+                  span.glyphicon.glyphicon-pushpin.text-info
+                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, labore, corporis, sunt molestiae doloremque soluta commodi ipsam perspiciatis ducimus quisquam voluptate inventore neque unde officia aperiam impedit dolorem adipisci accusamus.
+                li.list-group-item.list-group-item-default
+                  span.glyphicon.glyphicon-pushpin.text-info
+                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, omnis, hic. Temporibus, eum voluptatem eligendi reprehenderit excepturi quam hic beatae necessitatibus. .
+                li.list-group-item.list-group-item-default
+                  span.glyphicon.glyphicon-pushpin.text-info
+                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit.
         //
-           row
-    section.footer
-      .container
-        .row
-          .col-md-8.col-sm-8
-            ul.footer-nav.pull-left
-              li
-                a(href='#') About BookBanyan
-              li
-                a(href='#') Team
-              li
-                a(href='#') Blog
-              li
-                a.active(href='#') Pricing
-              li
-                a(href='#') Terms & Conditions
-              li
-                a(href='#') Contact Us
-          .col-md-4.copyright
-            p.pull-right Copyright © 2014 BookBanyan
+           panel info
+        .panel.panel-default.col-md-12.col-sm-12.subform
+          .panel-body
+            .col-md-12.text-center
+              h5 Submit your Manuscript
+              h5
+                small
+                  | Read the&nbsp;
+                  span.text-info guidelines
+                  | &nbsp;for submission
+            .col-md-7.col-sm-7
+              form.form-horizontal(role='form')
+                .col-md-12.personal-d
+                  h6 Personal Details
+                  .form-group
+                    label.col-sm-2.control-label(for='name') Name
+                    .col-sm-10
+                      input#name.form-control(type='name', placeholder='write your name')
+                  .form-group
+                    label.col-sm-2.control-label(for='email') Email
+                    .col-sm-10
+                      input#email.form-control(type='email', placeholder='enter your email')
+                  .form-group
+                    label.col-sm-2.control-label(for='email')
+                      | Phone No.
+                      br
+                      small (Optional)
+                    .col-sm-10
+                      input#phoneNumber.form-control(type='text', placeholder='enter your phone number')
+                .col-md-12.book-d
+                  h6 Book Details
+                  .form-group
+                    label.col-sm-2.control-label(for='title') Title
+                    .col-sm-10
+                      input#bookTitle.form-control(type='name', placeholder='Book Title')
+                  .form-group
+                    label.col-sm-2.control-label(for='name') Upload files
+                    .col-sm-10
+                      //
+                         The file input field used as target for the file upload widget
+                      .fileinputs
+                        input#fileupload.form-control.file(type='file', name='files[]', multiple='multiple')
+                        .fakefile
+                          span.glyphicon.glyphicon-cloud-upload
+                          p Drag & Drop or Click to upload
+                          input.form-control(value="")
+                      br
+                      //
+                         The global progress bar
+                      #progress.progress
+                        .progress-bar.progress-bar-success
+                      //
+                         The container for the uploaded files
+                      #files.files
+                        p
+                .col-md-12.text-center
+                  a.btn.btn-large.btn-info#upload() upload and SUbmit
+            //
+              col-md-7 subform
+            .col-md-4.col-md-offset-1.col-sm-4.col-sm-offset-1.hidden-xs.guidelines
+              h6.text-center
+                span.text-info Guidelines
+              ul.list-group
+                li.list-group-item.list-group-item-default
+                  span.glyphicon.glyphicon-pushpin.text-info
+                  | Please upload the following 3 attachments before we come back to you. Synopsis and strength of the book, Two sample chapters and Curriculum Vitae of the Author
+                li.list-group-item.list-group-item-default
+                  span.glyphicon.glyphicon-pushpin.text-info
+                  | Submission should be in word format only
+                li.list-group-item.list-group-item-default
+                  span.glyphicon.glyphicon-pushpin.text-info
+                  | Bookbanyan accepts submissions in English in the fiction genre only at the moment
+                li.list-group-item.list-group-item-default
+                  span.glyphicon.glyphicon-pushpin.text-info
+                  | Please allow at least 2 weeks for your manuscript to be considered for publication.
+                li.list-group-item.list-group-item-default
+                  span.glyphicon.glyphicon-pushpin.text-info
+                  | We request you not to send us hard copies unless specifically requested by our Editors.
+                li.list-group-item.list-group-item-default
+                  span.glyphicon.glyphicon-pushpin.text-info
+                  | Bookbanyan will not be responsible for any loss or damage to unsolicited material. Manuscripts will not be returned by the publishing house irrespective of the outcome of the review process.
+          //
+            panel-body
+        //
+          panel-default
+      //
+        accordin
     //
-       Load JS here for greater good =============================
-    script(src='/js/jquery-1.11.0.min.js')
-    script(src='/js/bootstrap.min.js')
-    script(src='/js/jquery.ui.widget.js')
-    script(src='/js/jquery.fileupload.js')
-    script(src='/js/jquery.iframe-transport.js')
-    script(src='/js/submit.js')
-    script(src='/js/bootbox.js')
+       row
+section.footer
+  .container
+    .row
+      .col-md-8.col-sm-8
+        ul.footer-nav.pull-left
+          li
+            a(href='#') About BookBanyan
+          li
+            a(href='#') Team
+          li
+            a(href='#') Blog
+          li
+            a.active(href='#') Pricing
+          li
+            a(href='#') Terms & Conditions
+          li
+            a(href='#') Contact Us
+      .col-md-4.copyright
+        p.pull-right Copyright © 2014 BookBanyan
+//
+   Load JS here for greater good =============================
+script(src='/js/jquery-1.11.0.min.js')
+script(src='/js/bootstrap.min.js')
+script(src='/js/jquery.ui.widget.js')
+script(src='/js/jquery.fileupload.js')
+script(src='/js/jquery.iframe-transport.js')
+script(src='/js/submit.js')
+script(src='/js/bootbox.js')

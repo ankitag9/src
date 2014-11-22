@@ -4,10 +4,14 @@ import Coral                                    = require('Coral');
 
 class Urls
 {
-    static submit(baseUrl?:string):string               { return Urls.get('/submit', baseUrl); }
-    static home(baseUrl?:string):string                 { return Urls.get('/', baseUrl); }
-    static confirmation(baseUrl?:string):string         { return Urls.get('/confirmation', baseUrl); }
-    static uploadFile(baseUrl?:string):string           { return Urls.get('/upload', baseUrl); }
+    static submit(baseUrl?:string):string               { return Urls.get('/submit',{}, baseUrl); }
+    static home(baseUrl?:string):string                 { return Urls.get('/',{}, baseUrl); }
+    static confirmation(baseUrl?:string):string         { return Urls.get('/confirmation',{}, baseUrl); }
+    static uploadFile(baseUrl?:string):string           { return Urls.get('/upload',{}, baseUrl); }
+    static book(bookId?:number, baseUrl?:string)        { return Urls.get('/book/:bookId',{bookId:bookId},baseUrl)}
+    static author(authorId?:number, baseUrl?:string)    { return Urls.get('/author/:authorId',{authorId:authorId},baseUrl)}
+    
+    static dashboard(baseUrl?:string)                   { return Urls.get('/dashboard',{},baseUrl)}
 
     static get(urlPattern:string, values?:Object, baseUrl?:string):string
     {

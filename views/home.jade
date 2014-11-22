@@ -1,254 +1,233 @@
 include ./header
-body
-    header.header
-        #myheader.navbar.navbar-fixed-top
-            .navbar-inner
-                .container
-                    button.navbar-toggle(data-toggle='collapse', data-target='.navbar-collapse')
-                        span.icon-bar
-                        span.icon-bar
-                        span.icon-bar
-                    a.navbar-brand(href='#')
-                        img(src='img/logo.png')
-                    ul.nav.navbar-right
-                        li
-                            a.btn.btn-small.btn-info(href='') Log-In
-                    .navbar-collapse.collapse
-                        ul.nav.navbar-nav
-                            li
-                                a(href='#') How It Works
-                            li
-                                a(href='#') Features
-                            li
-                                a(href='#') Pricing
-    //
-        main-content
-    section.main-content
-        .container
-            .row
+link(href='/css/BookB-style-Copy2.css', rel='stylesheet')
+//
+    main-content
+section.main-content
+    .container
+        .row
+            .col-md-12.text-center
+                h4 Write your dream..we'll fullfill It!!
+                a.btn.btn-large.btn-default.getstarted(href='/submit') Get Started
+//
+    sub-content
+section.sub-content
+    .container-fluid
+        .row
+            ul.nav.nav-tabs.col-md-12
+                li.active.up3
+                    a#clickthis1.uppho(data-toggle='tab', href='#author')
+                        .wrap1
+                            span.icon-profile-male
+                            | For Author
+                li.up4
+                    a#clickthis2.upvid(data-toggle='tab', href='#blogger')
+                        .wrap1
+                            span.icon-profile-male
+                            | For Blogger
+            .container.tabit
                 .col-md-12.text-center
-                    h4 Write your dream..we'll fullfill It!!
-                    a.btn.btn-large.btn-default.getstarted(href='/submit') Get Started
-    //
-        sub-content
-    section.sub-content
-        .container-fluid
-            .row
-                ul.nav.nav-tabs.col-md-12
-                    li.active.up3
-                        a#clickthis1.uppho(data-toggle='tab', href='#author')
-                            .wrap1
-                                span.icon-profile-male
-                                | For Author
-                    li.up4
-                        a#clickthis2.upvid(data-toggle='tab', href='#blogger')
-                            .wrap1
-                                span.icon-profile-male
-                                | For Blogger
-                .container.tabit
-                    .col-md-12.text-center
-                        h6 How it works?
-                    .tab-content.forauthrnblogr
-                        #author.tab-pane.fade.in.active
-                            .col-md-4.col-sm-4.text-center
-                                div
-                                    span.icon-upload
-                                h6 Upload your Book
-                                p Ready with a script in your hand and don't know where to go? Your search ends here. Just upload here
-                            .col-md-4.col-sm-4.text-center
-                                div
-                                    span.icon-pricetags
-                                h6 Choose a Package
-                                p We have a wide variety of packages for you to choose from. We also give you the option to create your own.
-                            .col-md-4.col-sm-4.text-center
-                                div
-                                    span.icon-genius
-                                h6 We do the rest!
-                                p Sit back and relax while we finish your work and get you the identity you
-                            .col-md-12.text-center
-                                a.btn.btn-large.btn-default.getstarted(href='/submit') Get Started
-                        #blogger.tab-pane.fade
-                            .col-md-4.col-sm-4.text-center
-                                div
-                                    span.icon-paperclip
-                                h6 Select a Book
-                                p We have a wide variety of books for you to choose from.
-                            .col-md-4.col-sm-4.text-center
-                                div
-                                    span.icon-pencil
-                                h6 Write a Review
-                                p Time to do the thing you love to do. Write a Review for the selected book.
-                            .col-md-4.col-sm-4.text-center
-                                div
-                                    span.icon-wallet
-                                h6 Get Paid
-                                p That's it. You get paid for doing what you love to do.
-                            .col-md-12.text-center
-                                a.btn.btn-large.btn-default.getstarted(href='') Get Started
-    section.separator1
-        .container
-            .row
-                .col-md-10.col-md-offset-1
-                    .media
-                        img.media-object.img-circle.pull-left(src='img/kafka.jpg', alt='1')
-                        .media-body
-                            h6.media-heading
-                                | Writing is a sweet, wonderful reward…
-                            p.pull-right --Franz Kafka
-    section.book-display
-        .container
-            .row
-                .col-md-12.text-center
-                    h6
-                        | Why customers
-                        span.icon-heart
-                        | Us
-                .col-md-4.col-sm-8
-                //.col-md-3.col-sm-6
-                    .imgwrap.text-center
-                        img(src='img/book1.png', alt='1')
-                    p.text-center Twenty-five
-                    blockquote
-                        p
-                            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
-                        footer.pull-right Someone famous in
-                .col-md-4.col-sm-8
-                    .imgwrap.text-center
-                        img(src='img/Suicide-at-IIT.png', alt='1')
-                    p.text-center Suicide at IIT
-                    blockquote
-                        p
-                            | Getting published is not difficult these days. Search for identity and web presence
-                            | is what bothers authors these days. Most noteworthy of the services offered by Bookbanyan
-                            | is the efforts they have put for increasing the web presence of my novel by getting it
-                            | reviewed with bloggers, authors and prominent members in the literary circles. I loved
-                            | the web page they have created for me.
-                        footer.pull-right Ravi Kumar
-                .col-md-4.col-sm-8
-                //.col-md-3.col-sm-6
-                    .imgwrap.text-center
-                        img(src='img/book1.png', alt='1')
-                    p.text-center Twenty-five
-                    blockquote
-                        p
-                            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
-                        footer.pull-right Someone famous in
-                //.col-md-3.col-sm-6
-                    .imgwrap.text-center
-                        img(src='img/book1.png', alt='1')
-                    p.text-center Twenty-five
-                    blockquote
-                        p
-                            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
-                        footer.pull-right Someone famous in
-                .col-md-10.col-md-offset-1.text-center.morebooks
-                    a.btn.btn-large.btn-default.getstarted(href='') More Books
-    section.separator1
-        .container
-            .row
-                .col-md-10.col-md-offset-1
-                    .media
-                        img.media-object.img-circle.pull-left(src='img/stout.jpg', alt='1')
-                        .media-body
-                            h6.media-heading
-                                | Whether or not you write well, write bravely.
-                            p.pull-right --Bill Stout
-    section.pricing
-        .container
-            .row
-                .col-md-12.text-center
-                    h6 Choose your Dream Package
-                .col-md-4.col-sm-4.text-center
-                    .basic
-                        p Basic
-                    .basic2
-                        p
-                            | Rs. 70,000
-                            br
-                            span Perfect for starters
-                        a.btn.btn-default(href='') get started
-                    //
-                        <div class="pointer"></div>
-                    ul.perkwrap
-                        li.perks
-                            span.icon-search
-                            p 20 reviews
-                        li.perks
-                            span.icon-edit
-                            p Editing - Basic
-                        li.perks
-                            span.icon-megaphone
-                            p Cover Page - 1 concept
-                        li.perks
-                            span.icon-book-open
-                            p Publishing - 500 Copies
-                .col-md-4.col-sm-4.text-center
-                    .basic
-                        p Moderate
-                    .basic2
-                        p
-                            | Rs. 100,000
-                            br
-                            span Perfect for starters
-                        a.btn.btn-default(href='') get started
-                    //
-                         <div class="pointer"></div>
-                    ul.perkwrap
-                        li.perks
-                            span.icon-search
-                            p 30 reviews
-                        li.perks
-                            span.icon-edit
-                            p Editing - Basic
-                        li.perks
-                            span.icon-megaphone
-                            p Cover Page - 1 concept
-                        li.perks
-                            span.icon-book-open
-                            p Publishing - 500 Copies
-                .col-md-4.col-sm-4.text-center
-                    .basic
-                        p Extensive
-                    .basic2
-                        p
-                            | Rs. 150,000
-                            br
-                            span Perfect for starters
-                        a.btn.btn-default(href='') get started
-                    //
-                        <div class="pointer"></div>
-                    ul.perkwrap
-                        li.perks
-                            span.icon-search
-                            p 50 reviews
-                        li.perks
-                            span.icon-edit
-                            p Editing - Extensive
-                        li.perks
-                            span.icon-megaphone
-                            p Cover Page - unlimited
-                        li.perks
-                            span.icon-book-open
-                            p Publishing - 500 Copies
-    section.footer
-        .container
-            .row
-                .col-md-8.col-sm-8
-                    ul.footer-nav.pull-left
-                        li
-                            a(href='#') About BookBanyan
-                        li
-                            a(href='#') Team
-                        li
-                            a(href='#') Blog
-                        li
-                            a.active(href='#') Pricing
-                        li
-                            a(href='#') Terms & Conditions
-                        li
-                            a(href='#') Contact Us
-                .col-md-4.copyright
-                    p.pull-right Copyright © 2014 BookBanyan
+                    h6 How it works?
+                .tab-content.forauthrnblogr
+                    #author.tab-pane.fade.in.active
+                        .col-md-4.col-sm-4.text-center
+                            div
+                                span.icon-upload
+                            h6 Upload your Book
+                            p Ready with a script in your hand and don't know where to go? Your search ends here. Just upload here
+                        .col-md-4.col-sm-4.text-center
+                            div
+                                span.icon-pricetags
+                            h6 Choose a Package
+                            p We have a wide variety of packages for you to choose from. We also give you the option to create your own.
+                        .col-md-4.col-sm-4.text-center
+                            div
+                                span.icon-genius
+                            h6 We do the rest!
+                            p Sit back and relax while we finish your work and get you the identity you
+                        .col-md-12.text-center
+                            a.btn.btn-large.btn-default.getstarted(href='/submit') Get Started
+                    #blogger.tab-pane.fade
+                        .col-md-4.col-sm-4.text-center
+                            div
+                                span.icon-paperclip
+                            h6 Select a Book
+                            p We have a wide variety of books for you to choose from.
+                        .col-md-4.col-sm-4.text-center
+                            div
+                                span.icon-pencil
+                            h6 Write a Review
+                            p Time to do the thing you love to do. Write a Review for the selected book.
+                        .col-md-4.col-sm-4.text-center
+                            div
+                                span.icon-wallet
+                            h6 Get Paid
+                            p That's it. You get paid for doing what you love to do.
+                        .col-md-12.text-center
+                            a.btn.btn-large.btn-default.getstarted(href='') Get Started
+section.separator1
+    .container
+        .row
+            .col-md-10.col-md-offset-1
+                .media
+                    img.media-object.img-circle.pull-left(src='img/kafka.jpg', alt='1')
+                    .media-body
+                        h6.media-heading
+                            | Writing is a sweet, wonderful reward…
+                        p.pull-right --Franz Kafka
+section.book-display
+    .container
+        .row
+            .col-md-12.text-center
+                h6
+                    | Why customers
+                    span.icon-heart
+                    | Us
+            .col-md-4.col-sm-8
+            //.col-md-3.col-sm-6
+                .imgwrap.text-center
+                    img(src='img/book1.png', alt='1')
+                p.text-center Twenty-five
+                blockquote
+                    p
+                        | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                    footer.pull-right Someone famous in
+            .col-md-4.col-sm-8
+                .imgwrap.text-center
+                    img(src='img/Suicide-at-IIT.png', alt='1')
+                p.text-center Suicide at IIT
+                blockquote
+                    p
+                        | Getting published is not difficult these days. Search for identity and web presence
+                        | is what bothers authors these days. Most noteworthy of the services offered by Bookbanyan
+                        | is the efforts they have put for increasing the web presence of my novel by getting it
+                        | reviewed with bloggers, authors and prominent members in the literary circles. I loved
+                        | the web page they have created for me.
+                    footer.pull-right Ravi Kumar
+            .col-md-4.col-sm-8
+            //.col-md-3.col-sm-6
+                .imgwrap.text-center
+                    img(src='img/book1.png', alt='1')
+                p.text-center Twenty-five
+                blockquote
+                    p
+                        | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                    footer.pull-right Someone famous in
+            //.col-md-3.col-sm-6
+                .imgwrap.text-center
+                    img(src='img/book1.png', alt='1')
+                p.text-center Twenty-five
+                blockquote
+                    p
+                        | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                    footer.pull-right Someone famous in
+            .col-md-10.col-md-offset-1.text-center.morebooks
+                a.btn.btn-large.btn-default.getstarted(href='') More Books
+section.separator1
+    .container
+        .row
+            .col-md-10.col-md-offset-1
+                .media
+                    img.media-object.img-circle.pull-left(src='img/stout.jpg', alt='1')
+                    .media-body
+                        h6.media-heading
+                            | Whether or not you write well, write bravely.
+                        p.pull-right --Bill Stout
+section.pricing
+    .container
+        .row
+            .col-md-12.text-center
+                h6 Choose your Dream Package
+            .col-md-4.col-sm-4.text-center
+                .basic
+                    p Basic
+                .basic2
+                    p
+                        | Rs. 70,000
+                        br
+                        span Perfect for starters
+                    a.btn.btn-default(href='') get started
+                //
+                    <div class="pointer"></div>
+                ul.perkwrap
+                    li.perks
+                        span.icon-search
+                        p 20 reviews
+                    li.perks
+                        span.icon-edit
+                        p Editing - Basic
+                    li.perks
+                        span.icon-megaphone
+                        p Cover Page - 1 concept
+                    li.perks
+                        span.icon-book-open
+                        p Publishing - 500 Copies
+            .col-md-4.col-sm-4.text-center
+                .basic
+                    p Moderate
+                .basic2
+                    p
+                        | Rs. 100,000
+                        br
+                        span Perfect for starters
+                    a.btn.btn-default(href='') get started
+                //
+                     <div class="pointer"></div>
+                ul.perkwrap
+                    li.perks
+                        span.icon-search
+                        p 30 reviews
+                    li.perks
+                        span.icon-edit
+                        p Editing - Basic
+                    li.perks
+                        span.icon-megaphone
+                        p Cover Page - 1 concept
+                    li.perks
+                        span.icon-book-open
+                        p Publishing - 500 Copies
+            .col-md-4.col-sm-4.text-center
+                .basic
+                    p Extensive
+                .basic2
+                    p
+                        | Rs. 150,000
+                        br
+                        span Perfect for starters
+                    a.btn.btn-default(href='') get started
+                //
+                    <div class="pointer"></div>
+                ul.perkwrap
+                    li.perks
+                        span.icon-search
+                        p 50 reviews
+                    li.perks
+                        span.icon-edit
+                        p Editing - Extensive
+                    li.perks
+                        span.icon-megaphone
+                        p Cover Page - unlimited
+                    li.perks
+                        span.icon-book-open
+                        p Publishing - 500 Copies
+section.footer
+    .container
+        .row
+            .col-md-8.col-sm-8
+                ul.footer-nav.pull-left
+                    li
+                        a(href='#') About BookBanyan
+                    li
+                        a(href='#') Team
+                    li
+                        a(href='#') Blog
+                    li
+                        a.active(href='#') Pricing
+                    li
+                        a(href='#') Terms & Conditions
+                    li
+                        a(href='#') Contact Us
+            .col-md-4.copyright
+                p.pull-right Copyright © 2014 BookBanyan
     //
          Load JS here for greater good =============================
 script(src='/js/jquery-1.11.0.min.js')

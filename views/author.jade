@@ -1,194 +1,152 @@
-doctype html
-html(lang='en')
-head
-    meta(charset='utf-8')
-    title BookBanyan
-    meta(name='viewport', content='width=device-width, initial-scale = 1.0, user-scalable=no ')
-    //
-       Loading Bootstrap
-    link(href='css/bootstrap.css', rel='stylesheet')
-    link(href='css/flat-ui.css', rel='stylesheet')
-    link(href='http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css', rel='stylesheet')
-    //
-       Loading Flat UI
-    link(href='css/book-page.css', rel='stylesheet')
-    script(src='js/respond.min.js')
-    script(src='js/modernizr.js')
-    //
-       HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file.
-    //if lt IE 9
-      script(src='js/html5shiv.js')
-      script(src='js/respond.min.js')
-    body
-        header.header
-            #myheader.navbar.navbar-fixed-top
-                .navbar-inner
-                    .container
-                        button.navbar-toggle(data-toggle='collapse', data-target='.navbar-collapse')
-                            span.icon-bar
-                            span.icon-bar
-                            span.icon-bar
-                        a.navbar-brand(href='#')
-                            img(src='img/logo.png')
-                        ul.nav.navbar-right
-                            li
-                                a.btn.btn-small.btn-info(href='') Log-In
-                        .navbar-collapse.collapse
-                            ul.nav.navbar-nav
-                                li
-                                    a(href='#') How It Works
-                                li
-                                    a(href='#') Features
-                                li
-                                    a(href='#') Pricing
-        section.author-profile
-            .container
+include ./header
+section.author-profile
+    .container
+        .row
+            .col-md-8.col-md-offset-2.text-center
+                .img-wrap
+                    img.img-circle(src='img/upic1.png', alt='1')
+                h5 Ravi Kumar
+                ul.top-icons
+                    li
+                        .top-one
+                            span.icon-book-open
+                            | 5
+                            p.caption-top Books
+                    li
+                        .top-one
+                            span.icon-newspaper
+                            | 12
+                            p.caption-top Articles
+                    li
+                        div
+                            span.icon-edit
+                            | 12
+                            p.caption-top Reviews
+                ul.bottom-icons
+                    li
+                        a(href='')
+                            span.icon-facebook
+                    li
+                        a(href='')
+                            span.icon-twitter
+                    li
+                        a(href='')
+                            span.icon-googleplus
+section.about-author
+    .container
+        .row
+            .col-md-10.col-md-offset-1.text-center
+                h6 About
+                p.text-default
+                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore, pariatur, ipsum earum aperiam cupiditate recusandae quae debitis animi optio nulla dolores dolorem sit quidem culpa aliquam a molestiae tempora. Sint. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, dolore, facilis quae optio soluta eligendi nostrum eveniet doloremque asperiores tempora.
                 .row
-                    .col-md-8.col-md-offset-2.text-center
-                        .img-wrap
-                            img.img-circle(src='img/upic1.png', alt='1')
-                        h5 Ravi Kumar
-                        ul.top-icons
-                            li
-                                .top-one
-                                    span.icon-book-open
-                                    | 5
-                                    p.caption-top Books
-                            li
-                                .top-one
-                                    span.icon-newspaper
-                                    | 12
-                                    p.caption-top Articles
-                            li
-                                div
-                                    span.icon-edit
-                                    | 12
-                                    p.caption-top Reviews
-                        ul.bottom-icons
-                            li
-                                a(href='')
-                                    span.icon-facebook
-                            li
-                                a(href='')
-                                    span.icon-twitter
-                            li
-                                a(href='')
-                                    span.icon-googleplus
-        section.about-author
-            .container
+                    .col-md-12.favs
+                        p
+                            span.text-info Fav Authors
+                            | Franz Kafka, Leo Tolstoy
+                        p
+                            span.text-danger Fav Books
+                            | Anna Karenina, The Brothers karamazov
+section.auth-books
+    .container
+        .row
+            .col-md-12.text-center
+                h6.text-default Books
+        .row
+            .col-md-6.col-sm-6.bookdet
                 .row
-                    .col-md-10.col-md-offset-1.text-center
-                        h6 About
-                        p.text-default
-                            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore, pariatur, ipsum earum aperiam cupiditate recusandae quae debitis animi optio nulla dolores dolorem sit quidem culpa aliquam a molestiae tempora. Sint. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, dolore, facilis quae optio soluta eligendi nostrum eveniet doloremque asperiores tempora.
-                        .row
-                            .col-md-12.favs
-                                p
-                                    span.text-info Fav Authors
-                                    | Franz Kafka, Leo Tolstoy
-                                p
-                                    span.text-danger Fav Books
-                                    | Anna Karenina, The Brothers karamazov
-        section.auth-books
-            .container
+                    .col-md-6.col-sm-6
+                        .bcover1
+                            img.img-rounded(src='img/Suicide-at-IIT.png', alt='1')
+                    .col-md-6.col-sm-6
+                        h6
+                            | Suicide at IIT
+                            br
+                            small Drama | Fiction
+                        p
+                            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, quae, maiores nihil modi temporibus numquam voluptatibus eaque officia dolore quidem rerum dolorem corporis minima. Laudantium alias odit assumenda eum sint.
+                        a.btn.btn-md.btn-info(href='BookB-book-page.html') Read More
+            .col-md-6.col-sm-6.bookdet
                 .row
-                    .col-md-12.text-center
-                        h6.text-default Books
-                .row
-                    .col-md-6.col-sm-6.bookdet
-                        .row
-                            .col-md-6.col-sm-6
-                                .bcover1
-                                    img.img-rounded(src='img/Suicide-at-IIT.png', alt='1')
-                            .col-md-6.col-sm-6
-                                h6
-                                    | Suicide at IIT
-                                    br
-                                    small Drama | Fiction
-                                p
-                                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, quae, maiores nihil modi temporibus numquam voluptatibus eaque officia dolore quidem rerum dolorem corporis minima. Laudantium alias odit assumenda eum sint.
-                                a.btn.btn-md.btn-info(href='BookB-book-page.html') Read More
-                    .col-md-6.col-sm-6.bookdet
-                        .row
-                            .col-md-6.col-sm-6
-                                .bcover1
-                                    img.img-rounded(src='img/The_Little_Hearts.jpg', alt='1')
-                            .col-md-6.col-sm-6
-                                h6
-                                    | The Little Hearts
-                                    br
-                                    small Drama | Fiction
-                                p
-                                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, quae, maiores nihil modi temporibus numquam voluptatibus eaque officia dolore quidem rerum dolorem corporis minima. Laudantium alias odit assumenda eum sint.
-                                a.btn.btn-md.btn-info(href='BookB-book-page.html') Read More
-        section.footer
-            .container
-                .row
-                    .col-md-8.col-sm-8.col-xs-12
-                        ul.footer-nav.pull-left
-                            li
-                                a(href='#') About BookBanyan
-                            li
-                                a(href='#') Team
-                            li
-                                a(href='#') Blog
-                            li
-                                a.active(href='#') Pricing
-                            li
-                                a(href='#') Terms & Conditions
-                            li
-                                a(href='#') Contact Us
-                    .col-md-4.col-sm-4.col-xs-12.copyright
-                        ul.footer-nav.pull-right
-                            li Copyright © 2014 BookBanyan
-        //
-           Load JS here for greater good =============================
-        script(src='js/jquery-1.11.0.min.js')
-        script(src='js/bootstrap.min.js')
-        //
-          <script>
-                      $( document ).ready(function() {
-                     // $('#mypopover').popover();
-                  $('.pop-dis').hover(
-                      function(){
-                          $(this).find('.caption').slideDown(250); //.fadeIn(250)
-                      },
-                      function(){
-                          $(this).find('.caption').slideUp(250); //.fadeOut(205)
-                      }
-                  );
-                  $(".pop-dis").popover({
-                  container:'.pop-dis',
-                  trigger:'hover',
-                  html : true,
-                  content: function() {
-                    return $('.popoverExampleTwoHiddenContent').html();
-                  },
-                  title: function() {
-                    return $('.popoverExampleTwoHiddenTitle').html();
-                  }
-              });
-              });
-              </script>
-        script.
-            $( document ).ready(function() {
-            $('.pop-dis').hover(
-            function(){
-            $(this).find('.caption').slideDown(250); //.fadeIn(250)
-            },
-            function(){
-            $(this).find('.caption').slideUp(250); //.fadeOut(205)
-            }
-            );
-            });
-        script.
-            $( document ).ready(function() {
-            $('.pop-dis').hover(
-            function(){
-            $(this).find('.sidepop').fadeIn(250); //.fadeIn(250)
-            },
-            function(){
-            $(this).find('.sidepop').fadeOut(205); //.fadeOut(205)
-            }
-            );
-            });
+                    .col-md-6.col-sm-6
+                        .bcover1
+                            img.img-rounded(src='img/The_Little_Hearts.jpg', alt='1')
+                    .col-md-6.col-sm-6
+                        h6
+                            | The Little Hearts
+                            br
+                            small Drama | Fiction
+                        p
+                            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, quae, maiores nihil modi temporibus numquam voluptatibus eaque officia dolore quidem rerum dolorem corporis minima. Laudantium alias odit assumenda eum sint.
+                        a.btn.btn-md.btn-info(href='BookB-book-page.html') Read More
+section.footer
+    .container
+        .row
+            .col-md-8.col-sm-8.col-xs-12
+                ul.footer-nav.pull-left
+                    li
+                        a(href='#') About BookBanyan
+                    li
+                        a(href='#') Team
+                    li
+                        a(href='#') Blog
+                    li
+                        a.active(href='#') Pricing
+                    li
+                        a(href='#') Terms & Conditions
+                    li
+                        a(href='#') Contact Us
+            .col-md-4.col-sm-4.col-xs-12.copyright
+                ul.footer-nav.pull-right
+                    li Copyright © 2014 BookBanyan
+//
+   Load JS here for greater good =============================
+script(src='js/jquery-1.11.0.min.js')
+script(src='js/bootstrap.min.js')
+//
+  <script>
+              $( document ).ready(function() {
+             // $('#mypopover').popover();
+          $('.pop-dis').hover(
+              function(){
+                  $(this).find('.caption').slideDown(250); //.fadeIn(250)
+              },
+              function(){
+                  $(this).find('.caption').slideUp(250); //.fadeOut(205)
+              }
+          );
+          $(".pop-dis").popover({
+          container:'.pop-dis',
+          trigger:'hover',
+          html : true,
+          content: function() {
+            return $('.popoverExampleTwoHiddenContent').html();
+          },
+          title: function() {
+            return $('.popoverExampleTwoHiddenTitle').html();
+          }
+      });
+      });
+      </script>
+script.
+    $( document ).ready(function() {
+    $('.pop-dis').hover(
+    function(){
+    $(this).find('.caption').slideDown(250); //.fadeIn(250)
+    },
+    function(){
+    $(this).find('.caption').slideUp(250); //.fadeOut(205)
+    }
+    );
+    });
+script.
+    $( document ).ready(function() {
+    $('.pop-dis').hover(
+    function(){
+    $(this).find('.sidepop').fadeIn(250); //.fadeIn(250)
+    },
+    function(){
+    $(this).find('.sidepop').fadeOut(205); //.fadeOut(205)
+    }
+    );
+    });
