@@ -1,0 +1,24 @@
+include ./header
+title Bookbanyan | Login
+link(href='/css/book-page.css', rel='stylesheet')
+.panel.panel-default.col-md-12.col-sm-12.subform
+    .panel-body
+        .col-md-12.text-center
+            h5 Login
+        .col-md-2.col-sm-2
+        .col-md-7.col-sm-7
+            form.form-horizontal(role='form', method="POST")
+                .col-md-12.personal-d
+                    .form-group
+                        label.col-sm-3.control-label(for='email') Email
+                        .col-sm-9
+                            input#email.form-control(type='email', name="email", placeholder='enter your email')
+                    .form-group
+                        label.col-sm-3.control-label(for='email') Password
+                        .col-sm-9
+                            input#password.form-control(type="password",name="password", placeholder='enter your password')
+                .col-md-8.text-right
+                    input.btn.btn-large.btn-info#login(type="submit", value="Login")
+                    normal &nbsp;
+                    a.btn.btn-large.btn-info(href= "/register") Register
+include ./footer

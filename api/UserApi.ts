@@ -5,9 +5,7 @@ import express                              = require('express');
 import _                                    = require('underscore');
 import ApiUrlDelegate                       = require('../delegates/ApiUrlDelegate');
 import UserDelegate                         = require('../delegates/UserDelegate');
-import UserProfileDelegate                  = require('../delegates/UserProfileDelegate');
 import User                                 = require('../models/User');
-import UserProfile                          = require('../models/UserProfile');
 import Config                               = require('../common/Config');
 import ApiConstants                         = require('../enums/ApiConstants');
 
@@ -16,7 +14,6 @@ class UserApi
     constructor(app)
     {
         var userDelegate = new UserDelegate();
-        var userProfileDelegate = new UserProfileDelegate();
 
         /* Create user */
         app.put(ApiUrlDelegate.user(), function (req:express.Request, res:express.Response)
@@ -38,7 +35,6 @@ class UserApi
         {
             var userId:string = req.params[ApiConstants.USER_ID];
             var user:User = req.body[ApiConstants.USER];
-            var userProfile:UserProfile = req.body[ApiConstants.USER_PROFILE];
 
             var password:string = req.body[ApiConstants.PASSWORD];
             var oldPassword:string = req.body[ApiConstants.OLD_PASSWORD];
@@ -59,14 +55,6 @@ class UserApi
             else
             {
                 userDelegate.update({'id': userId}, user)
-                    .then(
-                    function userUpdated(result):any
-                    {
-                        if (userProfile)
-                            return userProfileDelegate.update({'user_id': userId}, userProfile);
-                        else
-                            return res.json(result);
-                    })
                     .then(
                     function userProfileUpdated(result)
                     {

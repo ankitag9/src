@@ -6,6 +6,7 @@ import url                                      = require('url');
 import q                                        = require('q');
 import log4js                                   = require('log4js');
 import moment                                   = require('moment');
+import passport                                 = require('passport');
 import UserDelegate                             = require('../delegates/UserDelegate');
 import ApiUrlDelegate                           = require('../delegates/ApiUrlDelegate');
 import User                                     = require('../models/User');
@@ -18,6 +19,15 @@ class AuthenticationDelegate
     static STRATEGY_FACEBOOK:string = 'facebook';
 
     private static logger = log4js.getLogger('AuthenticationDelegate');
+
+    /* Static constructor workaround */
+    private static ctor = (() =>
+    {
+        // Serialize-Deserialize user
+        passport.serializeUser(function (user, done) { done(null, user); });
+        passport.deserializeUser(function (obj, done) { done(null, obj); });
+
+    })();
 
     /* Check login method with support for ajax requests */
     static checkLogin(options:any = {})

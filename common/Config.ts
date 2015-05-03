@@ -14,6 +14,9 @@ class Config
     static ADMIN_EMAIL:string                           = 'admin.email';
     static PASSWORD_SEED_LENGTH:string                  = 'password_seed.length';
     static DEFAULT_PASSWORD_LENGTH:string               = 'default.password.length';
+    static REDIS_HOST:string                            = 'redis.host';
+    static REDIS_SESSION_PORT:string                    = 'redis.session.port';
+    static SESSION_EXPIRY:string                        = 'session.expiry';
 
     private static ctor = (() =>
     {

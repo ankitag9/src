@@ -6,10 +6,15 @@ import Urls                                         = require('./Urls');
 import Config                                       = require('../common/Config');
 import Coral                                        = require('Coral');
 import EmailDelegate                                = require('../delegates/EmailDelegate');
+import UserDelegate                                 = require('../delegates/UserDelegate');
+import AuthenticationDelegate                       = require('../delegates/AuthenticationDelegate');
+import User                                         = require('../models/User');
 import ApiConstants                                 = require('../enums/ApiConstants');
 
 class DashBoardRoute
 {
+    private static LOGIN_PAGE:string = 'login';
+    private static REGISTER_PAGE:string = 'register';
     private static SUBMIT_PAGE:string = 'submit';
     private static HOME_PAGE:string = 'home';
     private static CONFIRMATION_PAGE:string = 'confirmation';
@@ -20,9 +25,15 @@ class DashBoardRoute
     private static DASHBOARD_BLOGGER:string = 'dashboard/blogger';
 
     emailDelegate = new EmailDelegate();
+    userDelegate = new UserDelegate();
 
     constructor(app)
     {
+        app.get(Urls.login(), this.login.bind(this));
+        app.post(Urls.login(), AuthenticationDelegate.login(), this.loginSubmit.bind(this));
+        app.get(Urls.register(), this.register.bind(this));
+        app.post(Urls.register(), this.registerSubmit.bind(this));
+
         app.get(Urls.home(), this.home.bind(this));
         app.get(Urls.confirmation(),this.confirmation.bind(this));
         app.get(Urls.submit(), this.submit.bind(this));
@@ -32,6 +43,44 @@ class DashBoardRoute
         app.get(Urls.book(), this.book.bind(this));
         app.get(Urls.author(), this.author.bind(this));
         app.get(Urls.dashboard(), this.dashboard.bind(this));
+        app.get('/a', this.dashboard1.bind(this));
+        app.get('/b', this.dashboard2.bind(this));
+    }
+
+    private login(req:express.Request, res:express.Response)
+    {
+        res.render(DashBoardRoute.LOGIN_PAGE);
+    }
+
+    private loginSubmit(req:express.Request, res:express.Response)
+    {
+        res.status(200).send('ok');
+    }
+
+    private register(req:express.Request, res:express.Response)
+    {
+        res.render(DashBoardRoute.REGISTER_PAGE);
+    }
+
+    private registerSubmit(req:express.Request, res:express.Response)
+    {
+        var self = this;
+
+        var user:User = new User();
+        user.setName(req.body['name']);
+        user.setEmail(req.body['email']);
+        user.setPassword(req.body['password']);
+        self.userDelegate.create(user)
+            .then(
+            function userCreated()
+            {
+                res.status(200).send('ok');
+            })
+            .fail(
+            function error(error)
+            {
+                res.status(500).json(error);
+            })
     }
 
     private submit(req:express.Request, res:express.Response)
@@ -84,6 +133,18 @@ class DashBoardRoute
     {
         var userId:number;
         res.render(DashBoardRoute.DASHBOARD_ADMIN);
+    }
+
+    private dashboard1(req:express.Request, res:express.Response)
+    {
+        var userId:number;
+        res.render(DashBoardRoute.DASHBOARD_AUTHOR);
+    }
+
+    private dashboard2(req:express.Request, res:express.Response)
+    {
+        var userId:number;
+        res.render(DashBoardRoute.DASHBOARD_BLOGGER);
     }
 }
 export = DashBoardRoute

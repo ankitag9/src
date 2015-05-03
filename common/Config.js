@@ -19,6 +19,9 @@ var Config = (function () {
     Config.ADMIN_EMAIL = 'admin.email';
     Config.PASSWORD_SEED_LENGTH = 'password_seed.length';
     Config.DEFAULT_PASSWORD_LENGTH = 'default.password.length';
+    Config.REDIS_HOST = 'redis.host';
+    Config.REDIS_SESSION_PORT = 'redis.session.port';
+    Config.SESSION_EXPIRY = 'session.expiry';
 
     Config.ctor = (function () {
         nconf.file({ file: "/var/bbn/config/config.json" });

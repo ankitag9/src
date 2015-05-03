@@ -19,11 +19,8 @@ var User = (function (_super) {
     User.prototype.getTitle = function () {
         return this.title;
     };
-    User.prototype.getFirstName = function () {
-        return this.first_name;
-    };
-    User.prototype.getLastName = function () {
-        return this.last_name;
+    User.prototype.getName = function () {
+        return this.name;
     };
     User.prototype.getDob = function () {
         return this.dob;
@@ -43,6 +40,12 @@ var User = (function (_super) {
     User.prototype.getActive = function () {
         return this.active;
     };
+    User.prototype.getShortDesc = function () {
+        return this.short_desc;
+    };
+    User.prototype.getLongDesc = function () {
+        return this.long_desc;
+    };
 
     User.prototype.setUserType = function (val) {
         this.user_type = val;
@@ -50,11 +53,8 @@ var User = (function (_super) {
     User.prototype.setTitle = function (val) {
         this.title = val;
     };
-    User.prototype.setFirstName = function (val) {
-        this.first_name = val;
-    };
-    User.prototype.setLastName = function (val) {
-        this.last_name = val;
+    User.prototype.setName = function (val) {
+        this.name = val;
     };
     User.prototype.setDob = function (val) {
         this.dob = val;
@@ -74,6 +74,12 @@ var User = (function (_super) {
     User.prototype.setActive = function (val) {
         this.active = val;
     };
+    User.prototype.setShortDesc = function (val) {
+        this.short_desc = val;
+    };
+    User.prototype.setLongDesc = function (val) {
+        this.long_desc = val;
+    };
 
     User.prototype.getPasswordHash = function (email, password, passwordSeed) {
         return cryptojs.MD5((email || this.email) + ':' + (password || this.password) + (passwordSeed || this.password_seed || '')).toString();
@@ -82,18 +88,20 @@ var User = (function (_super) {
 
     User.COL_USER_TYPE = 'user_type';
     User.COL_TITLE = 'title';
-    User.COL_FIRST_NAME = 'first_name';
-    User.COL_LAST_NAME = 'last_name';
+    User.COL_NAME = 'name';
     User.COL_DOB = 'dob';
     User.COL_EMAIL = 'email';
     User.COL_PASSWORD = 'password';
     User.COL_PASSWORD_SEED = 'password_seed';
     User.COL_EMAIL_VERIFIED = 'email_verified';
     User.COL_ACTIVE = 'active';
+    User.COL_SHORT_DESC = 'short_desc';
+    User.COL_LONG_DESC = 'long_desc';
 
     User.PUBLIC_FIELDS = [
-        User.COL_ID, User.COL_TITLE, User.COL_FIRST_NAME, User.COL_LAST_NAME, User.COL_EMAIL,
-        User.COL_DOB, User.COL_EMAIL_VERIFIED, User.COL_ACTIVE, User.COL_EMAIL_VERIFIED, User.COL_USER_TYPE];
+        User.COL_ID, User.COL_TITLE, User.COL_NAME, User.COL_EMAIL,
+        User.COL_DOB, User.COL_EMAIL_VERIFIED, User.COL_ACTIVE, User.COL_EMAIL_VERIFIED, User.COL_USER_TYPE,
+        User.COL_LONG_DESC, User.COL_SHORT_DESC];
     return User;
 })(Coral.BaseModel);
 module.exports = User;

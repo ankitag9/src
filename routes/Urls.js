@@ -5,6 +5,12 @@ var Coral = require('Coral');
 var Urls = (function () {
     function Urls() {
     }
+    Urls.login = function (baseUrl) {
+        return Urls.get('/login', {}, baseUrl);
+    };
+    Urls.register = function (baseUrl) {
+        return Urls.get('/register', {}, baseUrl);
+    };
     Urls.submit = function (baseUrl) {
         return Urls.get('/submit', {}, baseUrl);
     };

@@ -1,5 +1,6 @@
 include ./header
 link(href='/css/BookB-style-Copy2.css', rel='stylesheet')
+title BookBanyan | Submit Manuscript
 section.submit
   .container
     .row
@@ -92,7 +93,7 @@ section.submit
                       #files.files
                         p
                 .col-md-12.text-center
-                  a.btn.btn-large.btn-info#upload() upload and SUbmit
+                  a.btn.btn-large.btn-info#upload() upload and Submit
             //
               col-md-7 subform
             .col-md-4.col-md-offset-1.col-sm-4.col-sm-offset-1.hidden-xs.guidelines
@@ -125,25 +126,7 @@ section.submit
         accordin
     //
        row
-section.footer
-  .container
-    .row
-      .col-md-8.col-sm-8
-        ul.footer-nav.pull-left
-          li
-            a(href='#') About BookBanyan
-          li
-            a(href='#') Team
-          li
-            a(href='#') Blog
-          li
-            a.active(href='#') Pricing
-          li
-            a(href='#') Terms & Conditions
-          li
-            a(href='#') Contact Us
-      .col-md-4.copyright
-        p.pull-right Copyright © 2014 BookBanyan
+include ./footer
 //
    Load JS here for greater good =============================
 script(src='/js/jquery-1.11.0.min.js')

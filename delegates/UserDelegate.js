@@ -9,16 +9,12 @@ var Coral = require('Coral');
 
 var Config = require('../common/Config');
 var User = require('../models/User');
-var UserProfile = require('../models/UserProfile');
-var UserProfileDelegate = require('../delegates/UserProfileDelegate');
-var ForeignKeyConstants = require('../enums/ForeignKeyConstants');
 
 var UserDelegate = (function (_super) {
     __extends(UserDelegate, _super);
     function UserDelegate() {
         _super.call(this, User);
         this.mysqlDelegate = new Coral.MysqlDelegate();
-        this.userProfileDelegate = new UserProfileDelegate();
     }
     UserDelegate.prototype.create = function (object, dbTransaction) {
         var self = this;
@@ -38,15 +34,7 @@ var UserDelegate = (function (_super) {
             object.setPassword(object.getPasswordHash());
         }
 
-        return _super.prototype.create.call(this, object, dbTransaction).then(function userCreated(user) {
-            var userProfile = new UserProfile();
-            userProfile.setUserId(user.getId());
-
-            return self.userProfileDelegate.create(userProfile, dbTransaction).then(function (profile) {
-                user[ForeignKeyConstants.USER_PROFILE] = profile;
-                return user;
-            });
-        });
+        return _super.prototype.create.call(this, object, dbTransaction);
     };
 
     UserDelegate.prototype.update = function (criteria, newValues, transaction) {

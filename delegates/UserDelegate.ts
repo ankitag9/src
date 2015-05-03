@@ -3,14 +3,11 @@ import Coral                                                            = requir
 import q                                                                = require('q');
 import Config                                                           = require('../common/Config');
 import User                                                             = require('../models/User');
-import UserProfile                                                      = require('../models/UserProfile');
-import UserProfileDelegate                                              = require('../delegates/UserProfileDelegate');
 import ForeignKeyConstants                                              = require('../enums/ForeignKeyConstants');
 
 class UserDelegate extends Coral.BaseDaoDelegate
 {
     private mysqlDelegate = new Coral.MysqlDelegate();
-    private userProfileDelegate = new UserProfileDelegate();
 
     constructor() { super(User); }
 
@@ -34,19 +31,7 @@ class UserDelegate extends Coral.BaseDaoDelegate
             object.setPassword(object.getPasswordHash());
         }
 
-        return super.create(object, dbTransaction)
-            .then(
-            function userCreated(user:User)
-            {
-                var userProfile:UserProfile = new UserProfile();
-                userProfile.setUserId(user.getId());
-
-                return self.userProfileDelegate.create(userProfile, dbTransaction)
-                    .then(function(profile){
-                        user[ForeignKeyConstants.USER_PROFILE] = profile;
-                        return user;
-                    })
-            })
+        return super.create(object, dbTransaction);
     }
 
     update(criteria:Object, newValues:any, transaction?:Object):q.Promise<any>;

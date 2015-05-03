@@ -3,14 +3,12 @@ var Coral = require('Coral');
 
 var ApiUrlDelegate = require('../delegates/ApiUrlDelegate');
 var UserDelegate = require('../delegates/UserDelegate');
-var UserProfileDelegate = require('../delegates/UserProfileDelegate');
 
 var ApiConstants = require('../enums/ApiConstants');
 
 var UserApi = (function () {
     function UserApi(app) {
         var userDelegate = new UserDelegate();
-        var userProfileDelegate = new UserProfileDelegate();
 
         /* Create user */
         app.put(ApiUrlDelegate.user(), function (req, res) {
@@ -30,7 +28,6 @@ var UserApi = (function () {
         app.post(ApiUrlDelegate.userById(), function (req, res) {
             var userId = req.params[ApiConstants.USER_ID];
             var user = req.body[ApiConstants.USER];
-            var userProfile = req.body[ApiConstants.USER_PROFILE];
 
             var password = req.body[ApiConstants.PASSWORD];
             var oldPassword = req.body[ApiConstants.OLD_PASSWORD];
@@ -47,12 +44,7 @@ var UserApi = (function () {
                         res.send('Password Change Failed. Internal Server Error').status(500);
                     });
             } else {
-                userDelegate.update({ 'id': userId }, user).then(function userUpdated(result) {
-                    if (userProfile)
-                        return userProfileDelegate.update({ 'user_id': userId }, userProfile);
-                    else
-                        return res.json(result);
-                }).then(function userProfileUpdated(result) {
+                userDelegate.update({ 'id': userId }, user).then(function userProfileUpdated(result) {
                     return userDelegate.get(userId);
                 }).then(function userFetched(user) {
                     req.logIn(user, function loggedInUserUpdated() {

@@ -6,11 +6,20 @@ var Urls = require('./Urls');
 var Config = require('../common/Config');
 
 var EmailDelegate = require('../delegates/EmailDelegate');
+var UserDelegate = require('../delegates/UserDelegate');
+var AuthenticationDelegate = require('../delegates/AuthenticationDelegate');
+var User = require('../models/User');
 var ApiConstants = require('../enums/ApiConstants');
 
 var DashBoardRoute = (function () {
     function DashBoardRoute(app) {
         this.emailDelegate = new EmailDelegate();
+        this.userDelegate = new UserDelegate();
+        app.get(Urls.login(), this.login.bind(this));
+        app.post(Urls.login(), AuthenticationDelegate.login(), this.loginSubmit.bind(this));
+        app.get(Urls.register(), this.register.bind(this));
+        app.post(Urls.register(), this.registerSubmit.bind(this));
+
         app.get(Urls.home(), this.home.bind(this));
         app.get(Urls.confirmation(), this.confirmation.bind(this));
         app.get(Urls.submit(), this.submit.bind(this));
@@ -20,7 +29,35 @@ var DashBoardRoute = (function () {
         app.get(Urls.book(), this.book.bind(this));
         app.get(Urls.author(), this.author.bind(this));
         app.get(Urls.dashboard(), this.dashboard.bind(this));
+        app.get('/a', this.dashboard1.bind(this));
+        app.get('/b', this.dashboard2.bind(this));
     }
+    DashBoardRoute.prototype.login = function (req, res) {
+        res.render(DashBoardRoute.LOGIN_PAGE);
+    };
+
+    DashBoardRoute.prototype.loginSubmit = function (req, res) {
+        res.status(200).send('ok');
+    };
+
+    DashBoardRoute.prototype.register = function (req, res) {
+        res.render(DashBoardRoute.REGISTER_PAGE);
+    };
+
+    DashBoardRoute.prototype.registerSubmit = function (req, res) {
+        var self = this;
+
+        var user = new User();
+        user.setName(req.body['name']);
+        user.setEmail(req.body['email']);
+        user.setPassword(req.body['password']);
+        self.userDelegate.create(user).then(function userCreated() {
+            res.status(200).send('ok');
+        }).fail(function error(error) {
+            res.status(500).json(error);
+        });
+    };
+
     DashBoardRoute.prototype.submit = function (req, res) {
         res.render(DashBoardRoute.SUBMIT_PAGE);
     };
@@ -63,6 +100,18 @@ var DashBoardRoute = (function () {
         var userId;
         res.render(DashBoardRoute.DASHBOARD_ADMIN);
     };
+
+    DashBoardRoute.prototype.dashboard1 = function (req, res) {
+        var userId;
+        res.render(DashBoardRoute.DASHBOARD_AUTHOR);
+    };
+
+    DashBoardRoute.prototype.dashboard2 = function (req, res) {
+        var userId;
+        res.render(DashBoardRoute.DASHBOARD_BLOGGER);
+    };
+    DashBoardRoute.LOGIN_PAGE = 'login';
+    DashBoardRoute.REGISTER_PAGE = 'register';
     DashBoardRoute.SUBMIT_PAGE = 'submit';
     DashBoardRoute.HOME_PAGE = 'home';
     DashBoardRoute.CONFIRMATION_PAGE = 'confirmation';

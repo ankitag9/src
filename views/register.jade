@@ -1,0 +1,38 @@
+include ./header
+title Bookbanyan | Register
+link(href='/css/book-page.css', rel='stylesheet')
+.panel.panel-default.col-md-12.col-sm-12.subform
+    .panel-body
+        .col-md-12.text-center
+            h5 Register
+        .col-md-2.col-sm-2
+        .col-md-7.col-sm-7
+            form.form-horizontal#registration-form(role='form', method='POST')
+                .col-md-12.personal-d
+                    h6 Details
+                    .form-group
+                        label.col-sm-3.control-label(for='name') Name
+                        .col-sm-9
+                            input#name.form-control(name="name", type='name', placeholder='write your name')
+                    .form-group
+                        label.col-sm-3.control-label(for='email') Email
+                        .col-sm-9
+                            input#email.form-control(name='email', type='email', placeholder='enter your email')
+                    .form-group
+                        label.col-sm-3.control-label(for='email')
+                            | Phone No.
+                            small (Optional)
+                        .col-sm-9
+                            input#phoneNumber.form-control(type='text', name="phoneNumber",placeholder='enter your phone number')
+                    .form-group
+                        label.col-sm-3.control-label(for='email') Password
+                        .col-sm-9
+                            input#password.form-control(type="password",name='password', placeholder='enter your password')
+                    .form-group
+                        label.col-sm-3.control-label(for='email') Confirm Password
+                        .col-sm-9
+                            input#confirmPassword.form-control(type="password", name='confirm_password', placeholder='confirm your password')
+                .col-md-8.text-right
+                    input#register.btn.btn-large.btn-info(type='submit', value="Register")
+include ./footer
+script(src='/js/register.js')
