@@ -1,0 +1,362 @@
+//
+                          row
+//
+  #admindash1
+#admindash2.tab-pane.fade
+//
+  #dash3 bookshelf
+#admindash3.tab-pane.fade
+//
+   admindash3
+#adminprofile.page-content.tab-pane.fade
+    .row
+        .col-md-4
+            //.profile_bg
+                .user-profile-sidebar
+                    .row
+                        .col-md-4
+                            img(src='img/upic1.png')
+                        .col-md-8
+                            .user-identity
+                                h4
+                                    strong John Doe
+                                p
+                                    i.fa.fa-map-marker
+                                    | Riaxe Systems Pvt
+                .account-status-data
+                    .row
+                        .col-md-4
+                            h5
+                                strong 2,173
+                                br
+                                | Posts
+                        .col-md-4
+                            h5
+                                strong 14
+                                br
+                                | Following
+                        .col-md-4
+                            h5
+                                strong 100
+                                br
+                                | Followers
+                .user-button
+                    .row
+                        .col-sm-12.text-center
+                            button.btn.btn-primary.btn-rounded(type='button')
+                                i.fa.fa-envelope
+                                | Send Message
+                div
+                    small. about me
+                    p Artist
+                    small. info
+                    p
+                        | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis ipsum ac feugiat.
+                    .line
+                    p.m-t-sm
+                h6
+                    strong CONNECTION
+                    ul.social_icons
+                        li
+                            a(href='#')
+                                i.icon-facebook
+                        li
+                            a(href='#')
+                                i.icon-twitter
+                        li
+                            a(href='#')
+                                i.icon-googleplus
+            //
+              /block-web
+        //
+          /col-md-4
+        .col-md-8
+            .block-web.full
+                ul.nav.nav-tabs.nav-justified.nav_bg
+                    li.active
+                        a(href='#about', data-toggle='tab')
+                            i.fa.fa-user
+                            | About
+                    li.
+                      a(href='#edit-profile', data-toggle='tab')
+                        i.fa.fa-pencil
+                        | Edit
+                    li.
+                      a(href='#user-activities', data-toggle='tab')
+                        i.fa.fa-laptop
+                        | Activities
+                    li.
+                      a(href='#mymessage', data-toggle='tab')
+                        i.fa.fa-envelope
+                        | Message
+                .tab-content
+                    #about.tab-pane.animated.fadeInRight.active
+                        .user-profile-content
+                            h5
+                                strong ABOUT
+                                | ME
+                            p
+                                | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                            hr
+                            .row
+                                .col-sm-6
+                                    h5
+                                        strong CONTACT
+                                        | ME
+                                    address
+                                        strong Phone
+                                        br
+                                        abbr(title='Phone') +91 354 123 4567
+                                    address
+                                        strong Email
+                                        br
+                                        a(href='mailto:#') first.last@example.com
+                                    address
+                                        strong Website
+                                        br
+                                        a(href='http://riaxe.com') http://riaxe.com
+                                .col-sm-6
+                                    h5
+                                        strong MY
+                                        | SKILLS
+                                    p UI Design
+                                    p Clean and Modern Web Design
+                                    p PHP and MySQL Programming
+                                    p Vector Design
+                    #edit-profile.tab-pane.animated.fadeInRight
+                        .user-profile-content
+                            form(role='form')
+                                .form-group
+                                    label(for='FullName') Full Name
+                                    input#FullName.form-control(type='text', value='John Doe')
+                                .form-group
+                                    label(for='Email') Email
+                                    input#Email.form-control(type='email', value='first.last@example.com')
+                                .form-group
+                                    label(for='Username') Username
+                                    input#Username.form-control(type='text', value='john')
+                                .form-group
+                                    label(for='Password') Password
+                                    input#Password.form-control(type='password', placeholder='6 - 15 Characters')
+                                .form-group
+                                    label(for='RePassword') Re-Password
+                                    input#RePassword.form-control(type='password', placeholder='6 - 15 Characters')
+                                .form-group
+                                    label(for='AboutMe') About Me
+                                    textarea#AboutMe.form-control(style='height: 125px;')
+                                        | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                                button.btn.btn-primary(type='submit') Save
+                    #user-activities.tab-pane
+                        ul.media-list
+                            li.media
+                                a(href='#')
+                                    p
+                                        strong John Doe
+                                        | Uploaded a photo
+                                        strong "DSC000254.jpg"
+                                        br
+                                        i 2 minutes ago
+                            li.media
+                                a(href='#')
+                                    p
+                                        strong Imran Tahir
+                                        | Created an photo album
+                                        strong "Indonesia Tourism"
+                                        br
+                                        i 8 minutes ago
+                            li.media
+                                a(href='#')
+                                    p
+                                        strong Colin Munro
+                                        | Posted an article
+                                        strong "London never ending Asia"
+                                        br
+                                        i an hour ago
+                            li.media
+                                a(href='#')
+                                    p
+                                        strong Corey Anderson
+                                        | Added 3 products
+                                        br
+                                        i 3 hours ago
+                            li.media
+                                a(href='#')
+                                    p
+                                        strong Morne Morkel
+                                        | Send you a message
+                                        strong "Lorem ipsum dolor..."
+                                        br
+                                        i 12 hours ago
+                            li.media
+                                a(href='#')
+                                    p
+                                        strong Imran Tahir
+                                        | Updated his avatar
+                                        br
+                                        i Yesterday
+                    #mymessage.tab-pane
+                        ul.media-list
+                            li.media
+                                a.pull-left(href='#')
+                                    img(src='images/gg.png')
+                                .media-body
+                                    h4.media-heading
+                                        a(href='#fakelink') John Doe
+                                        small Just now
+                                    p Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                            li.media
+                                a.pull-left(href='#')
+                                    img(src='images/gg.png')
+                                .media-body
+                                    h4.media-heading
+                                        a(href='#fakelink') Tim Southee
+                                        small Yesterday at 04:00 AM
+                                    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam rhoncus
+                            li.media
+                                a.pull-left(href='#')
+                                    img(src='images/gg.png')
+                                .media-body
+                                    h4.media-heading
+                                        a(href='#fakelink') Kane Williamson
+                                        small January 17, 2014 05:35 PM
+                                    p Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                            li.media
+                                a.pull-left(href='#')
+                                    img(src='images/gg.png')
+                                .media-body
+                                    h4.media-heading
+                                        a(href='#fakelink') Lonwabo Tsotsobe
+                                        small January 17, 2014 05:35 PM
+                                    p Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                            li.media
+                                a.pull-left(href='#')
+                                    img(src='images/gg.png')
+                                .media-body
+                                    h4.media-heading
+                                        a(href='#fakelink') Dale Steyn
+                                        small January 17, 2014 05:35 PM
+                                    p Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                            li.media
+                                a.pull-left(href='#')
+                                    img(src='images/gg.png')
+                                .media-body
+                                    h4.media-heading
+                                        a(href='#fakelink') John Doe
+                                        small Just now
+                                    p Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                //
+                  /tab-content
+            //
+              /block-web
+        //
+          /col-md-8
+    //
+      /row
+//
+  admin-profile
+#admindash5.tab-pane.fade.user-list
+    .row
+        .col-sm-10.col-sm-offset-1
+            form(action='')
+                input.form-control(type='text', placeholder='search')
+                small use name or email
+            .table-responsive
+                table.table.table-bordered
+                    tr
+                        th id
+                        th name
+                        th email
+                        th role
+                    tbody
+                        tr
+                            td 1
+                            td kajskjdsa kjkjk
+                            td skdjsakdsjka@gmail.com
+                            td author
+                        tr
+                            td 1
+                            td kajskjdsa kjkjk
+                            td skdjsakdsjka@gmail.com
+                            td author
+                        tr
+                            td 1
+                            td kajskjdsa kjkjk
+                            td skdjsakdsjka@gmail.com
+                            td author
+                        tr
+                            td 1
+                            td kajskjdsa kjkjk
+                            td skdjsakdsjka@gmail.com
+                            td author
+                        tr
+                            td 1
+                            td kajskjdsa kjkjk
+                            td skdjsakdsjka@gmail.com
+                            td author
+                        tr
+                            td 1
+                            td kajskjdsa kjkjk
+                            td skdjsakdsjka@gmail.com
+                            td author
+                        tr
+                            td 1
+                            td kajskjdsa kjkjk
+                            td skdjsakdsjka@gmail.com
+                            td author
+                        tr
+                            td 1
+                            td kajskjdsa kjkjk
+                            td skdjsakdsjka@gmail.com
+                            td author
+                        tr
+                            td 1
+                            td kajskjdsa kjkjk
+                            td skdjsakdsjka@gmail.com
+                            td author
+                        tr
+                            td 1
+                            td kajskjdsa kjkjk
+                            td skdjsakdsjka@gmail.com
+                            td author
+                        tr
+                            td 1
+                            td kajskjdsa kjkjk
+                            td skdjsakdsjka@gmail.com
+                            td author
+                        tr
+                            td 1
+                            td kajskjdsa kjkjk
+                            td skdjsakdsjka@gmail.com
+                            td author
+                        tr
+                            td 1
+                            td kajskjdsa kjkjk
+                            td skdjsakdsjka@gmail.com
+                            td author
+//
+  tab-conntent
+//
+  row
+//
+  container-fluid
+//
+   <section class="footer">
+          <div class="container">
+            <div class="row">
+                  <div class="col-md-8 col-sm-8">
+                      <ul class="footer-nav pull-left">
+                        <li><a href="#">About Migrera</a></li>
+                        <li><a href="#">Team</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#" class="active">For Vendors</a></li>
+                        <li><a href="#">For Companies</a></li>
+                        <li><a href="#">Terms &amp; Conditions</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-md-4 copyright">
+                      <p class="pull-right">Copyright &copy; 2014 Migrera</p>
+                    </div>
+                 </div>
+            </div>
+   </section>

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.2.xsd">
+    <changeSet author="Ankit (generated)" id="1430897018051-1">
+        <createTable tableName="book">
+            <column name="id" type="INT(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="title" type="VARCHAR(45)"/>
+            <column name="user_id" type="INT(10)"/>
+            <column name="summary" type="VARCHAR(500)"/>
+            <column name="genre" type="INT(10)"/>
+            <column name="created" type="BIGINT(19)"/>
+            <column name="updated" type="BIGINT(19)"/>
+            <column name="deleted" type="BIGINT(19)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Ankit (generated)" id="1430897018051-2">
+        <createTable tableName="book_link">
+            <column name="id" type="INT(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="book_id" type="INT(10)"/>
+            <column name="link" type="VARCHAR(45)"/>
+            <column name="type" type="INT(10)"/>
+            <column name="created" type="BIGINT(19)"/>
+            <column name="updated" type="BIGINT(19)"/>
+            <column name="deleted" type="BIGINT(19)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Ankit (generated)" id="1430897018051-3">
+        <createTable tableName="ref_book_genre">
+            <column name="id" type="INT(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="genre" type="VARCHAR(45)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Ankit (generated)" id="1430897018051-4">
+        <createTable tableName="ref_book_store_type">
+            <column name="id" type="INT(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="VARCHAR(45)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Ankit (generated)" id="1430897018051-5">
+        <createTable tableName="ref_salutation">
+            <column name="id" type="INT(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="salutation" type="VARCHAR(45)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Ankit (generated)" id="1430897018051-6">
+        <createTable tableName="ref_user_type">
+            <column name="id" type="INT(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="VARCHAR(45)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Ankit (generated)" id="1430897018051-7">
+        <createTable tableName="review">
+            <column name="id" type="INT(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="INT(10)"/>
+            <column name="book_id" type="INT(10)"/>
+            <column name="rating" type="INT(10)"/>
+            <column name="feedback" type="VARCHAR(45)"/>
+            <column name="accepted_by_admin" type="INT(10)"/>
+            <column name="accepted_by_author" type="INT(10)"/>
+            <column name="created" type="BIGINT(19)"/>
+            <column name="updated" type="BIGINT(19)"/>
+            <column name="deleted" type="BIGINT(19)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Ankit (generated)" id="1430897018051-8">
+        <createTable tableName="review_comment">
+            <column name="id" type="INT(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="review_id" type="INT(10)"/>
+            <column name="comment" type="VARCHAR(45)"/>
+            <column name="user_id" type="INT(10)"/>
+            <column name="created" type="BIGINT(19)"/>
+            <column name="updated" type="BIGINT(19)"/>
+            <column name="deleted" type="BIGINT(19)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Ankit (generated)" id="1430897018051-9">
+        <createTable tableName="user">
+            <column name="id" type="INT(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_type" type="INT(10)"/>
+            <column name="title" type="INT(10)"/>
+            <column name="name" type="VARCHAR(100)"/>
+            <column name="dob" type="BIGINT(19)"/>
+            <column name="email" type="VARCHAR(45)"/>
+            <column name="password" type="VARCHAR(45)"/>
+            <column name="password_seed" type="VARCHAR(45)"/>
+            <column name="short_desc" type="TEXT"/>
+            <column name="long_desc" type="TEXT"/>
+            <column name="email_verified" type="INT(10)"/>
+            <column name="active" type="INT(10)"/>
+            <column name="created" type="BIGINT(19)"/>
+            <column name="updated" type="BIGINT(19)"/>
+            <column name="deleted" type="BIGINT(19)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Ankit (generated)" id="1430897018051-10">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="book"/>
+    </changeSet>
+    <changeSet author="Ankit (generated)" id="1430897018051-11">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="book_link"/>
+    </changeSet>
+    <changeSet author="Ankit (generated)" id="1430897018051-12">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="ref_book_genre"/>
+    </changeSet>
+    <changeSet author="Ankit (generated)" id="1430897018051-13">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="ref_book_store_type"/>
+    </changeSet>
+    <changeSet author="Ankit (generated)" id="1430897018051-14">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="ref_salutation"/>
+    </changeSet>
+    <changeSet author="Ankit (generated)" id="1430897018051-15">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="ref_user_type"/>
+    </changeSet>
+    <changeSet author="Ankit (generated)" id="1430897018051-16">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="review"/>
+    </changeSet>
+    <changeSet author="Ankit (generated)" id="1430897018051-17">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="review_comment"/>
+    </changeSet>
+    <changeSet author="Ankit (generated)" id="1430897018051-18">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="user"/>
+    </changeSet>
+    <changeSet author="Ankit (generated)" id="1430897018051-19">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="book" constraintName="fk_book_author" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="Ankit (generated)" id="1430897018051-20">
+        <addForeignKeyConstraint baseColumnNames="genre" baseTableName="book" constraintName="fk_book_genre" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="ref_book_genre"/>
+    </changeSet>
+    <changeSet author="Ankit (generated)" id="1430897018051-21">
+        <addForeignKeyConstraint baseColumnNames="book_id" baseTableName="book_link" constraintName="fk_book_link_book" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="book"/>
+    </changeSet>
+    <changeSet author="Ankit (generated)" id="1430897018051-22">
+        <addForeignKeyConstraint baseColumnNames="review_id" baseTableName="review_comment" constraintName="fk_comment_review" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="review"/>
+    </changeSet>
+    <changeSet author="Ankit (generated)" id="1430897018051-23">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="review_comment" constraintName="fk_comment_user" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="Ankit (generated)" id="1430897018051-24">
+        <addForeignKeyConstraint baseColumnNames="book_id" baseTableName="review" constraintName="fk_review_book" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="book"/>
+    </changeSet>
+    <changeSet author="Ankit (generated)" id="1430897018051-25">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="review" constraintName="fk_review_user" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="Ankit (generated)" id="1430897018051-26">
+        <addForeignKeyConstraint baseColumnNames="type" baseTableName="book_link" constraintName="fk_type" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="ref_book_store_type"/>
+    </changeSet>
+    <changeSet author="Ankit (generated)" id="1430897018051-27">
+        <addForeignKeyConstraint baseColumnNames="title" baseTableName="user" constraintName="fk_user_salutation" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="ref_salutation"/>
+    </changeSet>
+    <changeSet author="Ankit (generated)" id="1430897018051-28">
+        <addForeignKeyConstraint baseColumnNames="user_type" baseTableName="user" constraintName="fk_user_type" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="ref_user_type"/>
+    </changeSet>
+</databaseChangeLog>

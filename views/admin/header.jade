@@ -1,0 +1,36 @@
+header.header
+    #myheader.navbar.navbar-fixed-top
+        .navbar-inner
+            .container-fluid
+                .col-xs-2
+                    a.navbar-brand(href='#')
+                        img(src='img/logo.png')
+                //form.navbar-form.navbar-left.hidden-xs(role='search')
+                    .form-group
+                        input.form-control(type='text', placeholder='Search')
+                        a(href='')
+                            span.glyphicon.glyphicon-search
+                //
+                  <ul class="nav navbar-right">
+                            <div class="noti">
+                           <a href="#"><span class="glyphicon glyphicon-bell"></span> <span class="badge">42</span></a>
+                           </div>
+                          </ul>
+                ul.nav.navbar-right
+                    .noti
+                        a(href='#')
+                            span.icon-envelope
+                            span.badge 10
+                    .dropdown
+                        button#dropdownMenu1.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
+                            img.img-circle(src='img/upic1.png', alt='1')
+                            span.hidden-xs Sampoornesh Babu
+                            span.glyphicon.glyphicon-chevron-down
+                        ul.dropdown-menu(role='menu', aria-labelledby='dropdownMenu1')
+                            li(role='presentation')
+                                a(role='menuitem', tabindex='-1', href='#') Settings
+                            li(role='presentation')
+                                a(role='menuitem', tabindex='-1', data-toggle='tab', href='#adminprofile') Profile
+                            li.divider(role='presentation')
+                            li(role='presentation')
+                                a(role='menuitem', tabindex='-1', href='#') Sign Out

@@ -10,6 +10,7 @@ var UserDelegate = require('../delegates/UserDelegate');
 var AuthenticationDelegate = require('../delegates/AuthenticationDelegate');
 var User = require('../models/User');
 var ApiConstants = require('../enums/ApiConstants');
+var UserType = require('../enums/UserType');
 
 var DashBoardRoute = (function () {
     function DashBoardRoute(app) {
@@ -29,15 +30,13 @@ var DashBoardRoute = (function () {
         app.get(Urls.book(), this.book.bind(this));
         app.get(Urls.author(), this.author.bind(this));
         app.get(Urls.dashboard(), this.dashboard.bind(this));
-        app.get('/a', this.dashboard1.bind(this));
-        app.get('/b', this.dashboard2.bind(this));
     }
     DashBoardRoute.prototype.login = function (req, res) {
         res.render(DashBoardRoute.LOGIN_PAGE);
     };
 
     DashBoardRoute.prototype.loginSubmit = function (req, res) {
-        res.status(200).send('ok');
+        res.redirect(Urls.dashboard());
     };
 
     DashBoardRoute.prototype.register = function (req, res) {
@@ -97,18 +96,18 @@ var DashBoardRoute = (function () {
     };
 
     DashBoardRoute.prototype.dashboard = function (req, res) {
-        var userId;
-        res.render(DashBoardRoute.DASHBOARD_ADMIN);
-    };
-
-    DashBoardRoute.prototype.dashboard1 = function (req, res) {
-        var userId;
-        res.render(DashBoardRoute.DASHBOARD_AUTHOR);
-    };
-
-    DashBoardRoute.prototype.dashboard2 = function (req, res) {
-        var userId;
-        res.render(DashBoardRoute.DASHBOARD_BLOGGER);
+        var loggedInUser = req.user;
+        switch (loggedInUser[User.COL_USER_TYPE]) {
+            case 1 /* ADMIN */:
+                res.render(DashBoardRoute.DASHBOARD_ADMIN);
+                break;
+            case 2 /* AUTHOR */:
+                res.render(DashBoardRoute.DASHBOARD_AUTHOR);
+                break;
+            case 3 /* BLOGGER */:
+                res.render(DashBoardRoute.DASHBOARD_BLOGGER);
+                break;
+        }
     };
     DashBoardRoute.LOGIN_PAGE = 'login';
     DashBoardRoute.REGISTER_PAGE = 'register';
@@ -117,9 +116,9 @@ var DashBoardRoute = (function () {
     DashBoardRoute.CONFIRMATION_PAGE = 'confirmation';
     DashBoardRoute.BOOK_PAGE = 'book';
     DashBoardRoute.AUTHOR_PAGE = 'author';
-    DashBoardRoute.DASHBOARD_ADMIN = 'dashboard/admin';
-    DashBoardRoute.DASHBOARD_AUTHOR = 'dashboard/author';
-    DashBoardRoute.DASHBOARD_BLOGGER = 'dashboard/blogger';
+    DashBoardRoute.DASHBOARD_ADMIN = 'admin/dashboard';
+    DashBoardRoute.DASHBOARD_AUTHOR = 'author/dashboard';
+    DashBoardRoute.DASHBOARD_BLOGGER = 'blogger/dashboard';
     return DashBoardRoute;
 })();
 module.exports = DashBoardRoute;

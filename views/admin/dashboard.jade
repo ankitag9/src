@@ -1,0 +1,305 @@
+include ../includeHeader
+link(href='css/bookb-dash-admin.css', rel='stylesheet')
+body
+    include header
+    section.dashboard
+        .container-fluid
+            .row
+                include sidebar
+                .col-md-10.col-lg-10.col-sm-10.col-xs-12
+                    .tab-content
+                        #admindash1.tab-pane.fade.in.active
+                            .row
+                                .col-sm-offset-1.col-sm-10.sortboxes
+                                    ul
+                                        li
+                                            span.button-checkbox
+                                                button.btn(type='button', data-color='warning')  All
+                                                input.hidden(type='checkbox', checked='checked')
+                                        li
+                                            span.button-checkbox
+                                                button.btn(type='button', data-color='primary')
+                                                    span.hiddenfor Manuscript
+                                                    span.icon-documents.iconforbtn
+                                                input.hidden(type='checkbox', checked='checked')
+                                        li
+                                            span.button-checkbox
+                                                button.btn(type='button', data-color='danger')
+                                                    span.hiddenfor Books
+                                                    span.icon-notebook.iconforbtn
+                                                input.hidden(type='checkbox', checked='checked')
+                                        li
+                                            span.button-checkbox
+                                                button.btn(type='button', data-color='info')
+                                                    span.hiddenfor Review
+                                                    span.icon-expand.iconforbtn
+                                                input.hidden(type='checkbox', checked='checked')
+                            .row
+                                .col-xs-12.col-sm-10.col-sm-offset-1.notifboxes
+                                    .row
+                                        .col-xs-3.col-sm-2.text-center
+                                            span.icon-documents.iconswrap.manuicon
+                                        .col-xs-9.col-sm-10.col-md-9.col-lg-9.manuscriptbox
+                                            span.innerboxmatter A new manuscript is available
+                                        .col-sm-12.col-md-11.col-lg-11
+                                            .infoboxmatter2
+                                                table.table.table-responsive
+                                                    tbody
+                                                        tr
+                                                            td title
+                                                            td My book
+                                                        tr
+                                                            td Author name
+                                                            td Ravi kumar
+                                                        tr
+                                                            td Author email
+                                                            td
+                                                                | ravirenus
+                                                                | @gmail.com
+                                                        tr
+                                                            td file Link
+                                                            td
+                                                                a(href='') manuscript.docx
+                                            .innerboxmatter1
+                                                a.btn.btn-sm.btn-default(href='') allot to blogger
+                                                a.btn.btn-sm.btn-default(href='') Accept
+                                                a.btn.btn-sm.btn-default(href='') Reject
+                            //
+                              row
+                            .row
+                                .col-xs-12.col-sm-10.col-sm-offset-1.notifboxes
+                                    .row
+                                        .col-xs-3.col-sm-2.col-md-2.col-lg-2.text-center
+                                            span.icon-notebook.iconswrap.bookicon
+                                        .col-xs-9.col-sm-10.col-md-9.col-lg-9.bookbox
+                                            span.innerboxmatter
+                                                | A new book is available
+                                        .col-sm-12.col-md-11.col-lg-11
+                                            .infoboxmatter2
+                                                table.table.table-responsive
+                                                    tbody
+                                                        tr
+                                                            td title
+                                                            td My book
+                                                        tr
+                                                            td Author name
+                                                            td Ravi kumar
+                                                        tr
+                                                            td Author email
+                                                            td
+                                                                | ravirenus
+                                                                | @gmail.com
+                                                        tr
+                                                            td file link
+                                                            td
+                                                                a(href='') summary.docx
+                                                                br
+                                                                a(href='') full-book.docx
+                                            .innerboxmatter1
+                                                a.btn.btn-sm.btn-default(href='') view
+                                                a.btn.btn-sm.btn-default(href='') allot to blogger
+                                                a.btn.btn-sm.btn-default(href='') reject
+                            //
+                              row
+                            //
+                              new exp
+                            .row
+                                .col-xs-12.col-sm-10.col-sm-offset-1.notifboxes
+                                    .row
+                                        .col-xs-3.col-sm-2.col-md-2.col-lg-2.text-center
+                                            span.icon-notebook.iconswrap.bookicon
+                                        .col-xs-9.col-sm-10.col-md-9.col-lg-9.bookbox
+                                            span.innerboxmatter
+                                                | A new book is available
+                                        .col-sm-12.col-md-11.col-lg-11
+                                            .infoboxmatter2.newxp
+                                                table.table.table-responsive
+                                                    tbody
+                                                        tr
+                                                            td title
+                                                            td My book
+                                                        tr
+                                                            td Author name
+                                                            td Ravi kumar
+                                                        tr
+                                                            td Author email
+                                                            td
+                                                                | ravirenus
+                                                                | @gmail.com
+                                                        tr
+                                                            td file link
+                                                            td
+                                                                a(href='') summary.docx
+                                                                br
+                                                                a(href='') full-book.docx
+                                            .innerboxmatter1
+                                                a.btn.btn-sm.btn-default(href='') view
+                                                a.btn.btn-sm.btn-default(href='') allot to blogger
+                                                a.btn.btn-sm.btn-default(href='') reject
+                            //
+                              row
+                            .row
+                                .col-xs-12.col-sm-10.col-sm-offset-1.notifboxes
+                                    .row
+                                        .col-xs-3.col-sm-2.col-md-2.col-lg-2.text-center
+                                            span.icon-expand.iconswrap.reviewicon1
+                                        .col-xs-9.col-sm-10.col-md-9.col-lg-9.reviewbox1
+                                            span.innerboxmatter A new review is available
+                                        .col-sm-12.col-md-11.col-lg-11
+                                            .infoboxmatter2.newxp
+                                                table.table.table-responsive
+                                                    tbody
+                                                        tr
+                                                            td.visible-md.visible-lg Title
+                                                            td suicide at IIT
+                                                        tr
+                                                            td.visible-md.visible-lg blogger name
+                                                            td ravi
+                                                        tr
+                                                            td.visible-md.visible-lg blogger url
+                                                            td
+                                                                a(href='') ravirenus.blogspot.com
+                                                        tr
+                                                            td.visible-md.visible-lg review
+                                                            td
+                                                                p
+                                                                    img.pull-right.revimg11(src='img/book2.jpg', alt='1')
+                                                                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, reiciendis, ullam, numquam vitae sed quisquam
+                                                                    a(href='')
+                                                                        small read more
+                                            .innerboxmatter1
+                                                a.btn.btn-sm.btn-default(href='') view
+                                                a.btn.btn-sm.btn-default(href='') comment
+                                                a.btn.btn-sm.btn-default(href='') accept
+                                                a.btn.btn-sm.btn-default(href='') reject
+                            //
+                              row
+                            .row
+                                .col-xs-12.col-sm-10.col-sm-offset-1.notifboxes
+                                    .row
+                                        .col-xs-3.col-sm-2.col-md-2.col-lg-2.text-center
+                                            span.icon-expand.iconswrap.reviewicon1
+                                        .col-xs-9.col-sm-10.col-md-9.col-lg-9.reviewbox1
+                                            span.innerboxmatter
+                                                | A new review is available
+                                        .col-sm-12.col-md-11.col-lg-11
+                                            .infoboxmatter2.newxp
+                                                table.table.table-responsive
+                                                    tbody
+                                                        tr
+                                                            td.visible-md.visible-lg Title
+                                                            td suicide at IIT
+                                                        tr
+                                                            td.visible-md.visible-lg blogger name
+                                                            td ravi
+                                                        tr
+                                                            td.visible-md.visible-lg blogger url
+                                                            td
+                                                                a(href='') ravirenus.blogspot.com
+                                                        tr
+                                                            td.visible-md.visible-lg review
+                                                            td
+                                                                p
+                                                                    img.pull-right.revimg11(src='img/book2.jpg', alt='1')
+                                                                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, reiciendis, ullam, numquam vitae sed quisquam Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, optio, cum, sunt, praesentium repudiandae eos quia minima ducimus maxime at voluptatem incidunt repellendus quas dolores omnis esse inventore temporibus facere. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, nihil, asperiores, quos placeat laboriosam quibusdam odio veniam neque maxime maiores reprehenderit officia eius repudiandae nulla nostrum dignissimos incidunt. Dicta, iure!
+                                            .commentfield
+                                                form(action='')
+                                                    textarea.form-control(type='text', rows='8', placeholder='write comment here')
+                                                    .cmntbtns
+                                                        a.btn.btn-md.btn-info(href='') Comment
+                                                        a.btn.btn-md.btn-info(href='') cancel
+
+    //
+       Load JS here for greater good =============================
+    script(src='js/jquery-1.11.0.min.js')
+    script(src='js/bootstrap.min.js')
+    script.
+        $(document).ready(function() {
+        $('.panel-body button').on('click', function(){
+        $(this).toggleClass('btnactive');
+        });
+        });
+    script.
+        $(".carddtnyear.dropdown-menu li").click(function(){
+        var selText = $(this).text();
+        $(this).parents('.btn-group').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
+        });
+    script.
+        $( document ).ready(function() {
+        $('.pop-dis').hover(
+        function(){
+        $(this).find('.caption').slideDown(250); //.fadeIn(250)
+        },
+        function(){
+        $(this).find('.caption').slideUp(250); //.fadeOut(205)
+        }
+        );
+        });
+    script.
+        $( document ).ready(function() {
+        $('.pop-dis').hover(
+        function(){
+        $(this).find('.sidepop').fadeIn(250); //.fadeIn(250)
+        },
+        function(){
+        $(this).find('.sidepop').fadeOut(205); //.fadeOut(205)
+        }
+        );
+        });
+    script.
+        $(function () {
+        $('.button-checkbox').each(function () {
+        // Settings
+        var $widget = $(this),
+        $button = $widget.find('button'),
+        $checkbox = $widget.find('input:checkbox'),
+        color = $button.data('color'),
+        settings = {
+        on: {
+        icon: 'glyphicon glyphicon-ok'
+        },
+        off: {
+        icon: 'glyphicon glyphicon-remove'
+        }
+        };
+        // Event Handlers
+        $button.on('click', function () {
+        $checkbox.prop('checked', !$checkbox.is(':checked'));
+        $checkbox.triggerHandler('change');
+        updateDisplay();
+        });
+        $checkbox.on('change', function () {
+        updateDisplay();
+        });
+        // Actions
+        function updateDisplay() {
+        var isChecked = $checkbox.is(':checked');
+        // Set the button's state
+        $button.data('state', (isChecked) ? "on" : "off");
+        // Set the button's icon
+        $button.find('.state-icon')
+        .removeClass()
+        .addClass('state-icon ' + settings[$button.data('state')].icon);
+        // Update the button's color
+        if (isChecked) {
+        $button
+        .removeClass('btn-default')
+        .addClass('btn-' + color + ' active');
+        }
+        else {
+        $button
+        .removeClass('btn-' + color + ' active')
+        .addClass('btn-default');
+        }
+        }
+        // Initialization
+        function init() {
+        updateDisplay();
+        // Inject the icon if applicable
+        if ($button.find('.state-icon').length == 0) {
+        $button.prepend('<i class="state-icon ' + settings[$button.data('state')].icon + '"></i> ');
+        }
+        }
+        init();
+        });
+        });

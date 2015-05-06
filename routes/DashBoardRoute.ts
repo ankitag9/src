@@ -10,6 +10,7 @@ import UserDelegate                                 = require('../delegates/User
 import AuthenticationDelegate                       = require('../delegates/AuthenticationDelegate');
 import User                                         = require('../models/User');
 import ApiConstants                                 = require('../enums/ApiConstants');
+import UserType                                     = require('../enums/UserType');
 
 class DashBoardRoute
 {
@@ -20,9 +21,9 @@ class DashBoardRoute
     private static CONFIRMATION_PAGE:string = 'confirmation';
     private static BOOK_PAGE:string = 'book';
     private static AUTHOR_PAGE:string = 'author';
-    private static DASHBOARD_ADMIN:string = 'dashboard/admin';
-    private static DASHBOARD_AUTHOR:string = 'dashboard/author';
-    private static DASHBOARD_BLOGGER:string = 'dashboard/blogger';
+    private static DASHBOARD_ADMIN:string = 'admin/dashboard';
+    private static DASHBOARD_AUTHOR:string = 'author/dashboard';
+    private static DASHBOARD_BLOGGER:string = 'blogger/dashboard';
 
     emailDelegate = new EmailDelegate();
     userDelegate = new UserDelegate();
@@ -43,8 +44,6 @@ class DashBoardRoute
         app.get(Urls.book(), this.book.bind(this));
         app.get(Urls.author(), this.author.bind(this));
         app.get(Urls.dashboard(), this.dashboard.bind(this));
-        app.get('/a', this.dashboard1.bind(this));
-        app.get('/b', this.dashboard2.bind(this));
     }
 
     private login(req:express.Request, res:express.Response)
@@ -54,7 +53,7 @@ class DashBoardRoute
 
     private loginSubmit(req:express.Request, res:express.Response)
     {
-        res.status(200).send('ok');
+        res.redirect(Urls.dashboard());
     }
 
     private register(req:express.Request, res:express.Response)
@@ -131,20 +130,19 @@ class DashBoardRoute
 
     private dashboard(req:express.Request, res:express.Response)
     {
-        var userId:number;
-        res.render(DashBoardRoute.DASHBOARD_ADMIN);
-    }
-
-    private dashboard1(req:express.Request, res:express.Response)
-    {
-        var userId:number;
-        res.render(DashBoardRoute.DASHBOARD_AUTHOR);
-    }
-
-    private dashboard2(req:express.Request, res:express.Response)
-    {
-        var userId:number;
-        res.render(DashBoardRoute.DASHBOARD_BLOGGER);
+        var loggedInUser = req.user;
+        switch(loggedInUser[User.COL_USER_TYPE])
+        {
+            case UserType.ADMIN:
+                res.render(DashBoardRoute.DASHBOARD_ADMIN);
+                break;
+            case UserType.AUTHOR:
+                res.render(DashBoardRoute.DASHBOARD_AUTHOR);
+                break;
+            case UserType.BLOGGER:
+                res.render(DashBoardRoute.DASHBOARD_BLOGGER);
+                break;
+        }
     }
 }
 export = DashBoardRoute
