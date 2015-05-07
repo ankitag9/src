@@ -1,0 +1,19 @@
+{
+    "port"                          :   1234,
+
+    "database.host"                 :   "localhost",
+    "database.name"                 :   "bbn_db",
+    "ref.database.name"             :   "bbn_db_ref",
+    "database.user"                 :   "root",
+    "database.pass"                 :   "ankitag9",
+
+    "upload.path"                   :   "/var/bbn/upload",
+    "admin.email"                   :   "bookbanyantech@gmail.com",
+
+    "password_seed.length"          :   15,
+    "default.password.length"       :   10,
+
+    "session.expiry"                :   1800000,
+    "redis.host"                    :   "127.0.0.1",
+    "redis.session.port"            :   "6379"
+}
