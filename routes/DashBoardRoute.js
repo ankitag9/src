@@ -50,6 +50,7 @@ var DashBoardRoute = (function () {
         user.setName(req.body['name']);
         user.setEmail(req.body['email']);
         user.setPassword(req.body['password']);
+        user.setUserType(3 /* BLOGGER */);
         self.userDelegate.create(user).then(function userCreated() {
             res.status(200).send('ok');
         }).fail(function error(error) {

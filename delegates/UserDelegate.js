@@ -19,9 +19,6 @@ var UserDelegate = (function (_super) {
     UserDelegate.prototype.create = function (object, dbTransaction) {
         var self = this;
 
-        if (Coral.Utils.isNullOrEmpty(dbTransaction))
-            return self.mysqlDelegate.executeInTransaction(self, arguments);
-
         if (!Coral.Utils.isNullOrEmpty(object)) {
             object = new User(object);
 

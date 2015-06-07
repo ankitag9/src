@@ -15,9 +15,6 @@ class UserDelegate extends Coral.BaseDaoDelegate
     {
         var self = this;
 
-        if (Coral.Utils.isNullOrEmpty(dbTransaction))
-            return self.mysqlDelegate.executeInTransaction(self, arguments);
-
         if (!Coral.Utils.isNullOrEmpty(object))
         {
             object = new User(object);

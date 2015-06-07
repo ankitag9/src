@@ -69,6 +69,7 @@ class DashBoardRoute
         user.setName(req.body['name']);
         user.setEmail(req.body['email']);
         user.setPassword(req.body['password']);
+        user.setUserType(UserType.BLOGGER);
         self.userDelegate.create(user)
             .then(
             function userCreated()

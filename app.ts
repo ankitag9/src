@@ -34,7 +34,7 @@ app.use(express.json());
 app.use(express.urlencoded());
 
 app.use(session({
-    secret: 'searchntalk.com',
+    secret: 'bookbanyan.in',
     cookie: {maxAge: Config.get(Config.SESSION_EXPIRY)},
     store: new RedisStore({
         host: Config.get(Config.REDIS_HOST),
