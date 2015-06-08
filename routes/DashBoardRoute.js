@@ -52,9 +52,9 @@ var DashBoardRoute = (function () {
         user.setPassword(req.body['password']);
         user.setUserType(3 /* BLOGGER */);
         self.userDelegate.create(user).then(function userCreated() {
-            res.status(200).send('ok');
+            res.status(200).json('Registration Successful. Please Login to continue.');
         }).fail(function error(error) {
-            res.status(500).json(error);
+            res.status(500).json(error.message);
         });
     };
 
