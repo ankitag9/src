@@ -31,6 +31,9 @@ var ApiUrlDelegate = (function () {
     ApiUrlDelegate.book = function () {
         return Coral.Utils.generateUrl('/rest/book');
     };
+    ApiUrlDelegate.bookCover = function (bookId) {
+        return Coral.Utils.generateUrl('/rest/book/:bookId(\\d+)/cover');
+    };
     ApiUrlDelegate.bookById = function (bookId) {
         return Coral.Utils.generateUrl('/rest/book/:bookId(\\d+)', { bookId: bookId });
     };

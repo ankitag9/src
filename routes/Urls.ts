@@ -5,6 +5,7 @@ import Coral                                    = require('Coral');
 class Urls
 {
     static login(baseUrl?:string):string                { return Urls.get('/login',{}, baseUrl); }
+    static logout(baseUrl?:string):string               { return Urls.get('/logout',{}, baseUrl); }
     static register(baseUrl?:string):string             { return Urls.get('/register',{}, baseUrl); }
     static submit(baseUrl?:string):string               { return Urls.get('/submit',{}, baseUrl); }
     static home(baseUrl?:string):string                 { return Urls.get('/',{}, baseUrl); }

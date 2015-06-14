@@ -10,20 +10,24 @@ class Book extends Coral.BaseModel
     static COL_USER_ID:string = 'user_id';
     static COL_SUMMARY:string = 'summary';
     static COL_GENRE:string = 'genre';
+    static COL_AUTHOR:string = 'author';
 
     private title:string;
     private user_id:number;
     private summary:string;
+    private author:string;
     private genre:BookGenre;
 
-    static PUBLIC_FIELDS:string[] = [Book.COL_GENRE, Book.COL_SUMMARY, Book.COL_TITLE, Book.COL_USER_ID, Book.COL_ID, Book.COL_UPDATED, Book.COL_CREATED];
+    static PUBLIC_FIELDS:string[] = [Book.COL_AUTHOR,Book.COL_GENRE, Book.COL_SUMMARY, Book.COL_TITLE, Book.COL_USER_ID, Book.COL_ID, Book.COL_UPDATED, Book.COL_CREATED];
 
     getTitle():string                       { return this.title; }
+    getAuthor():string                      { return this.author; }
     getUserId():number                      { return this.user_id; }
     getSummary():string                     { return this.summary; }
     getGenre():BookGenre                    { return this.genre; }
 
     setTitle(val:string)                    { this.title = val; }
+    setAuthor(val:string)                   { this.author = val; }
     setUserId(val:number)                   { this.user_id = val; }
     setSummary(val:string)                  { this.summary = val; }
     setGenre(val:BookGenre)                 { this.genre = val; }

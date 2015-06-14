@@ -18,6 +18,7 @@ class ApiUrlDelegate
 
     /* URL patterns for book */
     static book():string { return Coral.Utils.generateUrl('/rest/book'); }
+    static bookCover(bookId?:number):string { return Coral.Utils.generateUrl('/rest/book/:bookId(\\d+)/cover'); }
     static bookById(bookId?:number):string { return Coral.Utils.generateUrl('/rest/book/:bookId(\\d+)', {bookId: bookId}); }
 
     /* URL patterns for review */

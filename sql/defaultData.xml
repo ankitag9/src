@@ -7,4 +7,14 @@
         </loadUpdateData>
     </changeSet>
 
+    <changeSet runOnChange="true" author='Ankit' id='1403776797653-5'>
+        <loadUpdateData primaryKey="id" encoding='utf-8' file='sql/data/ref_book_genre.csv' separator=',' quotchar='"' tableName='ref_book_genre'>
+        </loadUpdateData>
+    </changeSet>
+
+    <changeSet runOnChange="true" author='Ankit' id='1403776797653-6'>
+        <loadUpdateData primaryKey="id" encoding='utf-8' file='sql/data/ref_review_status.csv' separator=',' quotchar='"' tableName='ref_review_status'>
+        </loadUpdateData>
+    </changeSet>
+
 </databaseChangeLog>

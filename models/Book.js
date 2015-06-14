@@ -15,6 +15,9 @@ var Book = (function (_super) {
     Book.prototype.getTitle = function () {
         return this.title;
     };
+    Book.prototype.getAuthor = function () {
+        return this.author;
+    };
     Book.prototype.getUserId = function () {
         return this.user_id;
     };
@@ -27,6 +30,9 @@ var Book = (function (_super) {
 
     Book.prototype.setTitle = function (val) {
         this.title = val;
+    };
+    Book.prototype.setAuthor = function (val) {
+        this.author = val;
     };
     Book.prototype.setUserId = function (val) {
         this.user_id = val;
@@ -43,8 +49,9 @@ var Book = (function (_super) {
     Book.COL_USER_ID = 'user_id';
     Book.COL_SUMMARY = 'summary';
     Book.COL_GENRE = 'genre';
+    Book.COL_AUTHOR = 'author';
 
-    Book.PUBLIC_FIELDS = [Book.COL_GENRE, Book.COL_SUMMARY, Book.COL_TITLE, Book.COL_USER_ID, Book.COL_ID, Book.COL_UPDATED, Book.COL_CREATED];
+    Book.PUBLIC_FIELDS = [Book.COL_AUTHOR, Book.COL_GENRE, Book.COL_SUMMARY, Book.COL_TITLE, Book.COL_USER_ID, Book.COL_ID, Book.COL_UPDATED, Book.COL_CREATED];
     return Book;
 })(Coral.BaseModel);
 module.exports = Book;

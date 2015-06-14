@@ -1,5 +1,6 @@
 include ../includeHeader
 link(href='css/bookb-dash-admin.css', rel='stylesheet')
+title BookBanyan | Admin
 body
     include header
     section.dashboard
@@ -9,7 +10,7 @@ body
                 .col-md-10.col-lg-10.col-sm-10.col-xs-12
                     .tab-content
                         #admindash1.tab-pane.fade.in.active
-                            .row
+                            //.row
                                 .col-sm-offset-1.col-sm-10.sortboxes
                                     ul
                                         li
@@ -34,7 +35,7 @@ body
                                                     span.hiddenfor Review
                                                     span.icon-expand.iconforbtn
                                                 input.hidden(type='checkbox', checked='checked')
-                            .row
+                            //.row
                                 .col-xs-12.col-sm-10.col-sm-offset-1.notifboxes
                                     .row
                                         .col-xs-3.col-sm-2.text-center
@@ -66,7 +67,7 @@ body
                                                 a.btn.btn-sm.btn-default(href='') Reject
                             //
                               row
-                            .row
+                            //.row
                                 .col-xs-12.col-sm-10.col-sm-offset-1.notifboxes
                                     .row
                                         .col-xs-3.col-sm-2.col-md-2.col-lg-2.text-center
@@ -103,7 +104,7 @@ body
                               row
                             //
                               new exp
-                            .row
+                            //.row
                                 .col-xs-12.col-sm-10.col-sm-offset-1.notifboxes
                                     .row
                                         .col-xs-3.col-sm-2.col-md-2.col-lg-2.text-center
@@ -139,42 +140,43 @@ body
                             //
                               row
                             .row
-                                .col-xs-12.col-sm-10.col-sm-offset-1.notifboxes
-                                    .row
-                                        .col-xs-3.col-sm-2.col-md-2.col-lg-2.text-center
-                                            span.icon-expand.iconswrap.reviewicon1
-                                        .col-xs-9.col-sm-10.col-md-9.col-lg-9.reviewbox1
-                                            span.innerboxmatter A new review is available
-                                        .col-sm-12.col-md-11.col-lg-11
-                                            .infoboxmatter2.newxp
-                                                table.table.table-responsive
-                                                    tbody
-                                                        tr
-                                                            td.visible-md.visible-lg Title
-                                                            td suicide at IIT
-                                                        tr
-                                                            td.visible-md.visible-lg blogger name
-                                                            td ravi
-                                                        tr
-                                                            td.visible-md.visible-lg blogger url
-                                                            td
-                                                                a(href='') ravirenus.blogspot.com
-                                                        tr
-                                                            td.visible-md.visible-lg review
-                                                            td
-                                                                p
-                                                                    img.pull-right.revimg11(src='img/book2.jpg', alt='1')
-                                                                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, reiciendis, ullam, numquam vitae sed quisquam
-                                                                    a(href='')
-                                                                        small read more
-                                            .innerboxmatter1
-                                                a.btn.btn-sm.btn-default(href='') view
-                                                a.btn.btn-sm.btn-default(href='') comment
-                                                a.btn.btn-sm.btn-default(href='') accept
-                                                a.btn.btn-sm.btn-default(href='') reject
+                                each review in reviews
+                                    .col-xs-12.col-sm-10.col-sm-offset-1.notifboxes
+                                        .row
+                                            .col-xs-3.col-sm-2.col-md-2.col-lg-2.text-center
+                                                span.icon-expand.iconswrap.reviewicon1
+                                            .col-xs-9.col-sm-10.col-md-9.col-lg-9.reviewbox1
+                                                span.innerboxmatter A new review is available
+                                            .col-sm-12.col-md-11.col-lg-11
+                                                .infoboxmatter2.newxp
+                                                    table.table.table-responsive
+                                                        tbody
+                                                            tr
+                                                                td.visible-md.visible-lg Title
+                                                                td #{review.book.title}
+                                                            tr
+                                                                td.visible-md.visible-lg blogger name
+                                                                td #{review.user.name}
+                                                            //tr
+                                                                td.visible-md.visible-lg blogger url
+                                                                td
+                                                                    a(href='') ravirenus.blogspot.com
+                                                            tr
+                                                                td.visible-md.visible-lg review
+                                                                td
+                                                                    p
+                                                                        img.pull-right.revimg11(src='rest/book/' + review.book.id + '/cover', alt='1')
+                                                                        | #{review.review}
+                                                                        //a(href='')
+                                                                            small read more
+                                                .innerboxmatter1
+                                                    //a.btn.btn-sm.btn-default(href='') view
+                                                    //a.btn.btn-sm.btn-default(href='') comment
+                                                    a.btn.btn-sm.btn-default.acceptReview(data-id=review.id) accept
+                                                    a.btn.btn-sm.btn-default.rejectReview(data-id=review.id) reject
                             //
                               row
-                            .row
+                            //.row
                                 .col-xs-12.col-sm-10.col-sm-offset-1.notifboxes
                                     .row
                                         .col-xs-3.col-sm-2.col-md-2.col-lg-2.text-center
@@ -208,98 +210,99 @@ body
                                                     .cmntbtns
                                                         a.btn.btn-md.btn-info(href='') Comment
                                                         a.btn.btn-md.btn-info(href='') cancel
-
-    //
-       Load JS here for greater good =============================
-    script(src='js/jquery-1.11.0.min.js')
-    script(src='js/bootstrap.min.js')
-    script.
-        $(document).ready(function() {
-        $('.panel-body button').on('click', function(){
-        $(this).toggleClass('btnactive');
-        });
-        });
-    script.
-        $(".carddtnyear.dropdown-menu li").click(function(){
-        var selText = $(this).text();
-        $(this).parents('.btn-group').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
-        });
-    script.
-        $( document ).ready(function() {
-        $('.pop-dis').hover(
-        function(){
-        $(this).find('.caption').slideDown(250); //.fadeIn(250)
-        },
-        function(){
-        $(this).find('.caption').slideUp(250); //.fadeOut(205)
-        }
-        );
-        });
-    script.
-        $( document ).ready(function() {
-        $('.pop-dis').hover(
-        function(){
-        $(this).find('.sidepop').fadeIn(250); //.fadeIn(250)
-        },
-        function(){
-        $(this).find('.sidepop').fadeOut(205); //.fadeOut(205)
-        }
-        );
-        });
-    script.
-        $(function () {
-        $('.button-checkbox').each(function () {
-        // Settings
-        var $widget = $(this),
-        $button = $widget.find('button'),
-        $checkbox = $widget.find('input:checkbox'),
-        color = $button.data('color'),
-        settings = {
-        on: {
-        icon: 'glyphicon glyphicon-ok'
-        },
-        off: {
-        icon: 'glyphicon glyphicon-remove'
-        }
-        };
-        // Event Handlers
-        $button.on('click', function () {
-        $checkbox.prop('checked', !$checkbox.is(':checked'));
-        $checkbox.triggerHandler('change');
-        updateDisplay();
-        });
-        $checkbox.on('change', function () {
-        updateDisplay();
-        });
-        // Actions
-        function updateDisplay() {
-        var isChecked = $checkbox.is(':checked');
-        // Set the button's state
-        $button.data('state', (isChecked) ? "on" : "off");
-        // Set the button's icon
-        $button.find('.state-icon')
-        .removeClass()
-        .addClass('state-icon ' + settings[$button.data('state')].icon);
-        // Update the button's color
-        if (isChecked) {
-        $button
-        .removeClass('btn-default')
-        .addClass('btn-' + color + ' active');
-        }
-        else {
-        $button
-        .removeClass('btn-' + color + ' active')
-        .addClass('btn-default');
-        }
-        }
-        // Initialization
-        function init() {
-        updateDisplay();
-        // Inject the icon if applicable
-        if ($button.find('.state-icon').length == 0) {
-        $button.prepend('<i class="state-icon ' + settings[$button.data('state')].icon + '"></i> ');
-        }
-        }
-        init();
-        });
-        });
+                        #admindash2.tab-pane.fade.in.active
+                            .row
+                                .col-sm-offset-1.col-sm-10.sortboxes
+                                    ul
+                                        li
+                                            button.btn#addNewBookBtn(type='button', data-color='danger')
+                                                span.hiddenfor Add New Book
+                                                span.icon-documents.iconforbtnAdd
+                            .row#addNewBook
+                                .col-xs-12.col-sm-10.col-sm-offset-1.notifboxes
+                                    form.form-horizontal#addBookForm(role='form', method='POST')
+                                        .col-md-12.personal-d
+                                            h6 Details
+                                            .form-group
+                                                label.col-sm-3.control-label(for='title') Title
+                                                .col-sm-9
+                                                    input#title.form-control(name="title", type='name', placeholder='Book Title')
+                                            .form-group
+                                                label.col-sm-3.control-label Author
+                                                .col-sm-9
+                                                    input#author.form-control(name='author', placeholder='Author')
+                                            .form-group
+                                                label.col-sm-3.control-label Genre
+                                                .col-sm-9
+                                                    select.form-control#genre(name='genre')
+                                                        each key,option in BookGenre
+                                                            option(value="#{option}") #{key}
+                                            .form-group
+                                                label.col-sm-3.control-label Summary
+                                                .col-sm-9
+                                                    textarea#summary.form-control(name='summary',type='text', rows='8', placeholder='Summary')
+                                        .col-md-8.text-right
+                                            input#register.btn.btn-large.btn-info(type='submit', value="Create")
+                                            a#cancelAddBook.btn.btn-large.btn-info Cancel
+                            .row#booksTable
+                                .col-xs-12.col-sm-10.col-sm-offset-1.notifboxes
+                                    table-responsive
+                                        table.table.table-bordered
+                                            tr
+                                                th Id
+                                                th Title
+                                                th Author
+                                                th Genre
+                                                th Cover Photo
+                                                th Review
+                                            tbody
+                                                each book in books
+                                                    tr
+                                                        td
+                                                            a(href="/book/" + book.id, target="_blank")= book.id
+                                                        td= book.title
+                                                        td= book.author
+                                                        td= BookGenre[book.genre]
+                                                        td
+                                                            .col-md-6
+                                                                img(src="/rest/book/" + book.id + '/cover?imageSize=50')
+                                                            .col-md-6
+                                                                .image-edit
+                                                                    a.btn.btn-success.btn-xs(href="javascript: void(0);")#selectFileBtn
+                                                                        i.icon-pencil
+                                                                    form#fileUploadForm(action="/rest/book/" + book.id + "/cover", method="post", enctype="multipart/form-data")
+                                                                        input#selectFile(type='file', name='profile', style='display: none')
+                                                                        input#selectFileSubmit(type='submit', style='display: none')
+                                                        td
+                                                            a.btn.btn-large.btn-info.sendForReview(data-id=book.id) Send For Review
+                            .row#selectBlogger
+                                form.form-horizontal#selectBloggerForm(role='form', method='POST')
+                                    .col-md-12.personal-d
+                                        .form-group
+                                            label.col-sm-3.control-label BLogger
+                                            .col-sm-9
+                                                select.form-control(name='bloggerId')
+                                                    each user in users
+                                                        option(value="#{user.id}") #{user.name}(#{user.email})
+                                    .col-md-8.text-right
+                                        input#send.btn.btn-large.btn-info(type='submit', value="Send")
+                                        a#cancelSelectBlogger.btn.btn-large.btn-info Cancel
+                        #admindash5.tab-pane.fade.in.active
+                            .row#usersTable
+                                .col-xs-12.col-sm-10.col-sm-offset-1.notifboxes
+                                    table-responsive
+                                        table.table.table-bordered
+                                            tr
+                                                th Id
+                                                th Name
+                                                th Email
+                                                th Role
+                                            tbody
+                                                each user in users
+                                                    tr
+                                                        td= user.id
+                                                        td= user.name
+                                                        td= user.email
+                                                        td= UserRole[user.user_type]
+script(src="js/admin_dashboard.js")
+script(src="js/bookCoverUpload.js")

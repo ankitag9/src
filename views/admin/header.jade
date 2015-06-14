@@ -18,19 +18,19 @@ header.header
                           </ul>
                 ul.nav.navbar-right
                     .noti
-                        a(href='#')
+                        //a(href='#')
                             span.icon-envelope
                             span.badge 10
                     .dropdown
                         button#dropdownMenu1.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
                             img.img-circle(src='img/upic1.png', alt='1')
-                            span.hidden-xs Sampoornesh Babu
+                            span.hidden-xs= user.name
                             span.glyphicon.glyphicon-chevron-down
                         ul.dropdown-menu(role='menu', aria-labelledby='dropdownMenu1')
-                            li(role='presentation')
+                            //li(role='presentation')
                                 a(role='menuitem', tabindex='-1', href='#') Settings
-                            li(role='presentation')
+                            //li(role='presentation')
                                 a(role='menuitem', tabindex='-1', data-toggle='tab', href='#adminprofile') Profile
-                            li.divider(role='presentation')
+                            //li.divider(role='presentation')
                             li(role='presentation')
-                                a(role='menuitem', tabindex='-1', href='#') Sign Out
+                                a(role='menuitem', tabindex='-1', href='/logout') Sign Out

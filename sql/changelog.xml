@@ -169,4 +169,50 @@
     <changeSet author="Ankit (generated)" id="1433703020925-1">
         <addUniqueConstraint columnNames="email" constraintName="email_UNIQUE" deferrable="false" disabled="false" initiallyDeferred="false" tableName="user"/>
     </changeSet>
+    <changeSet author="Ankit (generated)" id="1434311581839-1">
+        <createTable tableName="ref_review_status">
+            <column name="id" type="INT(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR(45)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Ankit (generated)" id="1434311581839-2">
+        <addColumn tableName="book">
+            <column name="author" type="VARCHAR(100)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Ankit (generated)" id="1434311581839-3">
+        <addColumn tableName="review">
+            <column name="review" type="TEXT(65535)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Ankit (generated)" id="1434311581839-4">
+        <addColumn tableName="review">
+            <column name="status" type="INT(10)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Ankit (generated)" id="1434311581839-5">
+        <addColumn tableName="review">
+            <column name="title" type="VARCHAR(100)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Ankit (generated)" id="1434311581839-6">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="ref_review_status"/>
+    </changeSet>
+    <changeSet author="Ankit (generated)" id="1434311581839-7">
+        <addUniqueConstraint columnNames="user_id, book_id" constraintName="uniq_user_book" deferrable="false" disabled="false" initiallyDeferred="false" tableName="review"/>
+    </changeSet>
+    <changeSet author="Ankit (generated)" id="1434311581839-8">
+        <addForeignKeyConstraint baseColumnNames="status" baseTableName="review" constraintName="fk_review_status" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="ref_review_status"/>
+    </changeSet>
+    <changeSet author="Ankit (generated)" id="1434311581839-9">
+        <dropColumn columnName="accepted_by_admin" tableName="review"/>
+    </changeSet>
+    <changeSet author="Ankit (generated)" id="1434311581839-10">
+        <dropColumn columnName="accepted_by_author" tableName="review"/>
+    </changeSet>
+    <changeSet author="Ankit (generated)" id="1434311581839-11">
+        <modifyDataType columnName="feedback" newDataType="clob" tableName="review"/>
+    </changeSet>
 </databaseChangeLog>

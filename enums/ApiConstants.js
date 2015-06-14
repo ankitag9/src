@@ -24,6 +24,8 @@ var ApiConstants = (function () {
     ApiConstants.USER_PROFILE = 'profile';
     ApiConstants.BOOK = 'book';
     ApiConstants.REVIEW = 'review';
+    ApiConstants.REVIEW_COMMENT = 'reviewComment';
+    ApiConstants.IMAGE_SIZE = 'imageSize';
 
     ApiConstants.INCLUDE = 'include';
     return ApiConstants;

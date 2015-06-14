@@ -25,6 +25,8 @@ class ApiConstants
     static USER_PROFILE:string                          = 'profile';
     static BOOK:string                                  = 'book';
     static REVIEW:string                                = 'review';
+    static REVIEW_COMMENT:string                        = 'reviewComment';
+    static IMAGE_SIZE:string                            = 'imageSize';
 
     /* Query Constants */
     static INCLUDE:string                               = 'include';

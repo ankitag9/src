@@ -8,6 +8,9 @@ var Urls = (function () {
     Urls.login = function (baseUrl) {
         return Urls.get('/login', {}, baseUrl);
     };
+    Urls.logout = function (baseUrl) {
+        return Urls.get('/logout', {}, baseUrl);
+    };
     Urls.register = function (baseUrl) {
         return Urls.get('/register', {}, baseUrl);
     };

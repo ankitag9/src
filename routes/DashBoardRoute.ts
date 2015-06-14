@@ -7,10 +7,16 @@ import Config                                       = require('../common/Config'
 import Coral                                        = require('Coral');
 import EmailDelegate                                = require('../delegates/EmailDelegate');
 import UserDelegate                                 = require('../delegates/UserDelegate');
+import BookDelegate                                 = require('../delegates/BookDelegate');
 import AuthenticationDelegate                       = require('../delegates/AuthenticationDelegate');
+import ReviewDelegate                               = require('../delegates/ReviewDelegate');
 import User                                         = require('../models/User');
+import Book                                         = require('../models/Book');
+import Review                                       = require('../models/Review');
 import ApiConstants                                 = require('../enums/ApiConstants');
 import UserType                                     = require('../enums/UserType');
+import BookGenre                                    = require('../enums/BookGenre');
+import ReviewStatus                                 = require('../enums/ReviewStatus');
 
 class DashBoardRoute
 {
@@ -27,11 +33,14 @@ class DashBoardRoute
 
     emailDelegate = new EmailDelegate();
     userDelegate = new UserDelegate();
+    bookDelegate = new BookDelegate();
+    reviewDelegate = new ReviewDelegate();
 
     constructor(app)
     {
         app.get(Urls.login(), this.login.bind(this));
         app.post(Urls.login(), AuthenticationDelegate.login(), this.loginSubmit.bind(this));
+        app.get(Urls.logout(), this.logout.bind(this));
         app.get(Urls.register(), this.register.bind(this));
         app.post(Urls.register(), this.registerSubmit.bind(this));
 
@@ -54,6 +63,15 @@ class DashBoardRoute
     private loginSubmit(req:express.Request, res:express.Response)
     {
         res.redirect(Urls.dashboard());
+    }
+
+    private logout(req:express.Request, res:express.Response)
+    {
+        res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
+        req.logout();
+        res.clearCookie("connect.sid");
+        var returnToUrl:string = req.query[ApiConstants.RETURN_TO] || Urls.login();
+        res.redirect(returnToUrl);
     }
 
     private register(req:express.Request, res:express.Response)
@@ -119,8 +137,27 @@ class DashBoardRoute
 
     private book(req:express.Request, res:express.Response)
     {
+        var self = this;
         var bookId:number = parseInt(req.params[ApiConstants.BOOK_ID]);
-        res.render(DashBoardRoute.BOOK_PAGE);
+        var review:Review = new Review();
+        review.setBookId(bookId);
+        review.setStatus(ReviewStatus.ACCEPTED_BY_ADMIN);
+        q.all([
+            self.reviewDelegate.search(review,{},[Review.FK_USER]),
+            self.bookDelegate.get(bookId)
+        ])
+            .then(
+            function bookFetched(...args)
+            {
+                var reviews:Review[] = args[0][0] || [];
+                var book:Book = args[0][1];
+                var data = {
+                    BookGenre:Coral.Utils.enumToNormalText(BookGenre),
+                    book:book,
+                    reviews:reviews
+                }
+                res.render(DashBoardRoute.BOOK_PAGE,data);
+            })
     }
 
     private author(req:express.Request, res:express.Response)
@@ -132,17 +169,62 @@ class DashBoardRoute
     private dashboard(req:express.Request, res:express.Response)
     {
         var loggedInUser = req.user;
-        switch(loggedInUser[User.COL_USER_TYPE])
+        var self = this;
+
+        if(Coral.Utils.isNullOrEmpty(loggedInUser))
+            res.redirect(DashBoardRoute.LOGIN_PAGE);
+        else
         {
-            case UserType.ADMIN:
-                res.render(DashBoardRoute.DASHBOARD_ADMIN);
-                break;
-            case UserType.AUTHOR:
-                res.render(DashBoardRoute.DASHBOARD_AUTHOR);
-                break;
-            case UserType.BLOGGER:
-                res.render(DashBoardRoute.DASHBOARD_BLOGGER);
-                break;
+            switch(loggedInUser[User.COL_USER_TYPE])
+            {
+                case UserType.ADMIN:
+                    var review:Review = new Review();
+                    review.setStatus(ReviewStatus.REVIEWED_BY_BLOGGER);
+                    q.all([
+                        self.userDelegate.search({}),
+                        self.bookDelegate.search({}),
+                        self.reviewDelegate.search(review,{},[Review.FK_BOOK,Review.FK_USER])
+                    ])
+                        .then(
+                        function booksFetched(...args)
+                        {
+                            var users:User[] = args[0][0];
+                            var books:Book[] = args[0][1];
+                            var review:Review[] = args[0][2] || [];
+                            var data = {
+                                user:loggedInUser,
+                                BookGenre:Coral.Utils.enumToNormalText(BookGenre),
+                                UserRole:Coral.Utils.enumToNormalText(UserType),
+                                books:books,
+                                users:users,
+                                reviews:review
+                            };
+                            res.render(DashBoardRoute.DASHBOARD_ADMIN,data);
+                        })
+                    break;
+                case UserType.AUTHOR:
+                    var data = {};
+                    res.render(DashBoardRoute.DASHBOARD_AUTHOR,data);
+                    break;
+                case UserType.BLOGGER:
+                    var review:Review = new Review();
+                    review.setUserId(loggedInUser.id);
+                    self.reviewDelegate.search(review,{},[Review.FK_BOOK])
+                        .then(
+                        function reviewFetched(reviews:Review[])
+                        {
+                            var pending = _.filter(reviews,function(review:Review){ return review.getStatus() == ReviewStatus.SENT_TO_BLOGGER });
+                            var reviewed = _.filter(reviews,function(review:Review){ return review.getStatus() != ReviewStatus.SENT_TO_BLOGGER });
+                            var data = {
+                                reviewed:reviewed,
+                                pending:pending,
+                                user:loggedInUser,
+                                BookGenre:Coral.Utils.enumToNormalText(BookGenre)
+                            };
+                            res.render(DashBoardRoute.DASHBOARD_BLOGGER,data);
+                        })
+                    break;
+            }
         }
     }
 }

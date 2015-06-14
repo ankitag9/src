@@ -1,5 +1,6 @@
 include ./header
 link(href='/css/book-page.css', rel='stylesheet')
+title BookBanyan | #{book.title}
 section.book-author
     .container
         .row
@@ -7,16 +8,16 @@ section.book-author
                 .row
                     .col-md-6.col-sm-6
                         .bcover
-                            img.img-rounded(src='img/Suicide-at-IIT.png', alt='1')
+                            img.img-rounded(src='/rest/book/' + book.id + "/cover?imageSize=500", alt='1')
                     .col-md-6.col-sm-6.side-bdetails
                         .bdetails
                             h6
-                                | Suicide At IIT
-                                small | Fiction
+                                | #{book.title}
+                                small | #{BookGenre[book.genre]}
                             p
-                                | By
+                                | By &nbsp;
                                 a(href='BookB-book-author-page.html')
-                                    span.text-muted Ravi Kumar R
+                                    span.text-muted #{book.author}
                             .rating-display
                                 span.glyphicon.glyphicon-star
                                 span.glyphicon.glyphicon-star
@@ -25,24 +26,24 @@ section.book-author
                                 span.glyphicon.glyphicon-star-empty
                             p.reviewcount
                                 small 55 ratings | 12 ratings
-                        .butit
+                        //.butit
                             p.buynw Buy Now From
                             .amazon
                                 p
-                                    img(src='img/amazon1.png', alt='1')
+                                    img(src='/img/amazon1.png', alt='1')
                                     span.text-primary Rs 120
                                     a(href='')
                                         span.text-warning Buy
                             .flipkart
                                 p
-                                    img(src='img/flipkart.png', alt='1')
+                                    img(src='/img/flipkart.png', alt='1')
                                     span.text-primary Rs 120
                                     a(href='')
                                         span.text-warning Buy
                         .summary
                             h6 Summary
                             p
-                                | The story of a young soul who dared to dream, and whose patriotic passions were ignited only to be left down by the societal dynamics. A soul which places the love of motherland over its own body. The END of a saga and hopefully a beginning too.... An experiment which every Indian hopes will succeed...
+                                | #{book.summary}
                 .row
                     .col-md-12.few-lines
                         h6 Few lines from the Book
@@ -58,7 +59,7 @@ section.book-author
                 .panel.panel-default
                     .panel-heading.text-center About Author
                     .panel-body.text-center
-                        img(src='img/upic2.png', alt='1')
+                        img(src='/img/upic2.png', alt='1')
                     table.table
                         tbody
                             tr
@@ -125,7 +126,7 @@ section.related-books1
             .col-md-12
                 h6.head1 Related Books
             .col-md-2.col-sm-2.col-xs-6
-                img.img-rounded(src='img/book2.jpg', alt='1')
+                img.img-rounded(src='/img/book2.jpg', alt='1')
                 h6 Title Of Book
                 p
                     a(href='') By Sampoornesh Babu
@@ -138,7 +139,7 @@ section.related-books1
                 p.reviewcount
                     | | Rs 199
             .col-md-2.col-sm-2.col-xs-6
-                img.img-rounded(src='img/book1.jpg', alt='1')
+                img.img-rounded(src='/img/book1.jpg', alt='1')
                 h6 Title Of Book
                 p By Sampoornesh Babu
                 .rating-display
@@ -150,7 +151,7 @@ section.related-books1
                 p.reviewcount
                     | | Rs 199
             .col-md-2.col-sm-2.col-xs-6
-                img.img-rounded(src='img/book3.jpg', alt='1')
+                img.img-rounded(src='/img/book3.jpg', alt='1')
                 h6 Title Of Book
                 p By Sampoornesh Babu
                 .rating-display
@@ -162,7 +163,7 @@ section.related-books1
                 p.reviewcount
                     | | Rs 199
             .col-md-2.col-sm-2.col-xs-6
-                img.img-rounded(src='img/book4.jpg', alt='1')
+                img.img-rounded(src='/img/book4.jpg', alt='1')
                 h6 Title Of Book
                 p By Sampoornesh Babu
                 .rating-display
@@ -174,7 +175,7 @@ section.related-books1
                 p.reviewcount
                     | | Rs 199
             .col-md-2.col-sm-2.col-xs-6.hidden-xs
-                img.img-rounded(src='img/book5.jpg', alt='1')
+                img.img-rounded(src='/img/book5.jpg', alt='1')
                 h6 Title Of Book
                 p By Sampoornesh Babu
                 .rating-display
@@ -190,68 +191,25 @@ section.reviews1
         .row
             .col-md-12.reviews
                 h6.head1 Reviews
-                .panel.panel-default
-                    .panel-heading
-                        .revimg
-                            img.img-circle(src='img/upic1.png', alt='1')
-                        .namewrap
-                            p.revname
-                                | Kranthi Kumar
-                                span
-                                    small 1 hr ago
-                            p.text-muted 34 reviews
-                        .revrating
-                            p.rated
-                                small Rated
-                            .rating-display
-                                span.glyphicon.glyphicon-star
-                                span.glyphicon.glyphicon-star
-                                span.glyphicon.glyphicon-star
-                                span.glyphicon.glyphicon-star
-                                span.glyphicon.glyphicon-star-empty
-                    .panel-body
-                        h6 Brave and patriotic
-                        p
-                            | Suicide at IIT is an audacious and brave write-up. It will compel every reader to inculcate feelings of patriotism and empathy in him, lined with laces of helplessness. The novella begins with the suicide of a bright IIT student, Siddharth. Investigation begins but proofs and evidences perplex Justice Sahu. Siddharth was a genius in his academics and inter curricular activities, his personal life had no problems and he had lots of admirers and friends.
-                            br
-                            br
-                            | Siddharth had a curious, reflective and an overly inquisitive mind. The reason behind the suicide is sure to startle every reader and fill him with pathos and patriotism. This book is a must read for every Indian heart who has an irrevocable love for his/her motherland.
-                            br
-                            br
-                            | The best part of the book is that it is crisp, compact and can be finished within a maximum of three hours. The content of the novella is fresh, intriguing and touching. A good book is that which leaves you with a haunted feel after you complete it. Suicide at IIT is one such book. I am still bewitched by the book’s spell. I want to congratulate the author for writing a book which can bring about a change in the society hopefully. I recommend this book to everyone. This is no ordinary book; it mirrors the reality and grievances of each one of us. I want the author to write many such books for the betterment of this country.
-                //
-                  panel-default
-                .panel.panel-default
-                    .panel-heading
-                        .revimg
-                            img.img-circle(src='img/upic1.png', alt='1')
-                        .namewrap
-                            p.revname
-                                | Kranthi Kumar
-                                span
-                                    small 1 hr ago
-                            p.text-muted 34 reviews
-                        .revrating
-                            p.rated
-                                small Rated
-                            .rating-display
-                                span.glyphicon.glyphicon-star
-                                span.glyphicon.glyphicon-star
-                                span.glyphicon.glyphicon-star
-                                span.glyphicon.glyphicon-star
-                                span.glyphicon.glyphicon-star-empty
-                    .panel-body
-                        h6 Brave and patriotic
-                        p
-                            | Suicide at IIT is an audacious and brave write-up. It will compel every reader to inculcate feelings of patriotism and empathy in him, lined with laces of helplessness. The novella begins with the suicide of a bright IIT student, Siddharth. Investigation begins but proofs and evidences perplex Justice Sahu. Siddharth was a genius in his academics and inter curricular activities, his personal life had no problems and he had lots of admirers and friends.
-                            br
-                            br
-                            | Siddharth had a curious, reflective and an overly inquisitive mind. The reason behind the suicide is sure to startle every reader and fill him with pathos and patriotism. This book is a must read for every Indian heart who has an irrevocable love for his/her motherland.
-                            br
-                            br
-                            | The best part of the book is that it is crisp, compact and can be finished within a maximum of three hours. The content of the novella is fresh, intriguing and touching. A good book is that which leaves you with a haunted feel after you complete it. Suicide at IIT is one such book. I am still bewitched by the book’s spell. I want to congratulate the author for writing a book which can bring about a change in the society hopefully. I recommend this book to everyone. This is no ordinary book; it mirrors the reality and grievances of each one of us. I want the author to write many such books for the betterment of this country.
-                //
-                  panel-default
+                each review in reviews
+                    .panel.panel-default
+                        .panel-heading
+                            .revimg
+                                img.img-circle(src='/img/upic1.png', alt='1')
+                            .namewrap
+                                p.revname
+                                    | #{review.user.name}
+                                    //span
+                                        small 1 hr ago
+                                //p.text-muted 34 reviews
+                            .revrating
+                                p.rated
+                                    small Rated
+                                .rating-display
+                                    div(id="rating" + review.id)
+                        .panel-body
+                            h6 #{review.title}
+                            p #{review.review}
 section.footer
     .container
         .row
@@ -272,15 +230,7 @@ section.footer
             .col-md-4.col-sm-4.col-xs-12.copyright
                 ul.footer-nav.pull-right
                     li Copyright © 2014 BookBanyan
-//
-   Load JS here for greater good =============================
-script(src='js/jquery-1.11.0.min.js')
-script(src='js/bootstrap.min.js')
 script.
-    $(document).ready(function() {
-    //Set the carousel options
-    $('#mycarousel').carousel({
-    pause: false,
-    interval: 6000,
-    });
-    });
+    var reviews = JSON.parse ( '!{JSON.stringify(reviews || [])}' );
+script(src='/js/raty-master/lib/jquery.raty.js')
+script(src="/js/book.js")

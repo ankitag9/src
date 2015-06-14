@@ -1,5 +1,36 @@
 enum BookGenre
 {
-
+    ACTION_AND_ADVENTURE = 1,
+    ANTHOLOGIES,
+    ART,
+    AUTOBIOGRAPHIES,
+    BIOGRAPHIES,
+    CHILDREN,
+    COMICS,
+    COOKBOOKS,
+    DIARIES,
+    DICTIONARIES,
+    DRAMA,
+    ENCYCLOPEDIA,
+    FANTASY,
+    FICTION,
+    GUIDE,
+    HISTORY,
+    HORROR,
+    JOURNALS,
+    MATH,
+    MYSTERY,
+    NON_FICTION,
+    POETRY,
+    PRAYER_BOOKS,
+    RELIGIOUS,
+    ROMANCE,
+    SATIRE,
+    SCIENCE,
+    SCIENCE_FICTION,
+    SELF_HELP,
+    SERIES,
+    TRAVEL,
+    TRILOGIES
 }
 export = BookGenre

@@ -1,5 +1,37 @@
 var BookGenre;
 (function (BookGenre) {
+    BookGenre[BookGenre["ACTION_AND_ADVENTURE"] = 1] = "ACTION_AND_ADVENTURE";
+    BookGenre[BookGenre["ANTHOLOGIES"] = 2] = "ANTHOLOGIES";
+    BookGenre[BookGenre["ART"] = 3] = "ART";
+    BookGenre[BookGenre["AUTOBIOGRAPHIES"] = 4] = "AUTOBIOGRAPHIES";
+    BookGenre[BookGenre["BIOGRAPHIES"] = 5] = "BIOGRAPHIES";
+    BookGenre[BookGenre["CHILDREN"] = 6] = "CHILDREN";
+    BookGenre[BookGenre["COMICS"] = 7] = "COMICS";
+    BookGenre[BookGenre["COOKBOOKS"] = 8] = "COOKBOOKS";
+    BookGenre[BookGenre["DIARIES"] = 9] = "DIARIES";
+    BookGenre[BookGenre["DICTIONARIES"] = 10] = "DICTIONARIES";
+    BookGenre[BookGenre["DRAMA"] = 11] = "DRAMA";
+    BookGenre[BookGenre["ENCYCLOPEDIA"] = 12] = "ENCYCLOPEDIA";
+    BookGenre[BookGenre["FANTASY"] = 13] = "FANTASY";
+    BookGenre[BookGenre["FICTION"] = 14] = "FICTION";
+    BookGenre[BookGenre["GUIDE"] = 15] = "GUIDE";
+    BookGenre[BookGenre["HISTORY"] = 16] = "HISTORY";
+    BookGenre[BookGenre["HORROR"] = 17] = "HORROR";
+    BookGenre[BookGenre["JOURNALS"] = 18] = "JOURNALS";
+    BookGenre[BookGenre["MATH"] = 19] = "MATH";
+    BookGenre[BookGenre["MYSTERY"] = 20] = "MYSTERY";
+    BookGenre[BookGenre["NON_FICTION"] = 21] = "NON_FICTION";
+    BookGenre[BookGenre["POETRY"] = 22] = "POETRY";
+    BookGenre[BookGenre["PRAYER_BOOKS"] = 23] = "PRAYER_BOOKS";
+    BookGenre[BookGenre["RELIGIOUS"] = 24] = "RELIGIOUS";
+    BookGenre[BookGenre["ROMANCE"] = 25] = "ROMANCE";
+    BookGenre[BookGenre["SATIRE"] = 26] = "SATIRE";
+    BookGenre[BookGenre["SCIENCE"] = 27] = "SCIENCE";
+    BookGenre[BookGenre["SCIENCE_FICTION"] = 28] = "SCIENCE_FICTION";
+    BookGenre[BookGenre["SELF_HELP"] = 29] = "SELF_HELP";
+    BookGenre[BookGenre["SERIES"] = 30] = "SERIES";
+    BookGenre[BookGenre["TRAVEL"] = 31] = "TRAVEL";
+    BookGenre[BookGenre["TRILOGIES"] = 32] = "TRILOGIES";
 })(BookGenre || (BookGenre = {}));
 module.exports = BookGenre;
 //# sourceMappingURL=BookGenre.js.map

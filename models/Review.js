@@ -7,6 +7,10 @@ var __extends = this.__extends || function (d, b) {
 ///<reference path='../_references.d.ts'/>
 var Coral = require('Coral');
 
+var Book = require('../models/Book');
+var ForeignKeyConstants = require('../enums/ForeignKeyConstants');
+var User = require('../models/User');
+
 var Review = (function (_super) {
     __extends(Review, _super);
     function Review() {
@@ -24,11 +28,21 @@ var Review = (function (_super) {
     Review.prototype.getFeedback = function () {
         return this.feedback;
     };
-    Review.prototype.getAcceptedByAdmin = function () {
-        return this.accepted_by_admin;
+    Review.prototype.getStatus = function () {
+        return this.status;
     };
-    Review.prototype.getAcceptedByAuthor = function () {
-        return this.accepted_by_author;
+    Review.prototype.getReview = function () {
+        return this.review;
+    };
+    Review.prototype.getTitle = function () {
+        return this.title;
+    };
+
+    Review.prototype.getBook = function () {
+        return null;
+    };
+    Review.prototype.getUser = function () {
+        return null;
     };
 
     Review.prototype.setUserId = function (val) {
@@ -43,11 +57,19 @@ var Review = (function (_super) {
     Review.prototype.setFeedback = function (val) {
         this.feedback = val;
     };
-    Review.prototype.setAcceptedByAdmin = function (val) {
-        this.accepted_by_admin = val;
+    Review.prototype.setStatus = function (val) {
+        this.status = val;
     };
-    Review.prototype.setAcceptedByAuthor = function (val) {
-        this.accepted_by_author = val;
+    Review.prototype.setReview = function (val) {
+        this.review = val;
+    };
+    Review.prototype.setTitle = function (val) {
+        this.title = val;
+    };
+
+    Review.prototype.setBook = function (val) {
+    };
+    Review.prototype.setUser = function (val) {
     };
     Review.TABLE_NAME = 'review';
 
@@ -55,12 +77,16 @@ var Review = (function (_super) {
     Review.COL_BOOK_ID = 'book_id';
     Review.COL_RATING = 'rating';
     Review.COL_FEEDBACK = 'feedback';
-    Review.COL_ACCEPTED_BY_ADMIN = 'accepted_by_admin';
-    Review.COL_ACCEPTED_BY_AUTHOR = 'accepted_by_author';
+    Review.COL_STATUS = 'status';
+    Review.COL_REVIEW = 'review';
+    Review.COL_TITLE = 'title';
 
     Review.PUBLIC_FIELDS = [
-        Review.COL_ACCEPTED_BY_ADMIN, Review.COL_ACCEPTED_BY_AUTHOR, Review.COL_BOOK_ID, Review.COL_FEEDBACK,
+        Review.COL_TITLE, Review.COL_REVIEW, Review.COL_STATUS, Review.COL_BOOK_ID, Review.COL_FEEDBACK,
         Review.COL_RATING, Review.COL_USER_ID, Review.COL_ID, Review.COL_CREATED, Review.COL_UPDATED];
+
+    Review.FK_BOOK = new Coral.ForeignKey(1 /* ONE_TO_ONE */, Review.COL_BOOK_ID, Book, Book.COL_ID, ForeignKeyConstants.BOOK);
+    Review.FK_USER = new Coral.ForeignKey(1 /* ONE_TO_ONE */, Review.COL_USER_ID, User, User.COL_ID, ForeignKeyConstants.USER);
     return Review;
 })(Coral.BaseModel);
 module.exports = Review;

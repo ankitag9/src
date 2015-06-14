@@ -1,0 +1,11 @@
+enum ReviewStatus
+{
+    SENT_TO_BLOGGER = 1,
+    REVIEWED_BY_BLOGGER,
+    ACCEPTED_BY_ADMIN,
+    ACCEPTED_BY_AUTHOR,
+    REJECTED_BY_ADMIN,
+    REJECTED_BY_AUTHOR
+}
+
+export = ReviewStatus
