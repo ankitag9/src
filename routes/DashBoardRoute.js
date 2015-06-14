@@ -177,10 +177,10 @@ var DashBoardRoute = (function () {
                     self.reviewDelegate.search(review, {}, [Review.FK_BOOK]).then(function reviewFetched(reviews) {
                         var pending = _.filter(reviews, function (review) {
                             return review.getStatus() == 1 /* SENT_TO_BLOGGER */;
-                        });
+                        }) || [];
                         var reviewed = _.filter(reviews, function (review) {
                             return review.getStatus() != 1 /* SENT_TO_BLOGGER */;
-                        });
+                        }) || [];
                         var data = {
                             reviewed: reviewed,
                             pending: pending,

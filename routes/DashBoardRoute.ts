@@ -213,8 +213,8 @@ class DashBoardRoute
                         .then(
                         function reviewFetched(reviews:Review[])
                         {
-                            var pending = _.filter(reviews,function(review:Review){ return review.getStatus() == ReviewStatus.SENT_TO_BLOGGER });
-                            var reviewed = _.filter(reviews,function(review:Review){ return review.getStatus() != ReviewStatus.SENT_TO_BLOGGER });
+                            var pending = _.filter(reviews,function(review:Review){ return review.getStatus() == ReviewStatus.SENT_TO_BLOGGER }) || [];
+                            var reviewed = _.filter(reviews,function(review:Review){ return review.getStatus() != ReviewStatus.SENT_TO_BLOGGER }) || [];
                             var data = {
                                 reviewed:reviewed,
                                 pending:pending,
