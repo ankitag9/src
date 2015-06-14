@@ -188,8 +188,8 @@ class DashBoardRoute
                         .then(
                         function booksFetched(...args)
                         {
-                            var users:User[] = args[0][0];
-                            var books:Book[] = args[0][1];
+                            var users:User[] = args[0][0] || [];
+                            var books:Book[] = args[0][1] || [];
                             var review:Review[] = args[0][2] || [];
                             var data = {
                                 user:loggedInUser,

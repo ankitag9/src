@@ -153,8 +153,8 @@ var DashBoardRoute = (function () {
                         for (var _i = 0; _i < (arguments.length - 0); _i++) {
                             args[_i] = arguments[_i + 0];
                         }
-                        var users = args[0][0];
-                        var books = args[0][1];
+                        var users = args[0][0] || [];
+                        var books = args[0][1] || [];
                         var review = args[0][2] || [];
                         var data = {
                             user: loggedInUser,
